@@ -35,10 +35,10 @@ class EventListRouter: EventListRouterProtocol {
     
     
     func presentEventDetailScreen(from view: EventListViewProtocol, for event: EventModel) {
-        //let eventDetailVC = EventDetailRouter.createPostDetailModule(for: event)
+        let eventDetailVC = EventDetailRouter.createEventDetailModule(for: event)
         
         if let sourceView = view as? UIViewController {
-            //sourceView.navigationController?.pushViewController(eventDetailVC, animated: true)
+            sourceView.navigationController?.pushViewController(eventDetailVC, animated: true)
         }
     }
     
