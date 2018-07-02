@@ -11,24 +11,22 @@ import UIKit
 class EventListRouter: EventListRouterProtocol {
     
     class func initializeEventListModule() -> UIViewController {
-        let navController = eventsStoryboard.instantiateInitialViewController()
-        if let view = navController.childViewControllers.first as? EventListView {
-            let presenter: EventListPresenterProtocol & EventListInteractorOutputProtocol = PostListPresenter()
-            let interactor: EventListInteractorInputProtocol & EventListRemoteDataManagerOutputProtocol = PostListInteractor()
-            let remoteDataManager: EventListRemoteDataManagerInputProtocol = EventListRemoteDataManager()
-            let router: EventListRouterProtocol = EventListRouterProtocol()
+        guard let navController = eventsStoryboard.instantiateInitialViewController() else { return UIViewController() }
+        guard let view = navController.childViewControllers.first as? EventListView else { return UIViewController() }
+        let presenter: EventListPresenterProtocol & EventListInteractorOutputProtocol = EventListPresenter()
+        let interactor: EventListInteractorInputProtocol & EventListRemoteDataManagerOutputProtocol = EventListInteractor()
+        let remoteDataManager: EventListRemoteDataManagerInputProtocol = EventListRemoteDataManager()
+        let router: EventListRouterProtocol = EventListRouter()
+        
+        view.presenter = presenter
+        presenter.view = view
+        presenter.router = router
+        presenter.interactor = interactor
+        interactor.presenter = presenter
+        interactor.remoteDatamanager = remoteDataManager
+        remoteDataManager.remoteRequestHandler = interactor
             
-            view.presenter = presenter
-            presenter.view = view
-            presenter.router = router
-            presenter.interactor = interactor
-            interactor.presenter = presenter
-            interactor.remoteDatamanager = remoteDataManager
-            remoteDataManager.remoteRequestHandler = interactor
-            
-            return navController
-        }
-        return UIViewController()
+        return navController
     }
     
     static var eventsStoryboard: UIStoryboard {
@@ -37,10 +35,10 @@ class EventListRouter: EventListRouterProtocol {
     
     
     func presentEventDetailScreen(from view: EventListViewProtocol, for event: EventModel) {
-        let eventDetailVC = EventDetailRouter.createPostDetailModule(for: event)
+        //let eventDetailVC = EventDetailRouter.createPostDetailModule(for: event)
         
         if let sourceView = view as? UIViewController {
-            sourceView.navigationController?.pushViewController(eventDetailVC, animated: true)
+            //sourceView.navigationController?.pushViewController(eventDetailVC, animated: true)
         }
     }
     

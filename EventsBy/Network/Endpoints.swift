@@ -21,7 +21,7 @@ protocol Endpoint {
 
 enum Endpoints {
     
-    enum Posts: Endpoint {
+    enum Events: Endpoint {
         case fetch
         
         public var path: String {

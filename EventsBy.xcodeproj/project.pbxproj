@@ -30,6 +30,9 @@
 		A35A9CB320EA4C7A00037F8B /* EventListRemoteDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CB220EA4C7A00037F8B /* EventListRemoteDataManager.swift */; };
 		A35A9CB520EA4CE900037F8B /* EventListDataManagerInputProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CB420EA4CE900037F8B /* EventListDataManagerInputProtocol.swift */; };
 		A35A9CB820EA4DF300037F8B /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CB720EA4DF300037F8B /* Endpoints.swift */; };
+		A35A9CBA20EA57DA00037F8B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CB920EA57DA00037F8B /* NetworkManager.swift */; };
+		A35A9CBC20EA5C0F00037F8B /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CBB20EA5C0F00037F8B /* EventTableViewCell.swift */; };
+		A35A9CBE20EA5DA900037F8B /* EventPageArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CBD20EA5DA900037F8B /* EventPageArray.swift */; };
 		CE01D9F73A8582074C77BBB7 /* Pods_EventsByTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 999717499EB1AA980243DD33 /* Pods_EventsByTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +89,9 @@
 		A35A9CB220EA4C7A00037F8B /* EventListRemoteDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListRemoteDataManager.swift; sourceTree = "<group>"; };
 		A35A9CB420EA4CE900037F8B /* EventListDataManagerInputProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListDataManagerInputProtocol.swift; sourceTree = "<group>"; };
 		A35A9CB720EA4DF300037F8B /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		A35A9CB920EA57DA00037F8B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		A35A9CBB20EA5C0F00037F8B /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		A35A9CBD20EA5DA900037F8B /* EventPageArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPageArray.swift; sourceTree = "<group>"; };
 		C39AE2E2D312250212984E4F /* Pods-EventsBy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventsBy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EventsBy/Pods-EventsBy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,7 +151,7 @@
 				0C2F6F8B2070169700493876 /* AppDelegate.swift */,
 				0C2F6FB920701A0800493876 /* Modules */,
 				A35A9C9720EA3AFA00037F8B /* Models */,
-				A35A9CB620EA4DBD00037F8B /* API */,
+				A35A9CB620EA4DBD00037F8B /* Network */,
 				0C2F6F922070169700493876 /* Assets.xcassets */,
 				0C2F6F942070169700493876 /* LaunchScreen.storyboard */,
 				0C2F6F972070169700493876 /* Info.plist */,
@@ -226,6 +232,7 @@
 			children = (
 				0C2F6FBC20701A5800493876 /* EventListView.swift */,
 				A35A9CA920EA4B9100037F8B /* EventListViewProtocol.swift */,
+				A35A9CBB20EA5C0F00037F8B /* EventTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -250,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				A35A9C9E20EA409500037F8B /* EventModel.swift */,
+				A35A9CBD20EA5DA900037F8B /* EventPageArray.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -272,12 +280,13 @@
 			path = DataManager;
 			sourceTree = "<group>";
 		};
-		A35A9CB620EA4DBD00037F8B /* API */ = {
+		A35A9CB620EA4DBD00037F8B /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				A35A9CB720EA4DF300037F8B /* Endpoints.swift */,
+				A35A9CB920EA57DA00037F8B /* NetworkManager.swift */,
 			);
-			path = API;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		B34567F3C9BC9103AD590570 /* Frameworks */ = {
@@ -521,12 +530,15 @@
 				A35A9CB520EA4CE900037F8B /* EventListDataManagerInputProtocol.swift in Sources */,
 				A35A9CB020EA4BF800037F8B /* EventListInteractorProtocol.swift in Sources */,
 				0C2F6FC1207023E900493876 /* EventDetailsViewController.swift in Sources */,
+				A35A9CBA20EA57DA00037F8B /* NetworkManager.swift in Sources */,
 				A35A9CB820EA4DF300037F8B /* Endpoints.swift in Sources */,
 				0C2F6F8C2070169700493876 /* AppDelegate.swift in Sources */,
 				A35A9CAC20EA4BB900037F8B /* EventListRouterProtocol.swift in Sources */,
 				A35A9C9F20EA409500037F8B /* EventModel.swift in Sources */,
 				A35A9CAE20EA4BD700037F8B /* EventListPresenterProtocol.swift in Sources */,
 				A35A9CAA20EA4B9100037F8B /* EventListViewProtocol.swift in Sources */,
+				A35A9CBE20EA5DA900037F8B /* EventPageArray.swift in Sources */,
+				A35A9CBC20EA5C0F00037F8B /* EventTableViewCell.swift in Sources */,
 				A35A9CA520EA49FC00037F8B /* EventListInteractor.swift in Sources */,
 				A35A9CB320EA4C7A00037F8B /* EventListRemoteDataManager.swift in Sources */,
 				0C2F6FBD20701A5800493876 /* EventListView.swift in Sources */,
