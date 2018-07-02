@@ -12,12 +12,10 @@ import Alamofire
 protocol EventListRemoteDataManagerInputProtocol: class {
     var remoteRequestHandler: EventListRemoteDataManagerOutputProtocol? { get set }
     
-    // Interactor -> REMOTEDATAMANAGER
     func retrieveEventList()
 }
 
 protocol EventListRemoteDataManagerOutputProtocol: class {
-    // REMOTEDATAMANAGER -> Interactor
     func onEventListRetrieved(_ events: [EventModel])
     func onError(_ error: Error?)
 }

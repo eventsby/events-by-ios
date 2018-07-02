@@ -9,5 +9,5 @@
 import UIKit
 
 protocol EventListDataManagerInputProtocol: class {
-    // Interactor -> DATAMANAGER
+    // Interactor -> DataManager
 }
