@@ -7,7 +7,11 @@ target 'EventsBy' do
 
   # Pods for EventsBy
   
+  # Core
   pod 'Alamofire', '~> 4.7'
+  
+  # Additional
+  pod 'PKHUD', '~> 5.0'
 
   target 'EventsByTests' do
     inherit! :search_paths

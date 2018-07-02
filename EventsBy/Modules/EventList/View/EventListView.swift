@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class EventListView: UIViewController {
     
@@ -33,15 +34,16 @@ extension EventListView: EventListViewProtocol {
     }
     
     func showError() {
-        //HUD.flash(.label(error), delay: 2.0)
+        let error = "Error"
+        HUD.flash(.label(error), delay: 2.0)
     }
     
     func showLoading() {
-        //HUD.show(.progress)
+        HUD.show(.progress)
     }
     
     func hideLoading() {
-        //HUD.hide()
+        HUD.hide()
     }
     
 }
@@ -62,6 +64,7 @@ extension EventListView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: false)
         presenter?.showEventDetail(for: eventList[indexPath.row])
     }
     
