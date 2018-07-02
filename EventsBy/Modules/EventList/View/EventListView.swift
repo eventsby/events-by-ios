@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventsViewController: UIViewController {
+class EventListView: UIViewController {
     
     
     // MARK: Lifecycle
