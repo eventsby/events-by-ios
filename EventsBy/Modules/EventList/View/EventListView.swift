@@ -33,9 +33,9 @@ extension EventListView: EventListViewProtocol {
         tableView.reloadData()
     }
     
-    func showError() {
-        let error = "Error"
-        HUD.flash(.label(error), delay: 2.0)
+    func showError(_ error: Error?) {
+        guard let errorStr = error?.localizedDescription else { return }
+        HUD.flash(.label(errorStr), delay: 2.0)
     }
     
     func showLoading() {

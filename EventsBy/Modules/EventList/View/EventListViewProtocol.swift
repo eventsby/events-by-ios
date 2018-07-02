@@ -13,7 +13,7 @@ protocol EventListViewProtocol: class {
     
     // Presenter -> View
     func showEvents(_ events: [EventModel])
-    func showError()
+    func showError(_ error: Error?)
     func showLoading()
     func hideLoading()
 }

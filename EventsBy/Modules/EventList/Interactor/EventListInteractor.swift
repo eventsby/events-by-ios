@@ -24,8 +24,8 @@ extension EventListInteractor: EventListRemoteDataManagerOutputProtocol {
         // TODO A.T 02.06.18: save events to the local db
     }
     
-    func onError() {
-        presenter?.onError()
+    func onError(_ error: Error?) {
+        presenter?.onError(error)
     }
     
 }

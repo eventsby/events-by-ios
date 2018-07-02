@@ -11,7 +11,7 @@ import UIKit
 protocol EventListInteractorOutputProtocol: class {
     // Interactor -> Presenter
     func didRetrieveEvents(_ events: [EventModel])
-    func onError()
+    func onError(_ error: Error?)
 }
 
 protocol EventListInteractorInputProtocol: class {

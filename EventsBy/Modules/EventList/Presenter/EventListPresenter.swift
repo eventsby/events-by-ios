@@ -30,9 +30,9 @@ extension EventListPresenter: EventListInteractorOutputProtocol {
         view?.showEvents(events)
     }
     
-    func onError() {
+    func onError(_ error: Error?) {
         view?.hideLoading()
-        view?.showError()
+        view?.showError(error)
     }
     
 }

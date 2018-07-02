@@ -19,7 +19,7 @@ protocol EventListRemoteDataManagerInputProtocol: class {
 protocol EventListRemoteDataManagerOutputProtocol: class {
     // REMOTEDATAMANAGER -> Interactor
     func onEventListRetrieved(_ events: [EventModel])
-    func onError()
+    func onError(_ error: Error?)
 }
 
 class EventListRemoteDataManager: EventListRemoteDataManagerInputProtocol {
@@ -37,8 +37,7 @@ class EventListRemoteDataManager: EventListRemoteDataManagerInputProtocol {
                     let events = try! JSONDecoder().decode(EventPageArray.self, from: data)
                     self.remoteRequestHandler?.onEventListRetrieved(events.content)
                 } else {
-                    self.remoteRequestHandler?.onError()
-                    // response.result.error
+                    self.remoteRequestHandler?.onError(response.result.error)
                 }
         }
     }
