@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventTableViewCell: UITableViewCell {
+class EventViewCell: UICollectionViewCell {
     
     private struct Consts {
         static let dateFormat = "dd-MM-yyyy HH:mm"

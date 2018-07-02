@@ -11,12 +11,23 @@ import PKHUD
 
 class EventListView: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var presenter: EventListPresenterProtocol?
     var eventList: [EventModel] = []
     
+    private struct Consts {
+        static let cellHeight: CGFloat = 170
+    }
+    
     // MARK: Lifecycle
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        let itemSize = CGSize(width: collectionView.bounds.size.width, height: Consts.cellHeight)
+        let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        layout?.itemSize = itemSize
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +41,7 @@ extension EventListView: EventListViewProtocol {
     
     func showEvents(_ events: [EventModel]) {
         eventList = events
-        tableView.reloadData()
+        collectionView.reloadData()
     }
     
     func showError(_ error: Error?) {
@@ -48,27 +59,27 @@ extension EventListView: EventListViewProtocol {
     
 }
 
-extension EventListView: UITableViewDataSource, UITableViewDelegate {
+extension EventListView: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventTableViewCell
-        
-        let event = eventList[indexPath.row]
-        cell.setup(with: event)
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return eventList.count
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.showEventDetail(for: eventList[indexPath.row])
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventViewCell", for: indexPath) as! EventViewCell
+        let item = eventList[indexPath.row]
+        cell.setup(with: item)
+        return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 170.0
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        if indexPath.item >= eventList.count - 2 {
+//            presenter?.loadMore()
+//        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter?.showEventDetail(for: eventList[indexPath.row])
     }
     
 }
