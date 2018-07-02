@@ -33,6 +33,10 @@
 		A35A9CBA20EA57DA00037F8B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CB920EA57DA00037F8B /* NetworkManager.swift */; };
 		A35A9CBC20EA5C0F00037F8B /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CBB20EA5C0F00037F8B /* EventTableViewCell.swift */; };
 		A35A9CBE20EA5DA900037F8B /* EventPageArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CBD20EA5DA900037F8B /* EventPageArray.swift */; };
+		A35A9CC220EA7B0700037F8B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CC120EA7B0700037F8B /* UIView.swift */; };
+		A35A9CC420EA821D00037F8B /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CC320EA821D00037F8B /* DateFormatters.swift */; };
+		A35A9CC620EA843800037F8B /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CC520EA843800037F8B /* DateUtils.swift */; };
+		A35A9CC820EA85E000037F8B /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CC720EA85E000037F8B /* Errors.swift */; };
 		CE01D9F73A8582074C77BBB7 /* Pods_EventsByTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 999717499EB1AA980243DD33 /* Pods_EventsByTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +96,10 @@
 		A35A9CB920EA57DA00037F8B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A35A9CBB20EA5C0F00037F8B /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		A35A9CBD20EA5DA900037F8B /* EventPageArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPageArray.swift; sourceTree = "<group>"; };
+		A35A9CC120EA7B0700037F8B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		A35A9CC320EA821D00037F8B /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
+		A35A9CC520EA843800037F8B /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		A35A9CC720EA85E000037F8B /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		C39AE2E2D312250212984E4F /* Pods-EventsBy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventsBy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EventsBy/Pods-EventsBy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +160,7 @@
 				0C2F6FB920701A0800493876 /* Modules */,
 				A35A9C9720EA3AFA00037F8B /* Models */,
 				A35A9CB620EA4DBD00037F8B /* Network */,
+				A35A9CBF20EA7AF100037F8B /* Utils */,
 				0C2F6F922070169700493876 /* Assets.xcassets */,
 				0C2F6F942070169700493876 /* LaunchScreen.storyboard */,
 				0C2F6F972070169700493876 /* Info.plist */,
@@ -223,6 +232,7 @@
 				A35A9C9D20EA403B00037F8B /* DTO */,
 				A35A9C9C20EA403600037F8B /* Database */,
 				A35A9CA020EA458A00037F8B /* Uniq.swift */,
+				A35A9CC720EA85E000037F8B /* Errors.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -287,6 +297,24 @@
 				A35A9CB920EA57DA00037F8B /* NetworkManager.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		A35A9CBF20EA7AF100037F8B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A35A9CC020EA7AF600037F8B /* Extensions */,
+				A35A9CC320EA821D00037F8B /* DateFormatters.swift */,
+				A35A9CC520EA843800037F8B /* DateUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A35A9CC020EA7AF600037F8B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A35A9CC120EA7B0700037F8B /* UIView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B34567F3C9BC9103AD590570 /* Frameworks */ = {
@@ -532,6 +560,7 @@
 				A35A9CB520EA4CE900037F8B /* EventListDataManagerInputProtocol.swift in Sources */,
 				A35A9CB020EA4BF800037F8B /* EventListInteractorProtocol.swift in Sources */,
 				0C2F6FC1207023E900493876 /* EventDetailsViewController.swift in Sources */,
+				A35A9CC620EA843800037F8B /* DateUtils.swift in Sources */,
 				A35A9CBA20EA57DA00037F8B /* NetworkManager.swift in Sources */,
 				A35A9CB820EA4DF300037F8B /* Endpoints.swift in Sources */,
 				0C2F6F8C2070169700493876 /* AppDelegate.swift in Sources */,
@@ -541,8 +570,11 @@
 				A35A9CAA20EA4B9100037F8B /* EventListViewProtocol.swift in Sources */,
 				A35A9CBE20EA5DA900037F8B /* EventPageArray.swift in Sources */,
 				A35A9CBC20EA5C0F00037F8B /* EventTableViewCell.swift in Sources */,
+				A35A9CC220EA7B0700037F8B /* UIView.swift in Sources */,
 				A35A9CA520EA49FC00037F8B /* EventListInteractor.swift in Sources */,
 				A35A9CB320EA4C7A00037F8B /* EventListRemoteDataManager.swift in Sources */,
+				A35A9CC420EA821D00037F8B /* DateFormatters.swift in Sources */,
+				A35A9CC820EA85E000037F8B /* Errors.swift in Sources */,
 				0C2F6FBD20701A5800493876 /* EventListView.swift in Sources */,
 				A35A9CA320EA470B00037F8B /* EventListRouter.swift in Sources */,
 				A35A9CA720EA4AEB00037F8B /* EventListPresenter.swift in Sources */,
