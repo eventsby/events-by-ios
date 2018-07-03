@@ -14,6 +14,7 @@ class EventDetailView: UIViewController {
     private struct Consts {
         static let dateFormat = "dd-MM-yyyy HH:mm"
         static let annotationIdentifier = "eventAnnotation"
+        static let participantCell = "participantCell"
     }
 
     @IBOutlet weak var eventCityLabel: UILabel!
@@ -73,6 +74,25 @@ extension EventDetailView: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: Consts.annotationIdentifier, for: annotation)
         return annotationView
+    }
+    
+}
+
+extension EventDetailView: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter?.event?.participants.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Consts.participantCell, for: indexPath) as! ParticipantCell
+        guard let participant = presenter?.event?.participants[indexPath.row] else { return UITableViewCell() }
+        cell.setup(with: participant)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
     
 }

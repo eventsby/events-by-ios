@@ -40,6 +40,7 @@
 		A30AF80C20EBE80C00CA6951 /* EventMapNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30AF80B20EBE80C00CA6951 /* EventMapNoteView.swift */; };
 		A30AF80E20EBE85700CA6951 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30AF80D20EBE85700CA6951 /* UIView+Nib.swift */; };
 		A30AF81120EBED1F00CA6951 /* EventMapNoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30AF81020EBED1F00CA6951 /* EventMapNoteView.xib */; };
+		A30AF81320EBF3F000CA6951 /* ParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30AF81220EBF3F000CA6951 /* ParticipantCell.swift */; };
 		A35A9C9F20EA409500037F8B /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9C9E20EA409500037F8B /* EventModel.swift */; };
 		A35A9CA120EA458A00037F8B /* Uniq.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CA020EA458A00037F8B /* Uniq.swift */; };
 		A35A9CA320EA470B00037F8B /* EventListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CA220EA470B00037F8B /* EventListRouter.swift */; };
@@ -130,6 +131,7 @@
 		A30AF80B20EBE80C00CA6951 /* EventMapNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMapNoteView.swift; sourceTree = "<group>"; };
 		A30AF80D20EBE85700CA6951 /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		A30AF81020EBED1F00CA6951 /* EventMapNoteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventMapNoteView.xib; sourceTree = "<group>"; };
+		A30AF81220EBF3F000CA6951 /* ParticipantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantCell.swift; sourceTree = "<group>"; };
 		A35A9C9E20EA409500037F8B /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		A35A9CA020EA458A00037F8B /* Uniq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uniq.swift; sourceTree = "<group>"; };
 		A35A9CA220EA470B00037F8B /* EventListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListRouter.swift; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 				A30AF80920EBE7A800CA6951 /* EventMapAnnotationView.swift */,
 				A30AF80B20EBE80C00CA6951 /* EventMapNoteView.swift */,
 				A30AF81020EBED1F00CA6951 /* EventMapNoteView.xib */,
+				A30AF81220EBF3F000CA6951 /* ParticipantCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -729,6 +732,7 @@
 				A35A9C9F20EA409500037F8B /* EventModel.swift in Sources */,
 				A35A9CD520EAB6DC00037F8B /* EventDetailRouterProtocol.swift in Sources */,
 				A30AF7DB20EB935E00CA6951 /* LocationModel.swift in Sources */,
+				A30AF81320EBF3F000CA6951 /* ParticipantCell.swift in Sources */,
 				A35A9CAE20EA4BD700037F8B /* EventListPresenterProtocol.swift in Sources */,
 				A35A9CAA20EA4B9100037F8B /* EventListViewProtocol.swift in Sources */,
 				A35A9CD120EAB63C00037F8B /* EventDetailPresenterProtocol.swift in Sources */,
