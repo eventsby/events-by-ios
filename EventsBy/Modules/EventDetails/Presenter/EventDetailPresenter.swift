@@ -13,7 +13,8 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
     var event: EventModel?
     
     func viewDidLoad() {
-        view?.showEventDetail(for: event!)
+        view?.setupView()
+        view?.bindEventDetail(for: event!)
     }
     
 }

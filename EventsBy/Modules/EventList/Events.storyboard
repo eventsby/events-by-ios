@@ -70,7 +70,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.06.2018 18:30 - 21.06.2018 21:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usZ-C6-oJu">
-                                                    <rect key="frame" x="53" y="121.5" width="237.5" height="17"/>
+                                                    <rect key="frame" x="55" y="121.5" width="237.5" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -100,7 +100,7 @@
                                             <constraint firstItem="Jqt-xa-dUE" firstAttribute="leading" secondItem="G9g-6y-Hbz" secondAttribute="leading" constant="30" id="YhZ-gU-m33"/>
                                             <constraint firstItem="Jqt-xa-dUE" firstAttribute="top" secondItem="3rD-P0-jjm" secondAttribute="bottom" constant="6" id="Z6W-YD-gcr"/>
                                             <constraint firstItem="oLL-u5-wfU" firstAttribute="leading" secondItem="G9g-6y-Hbz" secondAttribute="leading" constant="30" id="f0F-Yp-e3z"/>
-                                            <constraint firstItem="usZ-C6-oJu" firstAttribute="leading" secondItem="oLL-u5-wfU" secondAttribute="trailing" constant="3" id="fCb-C5-AaU"/>
+                                            <constraint firstItem="usZ-C6-oJu" firstAttribute="leading" secondItem="oLL-u5-wfU" secondAttribute="trailing" constant="5" id="fCb-C5-AaU"/>
                                             <constraint firstItem="RHq-3S-o0U" firstAttribute="leading" secondItem="G9g-6y-Hbz" secondAttribute="leading" constant="30" id="nlR-7I-pmW"/>
                                             <constraint firstItem="1LN-KD-qK4" firstAttribute="leading" secondItem="G9g-6y-Hbz" secondAttribute="leading" id="rcg-1R-XX0"/>
                                             <constraint firstAttribute="bottom" secondItem="oLL-u5-wfU" secondAttribute="bottom" constant="30" id="tXe-dt-n8L"/>
