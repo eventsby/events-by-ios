@@ -24,6 +24,7 @@ class EventViewCell: UICollectionViewCell {
         descriptionLabel.text = event.description
         let start = DateUtils.toString(date: event.start, format: Consts.dateFormat)
         let end = DateUtils.toString(date: event.end, format: Consts.dateFormat)
-        timeLabel.text = start + " — " + end
+        timeLabel.text = start + " - " + end
+        addressLabel.text = event.location.city + ", " + event.location.address
     }
 }

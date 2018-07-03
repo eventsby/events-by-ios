@@ -40,6 +40,7 @@ extension EventListView: EventListViewProtocol {
     
     func setupView() {
         collectionView.contentInset.top = 10.0
+        collectionView.contentInset.bottom = 10.0
     }
     
     func showEvents(_ events: [EventModel]) {
