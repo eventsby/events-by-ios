@@ -13,6 +13,7 @@ class EventListPresenter: EventListPresenterProtocol {
     var router: EventListRouterProtocol?
     
     func viewDidLoad() {
+        view?.setupView()
         view?.showLoading()
         interactor?.retrieveEventList()
     }

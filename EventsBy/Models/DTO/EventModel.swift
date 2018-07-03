@@ -16,6 +16,9 @@ protocol EventProtocol {
     var start: Date { get }
     var end: Date { get }
     var image: String? { get }
+    var organaizer: OrganaizerModel { get }
+    var location: LocationModel { get }
+    var participants: [ParticipantModel] { get }
     
 }
 
@@ -28,6 +31,9 @@ struct EventModel: EventProtocol, Uniq, Decodable, Equatable {
         case _start = "start_date"
         case _end = "end_date"
         case image = "image_url"
+        case organaizer
+        case location
+        case participants
     }
     
     let id: Int
@@ -36,6 +42,9 @@ struct EventModel: EventProtocol, Uniq, Decodable, Equatable {
     let _start: Double
     let _end: Double
     let image: String?
+    let organaizer: OrganaizerModel
+    let location: LocationModel
+    let participants: [ParticipantModel]
     
     var start: Date {
         return Date(timeIntervalSince1970: _start)

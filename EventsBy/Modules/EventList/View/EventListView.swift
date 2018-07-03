@@ -31,13 +31,16 @@ class EventListView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         presenter?.viewDidLoad()
     }
 
 }
 
 extension EventListView: EventListViewProtocol {
+    
+    func setupView() {
+        collectionView.contentInset.top = 10.0
+    }
     
     func showEvents(_ events: [EventModel]) {
         eventList = events
