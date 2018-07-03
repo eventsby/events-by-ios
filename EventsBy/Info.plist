@@ -34,6 +34,21 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Montseratt-Light.ttf</string>
+		<string>Montseratt-Medium.ttf</string>
+		<string>Montseratt-Regular.ttf</string>
+		<string>Montseratt-SemiBold.ttf</string>
+		<string>Montseratt-Black.ttf</string>
+		<string>Montseratt-Bold.ttf</string>
+		<string>Raleway-Black.ttf</string>
+		<string>Raleway-SemiBold.ttf</string>
+		<string>Raleway-Bold.ttf</string>
+		<string>Raleway-Light</string>
+		<string>Raleway-Medium.ttf</string>
+		<string>Raleway-Regular.ttf</string>
+	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
