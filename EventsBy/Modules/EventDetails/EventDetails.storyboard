@@ -244,9 +244,6 @@
                                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="title_participants"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -377,8 +374,8 @@
                         <outlet property="organaizerDescription" destination="tPz-BN-fTO" id="ehl-HR-vH8"/>
                         <outlet property="organaizerEmailLabel" destination="Pcp-FZ-s6W" id="9mo-q5-q36"/>
                         <outlet property="organaizerWebsiteLabel" destination="IkJ-gJ-5QW" id="Hbk-rI-7E1"/>
+                        <outlet property="participantsLabel" destination="Fbg-Qt-tbz" id="vCH-fZ-djB"/>
                         <outlet property="participantsTableView" destination="eWY-GU-5o9" id="7IW-dm-kFp"/>
-                        <outlet property="participateButton" destination="eq9-m2-ZIO" id="urr-0n-hr8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wuX-98-ghB" userLabel="First Responder" sceneMemberID="firstResponder"/>

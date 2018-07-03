@@ -28,7 +28,7 @@ class EventDetailView: UIViewController {
     @IBOutlet weak var organaizerDescription: UILabel!
     @IBOutlet weak var organaizerWebsiteLabel: UILabel!
     @IBOutlet weak var organaizerEmailLabel: UILabel!
-    @IBOutlet weak var participateButton: UIButton!
+    @IBOutlet weak var participantsLabel: UILabel!
     
     var presenter: EventDetailPresenterProtocol?
     
@@ -46,6 +46,8 @@ extension EventDetailView: EventDetailViewProtocol {
     func setupView() {
         mapView.delegate = self
         mapView.register(EventMapAnnotationView.self, forAnnotationViewWithReuseIdentifier: Consts.annotationIdentifier)
+        
+        participantsLabel.text = String(format: "title_participants".localized, presenter?.event?.participants.count ?? 0)
     }
     
     func bindEventDetail(for event: EventModel) {

@@ -10,6 +10,6 @@
 
 "want_participate_button" = "I'm in!";
 "title_organaizer" = "Organaizer";
-"title_participants" = "Participants";
+"title_participants" = "Participants (%d)";
 "title_email" = "Email";
 "title_website" = "Website";
