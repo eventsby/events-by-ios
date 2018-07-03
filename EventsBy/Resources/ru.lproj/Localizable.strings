@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  EventsBy
+
+  Created by Alexander Tereshkov on 7/3/18.
+  Copyright © 2018 Events-By. All rights reserved.
+*/
+
+// Event Details
+
+"want_participate_button" = "Я иду!";
+"title_organaizer" = "Организатор";
+"title_participants" = "Участники";
+"title_email" = "Электронная почта";
+"title_website" = "Сайт";

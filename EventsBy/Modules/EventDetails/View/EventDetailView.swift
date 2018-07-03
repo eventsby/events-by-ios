@@ -28,6 +28,7 @@ class EventDetailView: UIViewController {
     @IBOutlet weak var organaizerDescription: UILabel!
     @IBOutlet weak var organaizerWebsiteLabel: UILabel!
     @IBOutlet weak var organaizerEmailLabel: UILabel!
+    @IBOutlet weak var participateButton: UIButton!
     
     var presenter: EventDetailPresenterProtocol?
     
