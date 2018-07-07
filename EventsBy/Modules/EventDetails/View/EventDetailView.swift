@@ -13,6 +13,7 @@ class EventDetailView: UIViewController {
     
     private struct Consts {
         static let dateFormat = "dd-MM-yyyy HH:mm"
+        static let dateOnlyTime = "HH:mm"
         static let annotationIdentifier = "eventAnnotation"
         static let participantCell = "participantCell"
     }
@@ -57,7 +58,9 @@ extension EventDetailView: EventDetailViewProtocol {
         eventNameLabel.text = event.name
         eventDescriptionLabel.text = event.description
         let start = DateUtils.toString(date: event.start, format: Consts.dateFormat)
-        let end = DateUtils.toString(date: event.end, format: Consts.dateFormat)
+        let isSameDay = Calendar.current.isDate(event.start, inSameDayAs: event.end)
+        let endDateFormat = isSameDay ? Consts.dateOnlyTime : Consts.dateFormat
+        let end = DateUtils.toString(date: event.end, format: endDateFormat)
         eventTimeLabel.text = start + " - " + end
         eventAddressLabel.text = event.location.city + ", " + event.location.address
         
