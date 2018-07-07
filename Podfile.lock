@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (4.7.2)
   - PKHUD (5.0.0)
+  - SwiftLint (0.25.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - PKHUD (~> 5.0)
+  - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - PKHUD
+    - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
+  SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
 
-PODFILE CHECKSUM: 307f4e0ddb21ae834dbcaecb87dbfe532f94f95b
+PODFILE CHECKSUM: 9cda3ffd9d5270382769a1ab15068be9a0b5c90e
 
 COCOAPODS: 1.5.2

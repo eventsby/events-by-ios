@@ -70,7 +70,9 @@ extension EventListView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventViewCell", for: indexPath) as! EventViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventViewCell", for: indexPath) as? EventViewCell else {
+            return UICollectionViewCell()
+        }
         let item = eventList[indexPath.row]
         cell.setup(with: item)
         return cell

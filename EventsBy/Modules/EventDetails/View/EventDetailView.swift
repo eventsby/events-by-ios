@@ -47,7 +47,8 @@ extension EventDetailView: EventDetailViewProtocol {
         mapView.delegate = self
         mapView.register(EventMapAnnotationView.self, forAnnotationViewWithReuseIdentifier: Consts.annotationIdentifier)
         
-        participantsLabel.text = String(format: "title_participants".localized, presenter?.event?.participants.count ?? 0)
+        participantsLabel.text = String(format:
+            "title_participants".localized, presenter?.event?.participants.count ?? 0)
     }
     
     func bindEventDetail(for event: EventModel) {
@@ -88,7 +89,9 @@ extension EventDetailView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Consts.participantCell, for: indexPath) as! ParticipantCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Consts.participantCell, for: indexPath) as? ParticipantCell else {
+            return UITableViewCell()
+        }
         guard let participant = presenter?.event?.participants[indexPath.row] else { return UITableViewCell() }
         cell.setup(with: participant)
         return cell

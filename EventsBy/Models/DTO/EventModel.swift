@@ -28,8 +28,8 @@ struct EventModel: EventProtocol, Uniq, Decodable, Equatable {
         case id = "id"
         case name
         case description
-        case _start = "start_date"
-        case _end = "end_date"
+        case startDate = "start_date"
+        case endDate = "end_date"
         case image = "image_url"
         case organaizer
         case location
@@ -39,19 +39,19 @@ struct EventModel: EventProtocol, Uniq, Decodable, Equatable {
     let id: Int
     let name: String
     let description: String
-    let _start: Double
-    let _end: Double
+    let startDate: Double
+    let endDate: Double
     let image: String?
     let organaizer: OrganaizerModel
     let location: LocationModel
     let participants: [ParticipantModel]
     
     var start: Date {
-        return Date(timeIntervalSince1970: _start)
+        return Date(timeIntervalSince1970: startDate)
     }
     
     var end: Date {
-        return Date(timeIntervalSince1970: _end)
+        return Date(timeIntervalSince1970: endDate)
     }
     
     var identifier: String {

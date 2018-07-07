@@ -37,4 +37,3 @@ extension EventListPresenter: EventListInteractorOutputProtocol {
     }
     
 }
-

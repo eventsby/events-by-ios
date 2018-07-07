@@ -29,4 +29,3 @@ class EventDetailRouter: EventDetailRouterProtocol {
     }
     
 }
-
