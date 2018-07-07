@@ -12,6 +12,7 @@ target 'EventsBy' do
   
   # Additional
   pod 'PKHUD', '~> 5.0'
+  pod 'SwiftLint'
 
   target 'EventsByTests' do
     inherit! :search_paths

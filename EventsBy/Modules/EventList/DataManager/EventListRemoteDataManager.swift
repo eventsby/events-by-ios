@@ -32,7 +32,10 @@ class EventListRemoteDataManager: EventListRemoteDataManagerInputProtocol {
             .validate()
             .responseJSON { response in
                 if response.result.error == nil, let data = response.data {
-                    let events = try! JSONDecoder().decode(EventPageArray.self, from: data)
+                    guard let events = try? JSONDecoder().decode(EventPageArray.self, from: data) else {
+                        self.remoteRequestHandler?.onError(response.result.error)
+                        return
+                    }
                     self.remoteRequestHandler?.onEventListRetrieved(events.content)
                 } else {
                     self.remoteRequestHandler?.onError(response.result.error)

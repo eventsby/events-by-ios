@@ -9,11 +9,11 @@
 import Alamofire
 
 class NetworkManager: NSObject {
-    
+
     static let shared = NetworkManager()
-    
+
     public var sessionManager: SessionManager
-    
+
     private override init() {
         let configuration: URLSessionConfiguration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 40
@@ -23,5 +23,5 @@ class NetworkManager: NSObject {
         //sessionManager.adapter = handler
         //sessionManager.retrier = handler
     }
-    
+
 }

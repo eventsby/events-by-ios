@@ -14,8 +14,7 @@ protocol LocationProtocol {
     var country: String { get }
     var city: String { get }
     var address: String { get }
-    var longitude: Double { get }
-    var latitude: Double { get }
+    var location: Location { get }
     
 }
 
@@ -36,6 +35,10 @@ struct LocationModel: LocationProtocol, Uniq, Decodable, Equatable {
     let address: String
     let longitude: Double
     let latitude: Double
+    
+    var location: Location {
+        return Location(lat: latitude, long: longitude)
+    }
     
     var identifier: String {
         return "\(id)"

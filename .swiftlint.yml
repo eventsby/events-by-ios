@@ -1,0 +1,20 @@
+disabled_rules: # rule identifiers to exclude from running
+  - colon
+  - comma
+  - control_statement
+  - trailing_whitespace
+  - todo
+  - implicit_getter
+opt_in_rules: # some rules are only opt-in
+  - empty_count
+  # swiftlint rules
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - Pods
+
+todo: warning
+identifier_name:
+  min_length: 2
+line_length:
+  - 200 # warning
+  - 300 # error
