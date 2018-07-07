@@ -12,15 +12,18 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var router: AppRouter?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
         launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let eventListVC = EventListRouter.initializeEventListModule()
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
         
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = eventListVC
-        window?.makeKeyAndVisible()
+        AppSkin.applyAppearance()
+        
+        router = AppRouter(window: window)
+        router?.start()
         
         return true
     }
