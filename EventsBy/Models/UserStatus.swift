@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+enum UserStatus {
+    
+    case anonymous
+    case registered(ParticipantProtocol)
+    
+    var isAnonymous: Bool {
+        switch self {
+        case .anonymous:
+            return true
+        case .registered:
+            return false
+        }
+    }
+    
+}

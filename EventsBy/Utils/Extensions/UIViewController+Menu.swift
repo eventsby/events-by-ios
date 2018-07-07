@@ -10,7 +10,7 @@ import UIKit
 
 extension UIViewController {
     
-    func addMenu(_ action: @escaping () -> Void) {
+    func addMenuBarButton(_ action: @escaping () -> Void) {
         let menuBtn: UIBarButtonItem = .menuBtn {
             action()
         }

@@ -58,7 +58,7 @@ extension EventListView: EventListViewProtocol {
         navigationItem.title = "title_event_list".localized
         navigationItem.backBarButtonTitle = ""
         
-        self.addMenu { [weak self] in
+        self.addMenuBarButton { [weak self] in
             guard let strongSelf = self else { return }
             Swift.print("[Action-TODO] Menu pressed")
         }
