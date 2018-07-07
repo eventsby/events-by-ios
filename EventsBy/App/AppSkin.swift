@@ -16,8 +16,8 @@ struct AppSkin {
         UINavigationBar.appearance().titleTextAttributes = [.font: Fonts.navBarTitle.uiFont, .foregroundColor: Colors.navBarTitle.uiColor]
         UINavigationBar.appearance().isTranslucent = false
         
-        //UINavigationBar.appearance().backIndicatorImage = #imageLiteral(resourceName: "ic_back").withRenderingMode(.alwaysOriginal)
-        //UINavigationBar.appearance().backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "ic_back").withRenderingMode(.alwaysOriginal)
+        UINavigationBar.appearance().backIndicatorImage = #imageLiteral(resourceName: "icn_back").withRenderingMode(.alwaysOriginal)
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "icn_back").withRenderingMode(.alwaysOriginal)
     }
     
     static func setShadow(to view: UIView, path: CGRect? = nil, offset: CGSize? = nil) {
