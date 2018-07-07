@@ -12,6 +12,7 @@ class EventViewCell: UICollectionViewCell {
     
     private struct Consts {
         static let dateFormat = "dd-MM-yyyy HH:mm"
+        static let dateOnlyTime = "HH:mm"
     }
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -23,7 +24,9 @@ class EventViewCell: UICollectionViewCell {
         titleLabel.text = event.name
         descriptionLabel.text = event.description
         let start = DateUtils.toString(date: event.start, format: Consts.dateFormat)
-        let end = DateUtils.toString(date: event.end, format: Consts.dateFormat)
+        let isSameDay = Calendar.current.isDate(event.start, inSameDayAs: event.end)
+        let endDateFormat = isSameDay ? Consts.dateOnlyTime : Consts.dateFormat
+        let end = DateUtils.toString(date: event.end, format: endDateFormat)
         timeLabel.text = start + " - " + end
         addressLabel.text = event.location.city + ", " + event.location.address
     }
