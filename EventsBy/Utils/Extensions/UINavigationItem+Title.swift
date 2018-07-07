@@ -6,4 +6,17 @@
 //  Copyright © 2018 Events-By. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UINavigationItem {
+    
+    var backBarButtonTitle: String? {
+        get {
+            return nil
+        }
+        set {
+            backBarButtonItem = UIBarButtonItem(title: newValue, style: .plain, target: nil, action: nil)
+        }
+    }
+    
+}

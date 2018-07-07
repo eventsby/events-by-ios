@@ -11,8 +11,12 @@ import UIKit
 enum Fonts {
     
     case navBarTitle
+    case navBarButton
+    
+    case badgeText
     
     case custom(name: String, size: CGFloat)
+    case button(size: CGFloat)
     
     var uiFont: UIFont {
         switch self {
@@ -20,6 +24,12 @@ enum Fonts {
             return UIFont(name: name, size: size)!
         case .navBarTitle:
             return UIFont(name: "Montserrat-Medium", size: 17)!
+        case .navBarButton:
+            return UIFont(name: "Montserrat-Medium", size: 8)!
+        case .button(let size):
+            return UIFont(name: "Montserrat-SemiBold", size: size)!
+        case .badgeText:
+            return UIFont(name: "Montserrat-SemiBold", size: 13)!
         }
     }
     

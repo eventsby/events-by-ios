@@ -6,4 +6,16 @@
 //  Copyright © 2018 Events-By. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UIViewController {
+    
+    func addMenu(_ action: @escaping () -> Void) {
+        let menuBtn: UIBarButtonItem = .menuBtn {
+            action()
+        }
+        navigationItem.leftBarButtonItem = menuBtn
+        //SideMenuManager.default.menuAddPanGestureToPresent(toView: self.view)
+    }
+    
+}

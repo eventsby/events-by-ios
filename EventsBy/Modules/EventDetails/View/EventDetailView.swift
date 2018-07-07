@@ -69,6 +69,9 @@ extension EventDetailView: EventDetailViewProtocol {
         mapView.setCenter(event.location.location, delta: mapZoom, animated: false)
         let eventAnnotation = EventAnnotation(location: event.location.location, title: event.location.city, subtitle: event.location.address)
         mapView.addAnnotation(eventAnnotation)
+        
+        // title
+        navigationItem.title = event.name
     }
     
 }

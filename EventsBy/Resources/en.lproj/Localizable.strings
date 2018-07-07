@@ -6,6 +6,10 @@
   Copyright © 2018 Events-By. All rights reserved.
 */
 
+// Common
+
+"menu_btn_title" = "MENU";
+
 // Event Details
 
 "want_participate_button" = "I'm in!";
@@ -13,3 +17,7 @@
 "title_participants" = "Participants (%d)";
 "title_email" = "Email";
 "title_website" = "Website";
+
+// Event List
+
+"title_event_list" = "Events";

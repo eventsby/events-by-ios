@@ -6,6 +6,10 @@
   Copyright © 2018 Events-By. All rights reserved.
 */
 
+// Common
+
+"menu_btn_title" = "МЕНЮ";
+
 // Event Details
 
 "want_participate_button" = "Я иду!";
@@ -13,3 +17,7 @@
 "title_participants" = "Участники (%d)";
 "title_email" = "Электронная почта";
 "title_website" = "Сайт";
+
+// Event List
+
+"title_event_list" = "События";

@@ -41,6 +41,13 @@ extension EventListView: EventListViewProtocol {
     func setupView() {
         collectionView.contentInset.top = 10.0
         collectionView.contentInset.bottom = 10.0
+        navigationItem.title = "title_event_list".localized
+        navigationItem.backBarButtonTitle = ""
+        
+        self.addMenu { [weak self] in
+            guard let strongSelf = self else { return }
+            Swift.print("[Action-TODO] Menu pressed")
+        }
     }
     
     func showEvents(_ events: [EventModel]) {

@@ -13,6 +13,13 @@ enum Colors {
     case backgroundMain
     case navBar
     case navBarTitle
+    case navBarButton
+    
+    case badgeBg
+    case badgeText
+    
+    case buttonNormal
+    case buttonSelected
     
     var uiColor: UIColor {
         switch self {
@@ -22,6 +29,16 @@ enum Colors {
             return UIColor(254, 254, 254, 1)
         case .navBarTitle:
             return UIColor(59, 64, 83, 1)
+        case .navBarButton:
+            return UIColor(59, 64, 83, 1)
+        case .badgeBg:
+            return UIColor(100, 100, 100, 1)
+        case .badgeText:
+            return UIColor(255, 255, 255, 1)
+        case .buttonSelected:
+            return UIColor(253, 192, 44)
+        case .buttonNormal:
+            return .white
         }
     }
     

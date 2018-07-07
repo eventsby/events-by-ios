@@ -10,12 +10,13 @@ target 'EventsBy' do
   # Core
   pod 'Alamofire', '~> 4.7'
   pod 'Kingfisher', '~> 4.0'
-  pod 'ReactiveCocoa', '~> 7.0'
-  pod 'ReactiveSwift', '~> 3.0'
+  pod 'ReactiveCocoa', '~> 7.0', :inhibit_warnings => true
+  pod 'ReactiveSwift', '~> 3.0', :inhibit_warnings => true
   
   # Additional
   pod 'PKHUD', '~> 5.0'
   pod 'SwiftLint'
+  pod 'PinLayout', '~> 1.0'
 
   target 'EventsByTests' do
     inherit! :search_paths
