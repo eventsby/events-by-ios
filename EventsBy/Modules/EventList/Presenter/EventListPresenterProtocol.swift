@@ -15,5 +15,6 @@ protocol EventListPresenterProtocol: class {
     
     // View -> Presenter
     func viewDidLoad()
+    func pullToRefresh()
     func showEventDetail(for event: EventModel)
 }

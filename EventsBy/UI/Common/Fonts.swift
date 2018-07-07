@@ -23,7 +23,7 @@ enum Fonts {
         case .custom(let name, let size):
             return UIFont(name: name, size: size)!
         case .navBarTitle:
-            return UIFont(name: "Montserrat-Medium", size: 17)!
+            return UIFont(name: "Montserrat-Medium", size: 16)!
         case .navBarButton:
             return UIFont(name: "Montserrat-Medium", size: 8)!
         case .button(let size):

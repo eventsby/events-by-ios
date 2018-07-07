@@ -23,6 +23,10 @@ class EventListPresenter: EventListPresenterProtocol {
         router?.presentEventDetailScreen(from: view, for: event)
     }
     
+    func pullToRefresh() {
+        interactor?.retrieveEventList()
+    }
+    
 }
 
 extension EventListPresenter: EventListInteractorOutputProtocol {

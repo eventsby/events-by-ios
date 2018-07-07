@@ -20,6 +20,14 @@ class EventListView: UIViewController {
         static let cellHeight: CGFloat = 170
     }
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handlePullToRefresh),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = .red
+        return refreshControl
+    }()
+    
     // MARK: Lifecycle
     
     override func viewWillLayoutSubviews() {
@@ -32,6 +40,12 @@ class EventListView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
+    }
+    
+    // MARK: Actions
+    
+    @objc private func handlePullToRefresh() {
+        presenter?.pullToRefresh()
     }
 
 }
@@ -48,6 +62,8 @@ extension EventListView: EventListViewProtocol {
             guard let strongSelf = self else { return }
             Swift.print("[Action-TODO] Menu pressed")
         }
+        
+        collectionView.addSubview(self.refreshControl)
     }
     
     func showEvents(_ events: [EventModel]) {
@@ -66,6 +82,7 @@ extension EventListView: EventListViewProtocol {
     
     func hideLoading() {
         HUD.hide()
+        refreshControl.endRefreshing()
     }
     
 }
