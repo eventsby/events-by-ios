@@ -10,4 +10,6 @@ import UIKit
 
 protocol EventDetailRouterProtocol: class {
     static func createEventDetailModule(for event: EventModel) -> UIViewController
+    
+    func presentParticipantDetailScreen(from view: EventDetailViewProtocol, for participant: ParticipantModel)
 }

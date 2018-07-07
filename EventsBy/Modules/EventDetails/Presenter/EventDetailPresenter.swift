@@ -12,9 +12,18 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
     var router: EventDetailRouterProtocol?
     var event: EventModel?
     
+    var participants: [ParticipantModel] {
+        return event?.participants ?? []
+    }
+    
     func viewDidLoad() {
         view?.setupView()
         view?.bindEventDetail(for: event!)
+    }
+    
+    func showParticipantDetail(for participant: ParticipantModel) {
+        guard let view = view else { return }
+        router?.presentParticipantDetailScreen(from: view, for: participant)
     }
     
 }

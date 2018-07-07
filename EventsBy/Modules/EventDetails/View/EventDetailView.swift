@@ -85,20 +85,28 @@ extension EventDetailView: MKMapViewDelegate {
 extension EventDetailView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.event?.participants.count ?? 0
+        return presenter?.participants.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Consts.participantCell, for: indexPath) as? ParticipantCell else {
             return UITableViewCell()
         }
-        guard let participant = presenter?.event?.participants[indexPath.row] else { return UITableViewCell() }
+        guard let participant = presenter?.participants[indexPath.row] else {
+            return UITableViewCell()
+        }
         cell.setup(with: participant)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        guard let participant = presenter?.participants[indexPath.row] else { return }
+        presenter?.showParticipantDetail(for: participant)
     }
     
 }

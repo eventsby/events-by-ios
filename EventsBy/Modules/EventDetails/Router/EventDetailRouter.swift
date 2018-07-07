@@ -28,4 +28,13 @@ class EventDetailRouter: EventDetailRouterProtocol {
         return UIStoryboard(name: "EventDetails", bundle: Bundle.main)
     }
     
+    func presentParticipantDetailScreen(from view: EventDetailViewProtocol, for participant: ParticipantModel) {
+//        let eventDetailVC = ParticipantDetailRouter.createParticipantDetailModule(for: participant)
+        
+//        if let sourceView = view as? UIViewController {
+//            sourceView.navigationController?.pushViewController(eventDetailVC, animated: true)
+//        }
+        Swift.print("Present participant detail screen for: \(participant.id)")
+    }
+    
 }
