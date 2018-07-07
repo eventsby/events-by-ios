@@ -19,7 +19,8 @@ class EventListPresenter: EventListPresenterProtocol {
     }
     
     func showEventDetail(for event: EventModel) {
-        router?.presentEventDetailScreen(from: view!, for: event)
+        guard let view = view else { return }
+        router?.presentEventDetailScreen(from: view, for: event)
     }
     
 }
