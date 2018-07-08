@@ -52,7 +52,13 @@ class EventDetailView: UIViewController {
         scrollView.contentInset = UIEdgeInsets(top: imageHeight, left: 0, bottom: 0, right: 0)
         eventImageView.frame.size.height = imageHeight
     }
-
+    
+    // MARK: Actions
+    
+    @IBAction func websiteTapAction(_ sender: Any) {
+        presenter?.websiteTapAction()
+    }
+    
 }
 
 extension EventDetailView: EventDetailViewProtocol {

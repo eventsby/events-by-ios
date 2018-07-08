@@ -37,4 +37,12 @@ class EventDetailRouter: EventDetailRouterProtocol {
         Swift.print("Present participant detail screen for: \(participant.id)")
     }
     
+    func openWebsite(url: String) {
+        guard let url = URL(string: url),
+            UIApplication.shared.canOpenURL(url) else {
+                return
+        }
+        UIApplication.shared.open(url)
+    }
+    
 }

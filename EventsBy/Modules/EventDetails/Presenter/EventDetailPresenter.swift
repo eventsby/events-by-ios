@@ -31,4 +31,9 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
         return event?.participants[index]
     }
     
+    func websiteTapAction() {
+        guard let websiteUrl = event?.organaizer.website else { return }
+        router?.openWebsite(url: websiteUrl)
+    }
+    
 }

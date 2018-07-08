@@ -18,4 +18,6 @@ protocol EventDetailPresenterProtocol: class {
     func viewDidLoad()
     func showParticipantDetail(for participant: ParticipantModel)
     func participant(at index: Int) -> ParticipantModel?
+    
+    func websiteTapAction()
 }

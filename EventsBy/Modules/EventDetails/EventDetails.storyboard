@@ -184,42 +184,58 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://google.com/" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkJ-gJ-5QW">
-                                                <rect key="frame" x="20" y="114.5" width="311" height="17.5"/>
-                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
-                                                <color key="textColor" red="0.023529411764705882" green="0.27058823529411763" blue="0.67843137254901964" alpha="0.79995446702453987" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organaizer description goes here." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPz-BN-fTO">
                                                 <rect key="frame" x="20" y="60" width="236.5" height="17.5"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDX-IF-qhf">
-                                                <rect key="frame" x="20" y="97.5" width="50" height="15"/>
-                                                <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="title_website"/>
-                                                </userDefinedRuntimeAttributes>
-                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jbd-01-o7J" userLabel="Website View">
+                                                <rect key="frame" x="20" y="98" width="311" height="35"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDX-IF-qhf">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="15"/>
+                                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="title_website"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://google.com/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkJ-gJ-5QW">
+                                                        <rect key="frame" x="0.0" y="15" width="311" height="17.5"/>
+                                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
+                                                        <color key="textColor" red="0.023529411764705882" green="0.27058823529411763" blue="0.67843137254901964" alpha="0.79995446702453987" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                                <constraints>
+                                                    <constraint firstItem="cDX-IF-qhf" firstAttribute="top" secondItem="jbd-01-o7J" secondAttribute="top" id="10a-Jh-7JQ"/>
+                                                    <constraint firstItem="IkJ-gJ-5QW" firstAttribute="leading" secondItem="jbd-01-o7J" secondAttribute="leading" id="RbF-q7-d3b"/>
+                                                    <constraint firstAttribute="trailing" secondItem="IkJ-gJ-5QW" secondAttribute="trailing" id="WQ7-Fn-dJt"/>
+                                                    <constraint firstItem="IkJ-gJ-5QW" firstAttribute="top" secondItem="cDX-IF-qhf" secondAttribute="bottom" id="d9I-Ht-tcS"/>
+                                                    <constraint firstAttribute="height" constant="35" id="hlT-Bi-vYG"/>
+                                                    <constraint firstItem="cDX-IF-qhf" firstAttribute="leading" secondItem="jbd-01-o7J" secondAttribute="leading" id="p5W-ay-SZN"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="J0a-i3-2Ah" appends="YES" id="EGF-fR-BAp"/>
+                                                </connections>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="IkJ-gJ-5QW" firstAttribute="leading" secondItem="4F4-ji-rg2" secondAttribute="leading" constant="20" id="0dw-NG-kTA"/>
-                                            <constraint firstItem="cDX-IF-qhf" firstAttribute="leading" secondItem="4F4-ji-rg2" secondAttribute="leading" constant="20" id="694-BP-WlG"/>
+                                            <constraint firstItem="FL6-Cn-Yq4" firstAttribute="top" secondItem="jbd-01-o7J" secondAttribute="bottom" constant="11" id="443-hl-mrm"/>
                                             <constraint firstItem="tPz-BN-fTO" firstAttribute="leading" secondItem="4F4-ji-rg2" secondAttribute="leading" constant="20" id="8DF-sB-8xq"/>
-                                            <constraint firstItem="FL6-Cn-Yq4" firstAttribute="top" secondItem="IkJ-gJ-5QW" secondAttribute="bottom" constant="12" id="AAz-N1-rIg"/>
-                                            <constraint firstItem="IkJ-gJ-5QW" firstAttribute="top" secondItem="cDX-IF-qhf" secondAttribute="bottom" constant="2" id="J7Y-hx-wsI"/>
                                             <constraint firstItem="tPz-BN-fTO" firstAttribute="top" secondItem="qgc-Wo-Ebz" secondAttribute="bottom" constant="20" id="JjY-BA-PGN"/>
                                             <constraint firstItem="Pcp-FZ-s6W" firstAttribute="top" secondItem="FL6-Cn-Yq4" secondAttribute="bottom" constant="2" id="Mdi-DA-QTH"/>
-                                            <constraint firstItem="cDX-IF-qhf" firstAttribute="top" secondItem="tPz-BN-fTO" secondAttribute="bottom" constant="20" id="XmT-M6-LTv"/>
+                                            <constraint firstItem="jbd-01-o7J" firstAttribute="top" secondItem="tPz-BN-fTO" secondAttribute="bottom" constant="20" id="T86-UZ-FKa"/>
+                                            <constraint firstAttribute="trailing" secondItem="jbd-01-o7J" secondAttribute="trailing" constant="20" id="Wol-W8-o4G"/>
                                             <constraint firstItem="Pcp-FZ-s6W" firstAttribute="leading" secondItem="4F4-ji-rg2" secondAttribute="leading" constant="20" id="aqq-mj-3ZJ"/>
                                             <constraint firstAttribute="bottom" secondItem="Pcp-FZ-s6W" secondAttribute="bottom" constant="20" id="b2j-m4-pTC"/>
                                             <constraint firstAttribute="trailing" secondItem="qgc-Wo-Ebz" secondAttribute="trailing" constant="20" id="huU-tE-su3"/>
-                                            <constraint firstAttribute="trailing" secondItem="IkJ-gJ-5QW" secondAttribute="trailing" constant="20" id="j38-r0-iSt"/>
+                                            <constraint firstItem="jbd-01-o7J" firstAttribute="leading" secondItem="4F4-ji-rg2" secondAttribute="leading" constant="20" id="kOE-8r-pVh"/>
                                             <constraint firstItem="qgc-Wo-Ebz" firstAttribute="leading" secondItem="4F4-ji-rg2" secondAttribute="leading" constant="20" id="mOd-0W-Mnn"/>
                                             <constraint firstItem="qgc-Wo-Ebz" firstAttribute="top" secondItem="4F4-ji-rg2" secondAttribute="top" constant="20" id="wlA-Ta-QL4"/>
                                             <constraint firstItem="FL6-Cn-Yq4" firstAttribute="leading" secondItem="4F4-ji-rg2" secondAttribute="leading" constant="20" id="xUx-HI-ZDp"/>
@@ -384,6 +400,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wuX-98-ghB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="J0a-i3-2Ah" userLabel="Website Tap Gesture">
+                    <connections>
+                        <action selector="websiteTapAction:" destination="TNa-Oe-KT9" id="KnE-YT-gmo"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="133.59999999999999" y="187.1064467766117"/>
         </scene>

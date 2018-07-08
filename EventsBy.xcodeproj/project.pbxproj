@@ -296,7 +296,7 @@
 		0C2F6FBB20701A3200493876 /* EventDetails */ = {
 			isa = PBXGroup;
 			children = (
-				A35A9CC920EAB5C600037F8B /* DataManager */,
+				A35A9CC920EAB5C600037F8B /* Service */,
 				A35A9CCA20EAB5CC00037F8B /* Presenter */,
 				A35A9CCB20EAB5D300037F8B /* Router */,
 				A35A9CCC20EAB5DB00037F8B /* View */,
@@ -455,11 +455,11 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		A35A9CC920EAB5C600037F8B /* DataManager */ = {
+		A35A9CC920EAB5C600037F8B /* Service */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = DataManager;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		A35A9CCA20EAB5CC00037F8B /* Presenter */ = {
