@@ -11,7 +11,7 @@ import UIKit
 protocol EventDetailPresenterProtocol: class {
     var view: EventDetailViewProtocol? { get set }
     var router: EventDetailRouterProtocol? { get set }
-    var event: EventModel? { get set }
+    var event: EventProtocol? { get set }
     var participantsCount: Int { get }
     
     // VIEW -> PRESENTER

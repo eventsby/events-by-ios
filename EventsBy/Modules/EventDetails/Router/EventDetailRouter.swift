@@ -13,13 +13,10 @@ class EventDetailRouter: EventDetailRouterProtocol {
     class func createEventDetailModule(for event: EventModel) -> UIViewController {
         guard let viewController = eventDetails.instantiateInitialViewController() else { return UIViewController() }
         guard let view = viewController as? EventDetailView else { return UIViewController() }
-        let presenter: EventDetailPresenterProtocol = EventDetailPresenter()
         let router: EventDetailRouterProtocol = EventDetailRouter()
+        let presenter: EventDetailPresenterProtocol = EventDetailPresenter(view: view, router: router, event: event)
         
         view.presenter = presenter
-        presenter.view = view
-        presenter.event = event
-        presenter.router = router
         
         return viewController
     }

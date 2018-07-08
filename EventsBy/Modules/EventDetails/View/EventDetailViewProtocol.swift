@@ -9,6 +9,6 @@
 protocol EventDetailViewProtocol: class {
     var presenter: EventDetailPresenterProtocol? { get set }
     
-    func bindEventDetail(for event: EventModel)
+    func bindEventDetail(for event: EventProtocol)
     func setupView()
 }

@@ -75,7 +75,7 @@ extension EventDetailView: EventDetailViewProtocol {
             "title_participants".localized, presenter?.participantsCount ?? 0)
     }
     
-    func bindEventDetail(for event: EventModel) {
+    func bindEventDetail(for event: EventProtocol) {
         // event
         eventCityLabel.text = event.location.city
         eventNameLabel.text = event.name

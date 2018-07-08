@@ -10,10 +10,16 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
     
     weak var view: EventDetailViewProtocol?
     var router: EventDetailRouterProtocol?
-    var event: EventModel?
+    var event: EventProtocol?
     
     var participantsCount: Int {
         return event?.participants.count ?? 0
+    }
+    
+    init(view: EventDetailViewProtocol?, router: EventDetailRouterProtocol, event: EventProtocol) {
+        self.view = view
+        self.router = router
+        self.event = event
     }
     
     func viewDidLoad() {
