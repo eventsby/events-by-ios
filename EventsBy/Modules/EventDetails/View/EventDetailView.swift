@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Kingfisher
 
 class EventDetailView: UIViewController {
     
@@ -18,6 +19,7 @@ class EventDetailView: UIViewController {
         static let participantCell = "participantCell"
     }
 
+    @IBOutlet weak var eventImageView: UIImageView!
     @IBOutlet weak var eventCityLabel: UILabel!
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var eventDescriptionLabel: UILabel!
@@ -63,6 +65,9 @@ extension EventDetailView: EventDetailViewProtocol {
         let end = DateUtils.toString(date: event.end, format: endDateFormat)
         eventTimeLabel.text = start + " - " + end
         eventAddressLabel.text = event.location.city + ", " + event.location.address
+        if let eventImageUrl = event.image {
+            eventImageView.kf.setImage(with: URL(string: eventImageUrl))
+        }
         
         // organaizer
         organaizerEmailLabel.text = event.organaizer.email

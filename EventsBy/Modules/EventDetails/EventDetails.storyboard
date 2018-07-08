@@ -368,6 +368,7 @@
                         <outlet property="eventAddressLabel" destination="Wq1-rz-q8E" id="Sxx-Fp-jfl"/>
                         <outlet property="eventCityLabel" destination="KNn-UO-bgz" id="0lJ-Cq-yEC"/>
                         <outlet property="eventDescriptionLabel" destination="bUJ-gV-Kof" id="xYq-fC-spt"/>
+                        <outlet property="eventImageView" destination="dWY-Dr-qBu" id="PC0-LD-qIl"/>
                         <outlet property="eventNameLabel" destination="dfx-fh-hZ4" id="O7E-XI-4HR"/>
                         <outlet property="eventTimeLabel" destination="z7p-C3-u8X" id="S2R-Ik-wkt"/>
                         <outlet property="mapView" destination="K5c-Rt-KAj" id="uVa-M5-BGY"/>
