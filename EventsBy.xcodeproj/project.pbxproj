@@ -67,6 +67,9 @@
 		A35A9CD320EAB6AC00037F8B /* EventDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CD220EAB6AC00037F8B /* EventDetailRouter.swift */; };
 		A35A9CD520EAB6DC00037F8B /* EventDetailRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CD420EAB6DC00037F8B /* EventDetailRouterProtocol.swift */; };
 		A35A9CD720EAB71300037F8B /* EventDetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CD620EAB71300037F8B /* EventDetailViewProtocol.swift */; };
+		A37D45F420F2418A00676BAB /* EventDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D45F320F2418A00676BAB /* EventDetailService.swift */; };
+		A37D45F620F2422A00676BAB /* EventDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D45F520F2422A00676BAB /* EventDetailInteractor.swift */; };
+		A37D45F820F2423900676BAB /* EventDetailInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D45F720F2423900676BAB /* EventDetailInteractorProtocol.swift */; };
 		A3D6E77F20F12B0300C0DB07 /* AppSkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E77E20F12B0300C0DB07 /* AppSkin.swift */; };
 		A3D6E78320F12B5D00C0DB07 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E78220F12B5D00C0DB07 /* Colors.swift */; };
 		A3D6E78520F12B6E00C0DB07 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E78420F12B6E00C0DB07 /* Fonts.swift */; };
@@ -172,6 +175,9 @@
 		A35A9CD220EAB6AC00037F8B /* EventDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailRouter.swift; sourceTree = "<group>"; };
 		A35A9CD420EAB6DC00037F8B /* EventDetailRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailRouterProtocol.swift; sourceTree = "<group>"; };
 		A35A9CD620EAB71300037F8B /* EventDetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewProtocol.swift; sourceTree = "<group>"; };
+		A37D45F320F2418A00676BAB /* EventDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailService.swift; sourceTree = "<group>"; };
+		A37D45F520F2422A00676BAB /* EventDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailInteractor.swift; sourceTree = "<group>"; };
+		A37D45F720F2423900676BAB /* EventDetailInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailInteractorProtocol.swift; sourceTree = "<group>"; };
 		A3D6E77E20F12B0300C0DB07 /* AppSkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSkin.swift; sourceTree = "<group>"; };
 		A3D6E78220F12B5D00C0DB07 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A3D6E78420F12B6E00C0DB07 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -458,6 +464,7 @@
 		A35A9CC920EAB5C600037F8B /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				A37D45F320F2418A00676BAB /* EventDetailService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -496,6 +503,8 @@
 		A35A9CCD20EAB5E400037F8B /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				A37D45F520F2422A00676BAB /* EventDetailInteractor.swift */,
+				A37D45F720F2423900676BAB /* EventDetailInteractorProtocol.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -827,6 +836,7 @@
 				A30AF7DB20EB935E00CA6951 /* LocationModel.swift in Sources */,
 				A3D6E79320F1382100C0DB07 /* UINavigationItem+Title.swift in Sources */,
 				A30AF81320EBF3F000CA6951 /* ParticipantCell.swift in Sources */,
+				A37D45F820F2423900676BAB /* EventDetailInteractorProtocol.swift in Sources */,
 				A3D6E78720F12BBB00C0DB07 /* UIColor+RGB.swift in Sources */,
 				A35A9CAE20EA4BD700037F8B /* EventListPresenterProtocol.swift in Sources */,
 				A35A9CAA20EA4B9100037F8B /* EventListViewProtocol.swift in Sources */,
@@ -839,6 +849,7 @@
 				A3D6E78320F12B5D00C0DB07 /* Colors.swift in Sources */,
 				A35A9CD320EAB6AC00037F8B /* EventDetailRouter.swift in Sources */,
 				A35A9CC220EA7B0700037F8B /* UIView+IBInspectable.swift in Sources */,
+				A37D45F620F2422A00676BAB /* EventDetailInteractor.swift in Sources */,
 				A30AF7DD20EB936600CA6951 /* ParticipantModel.swift in Sources */,
 				A3D6E78520F12B6E00C0DB07 /* Fonts.swift in Sources */,
 				A35A9CA520EA49FC00037F8B /* EventListInteractor.swift in Sources */,
@@ -855,6 +866,7 @@
 				A3D6E78920F12C6800C0DB07 /* AppRouter.swift in Sources */,
 				A30AF80320EBE27800CA6951 /* Location.swift in Sources */,
 				A35A9CA320EA470B00037F8B /* EventListRouter.swift in Sources */,
+				A37D45F420F2418A00676BAB /* EventDetailService.swift in Sources */,
 				A35A9CA720EA4AEB00037F8B /* EventListPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
