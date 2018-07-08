@@ -16,7 +16,7 @@ protocol EventListInteractorOutputProtocol: class {
 
 protocol EventListInteractorInputProtocol: class {
     var presenter: EventListInteractorOutputProtocol? { get set }
-    var remoteDatamanager: EventListRemoteDataManagerInputProtocol? { get set }
+    var service: EventListServiceInputProtocol? { get set }
     
     // Presenter -> Interactor
     func retrieveEventList()

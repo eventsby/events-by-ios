@@ -9,20 +9,20 @@
 import Foundation
 import Alamofire
 
-protocol EventListRemoteDataManagerInputProtocol: class {
-    var remoteRequestHandler: EventListRemoteDataManagerOutputProtocol? { get set }
+protocol EventListServiceInputProtocol: class {
+    var remoteRequestHandler: EventListServiceOutputProtocol? { get set }
     
     func retrieveEventList()
 }
 
-protocol EventListRemoteDataManagerOutputProtocol: class {
+protocol EventListServiceOutputProtocol: class {
     func onEventListRetrieved(_ events: [EventModel])
     func onError(_ error: Error?)
 }
 
-class EventListRemoteDataManager: EventListRemoteDataManagerInputProtocol {
+class EventListService: EventListServiceInputProtocol {
     
-    var remoteRequestHandler: EventListRemoteDataManagerOutputProtocol?
+    var remoteRequestHandler: EventListServiceOutputProtocol?
     
     let sessionManager = NetworkManager.shared.sessionManager
     

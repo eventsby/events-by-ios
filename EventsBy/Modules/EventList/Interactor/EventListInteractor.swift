@@ -9,15 +9,15 @@
 class EventListInteractor: EventListInteractorInputProtocol {
     
     weak var presenter: EventListInteractorOutputProtocol?
-    var remoteDatamanager: EventListRemoteDataManagerInputProtocol?
+    var service: EventListServiceInputProtocol?
     
     func retrieveEventList() {
-        remoteDatamanager?.retrieveEventList()
+        service?.retrieveEventList()
     }
     
 }
 
-extension EventListInteractor: EventListRemoteDataManagerOutputProtocol {
+extension EventListInteractor: EventListServiceOutputProtocol {
     
     func onEventListRetrieved(_ events: [EventModel]) {
         presenter?.didRetrieveEvents(events)
