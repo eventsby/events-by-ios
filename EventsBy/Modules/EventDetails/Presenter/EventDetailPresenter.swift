@@ -8,9 +8,9 @@
 
 class EventDetailPresenter: EventDetailPresenterProtocol {
     
-    weak var view: EventDetailViewProtocol?
-    var router: EventDetailRouterProtocol?
-    var event: EventProtocol?
+    internal weak var view: EventDetailViewProtocol?
+    internal var router: EventDetailRouterProtocol?
+    internal var event: EventProtocol?
     
     var participantsCount: Int {
         return event?.participants.count ?? 0
