@@ -64,6 +64,10 @@ class EventDetailView: UIViewController {
         presenter?.emailTapAction()
     }
     
+    @IBAction func wantToParticipateAction(_ sender: Any) {
+        presenter?.wantToParticipateAction()
+    }
+    
 }
 
 extension EventDetailView: EventDetailViewProtocol {

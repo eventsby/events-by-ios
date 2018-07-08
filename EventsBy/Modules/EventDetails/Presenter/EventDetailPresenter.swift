@@ -50,6 +50,11 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
         router?.writeEmail(to: email)
     }
     
+    func wantToParticipateAction() {
+        // if user is authorized, then call interactor's method to add particiant
+        // otherwise navigate to login
+    }
+    
 //    func add(event: EventProtocol) {
 //        self.event?.value = event
 //    }

@@ -85,6 +85,9 @@
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizedTitle" value="want_participate_button"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="wantToParticipateAction:" destination="TNa-Oe-KT9" eventType="touchUpInside" id="elY-Ud-WcW"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_calend" translatesAutoresizingMaskIntoConstraints="NO" id="K0G-nn-tHg">
                                                 <rect key="frame" x="20" y="173" width="20" height="20"/>

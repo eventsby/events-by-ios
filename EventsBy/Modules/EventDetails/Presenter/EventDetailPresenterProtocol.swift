@@ -22,6 +22,7 @@ protocol EventDetailPresenterProtocol: class {
     
     func websiteTapAction()
     func emailTapAction()
+    func wantToParticipateAction()
     
     //func add(event: EventProtocol)
 }

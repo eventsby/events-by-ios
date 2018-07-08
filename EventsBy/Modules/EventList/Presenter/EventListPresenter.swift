@@ -8,9 +8,15 @@
 
 class EventListPresenter: EventListPresenterProtocol {
     
-    weak var view: EventListViewProtocol?
-    var interactor: EventListInteractorInputProtocol?
-    var router: EventListRouterProtocol?
+    internal weak var view: EventListViewProtocol?
+    internal var interactor: EventListInteractorInputProtocol?
+    internal var router: EventListRouterProtocol?
+    
+    init(view: EventListViewProtocol?, interactor: EventListInteractorInputProtocol, router: EventListRouterProtocol?) {
+        self.view = view
+        self.interactor = interactor
+        self.router = router
+    }
     
     func viewDidLoad() {
         view?.setupView()
