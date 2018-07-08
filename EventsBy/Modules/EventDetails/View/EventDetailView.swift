@@ -72,7 +72,7 @@ extension EventDetailView: EventDetailViewProtocol {
         mapView.register(EventMapAnnotationView.self, forAnnotationViewWithReuseIdentifier: Consts.annotationIdentifier)
         
         participantsLabel.text = String(format:
-            "title_participants".localized, presenter?.event?.participants.count ?? 0)
+            "title_participants".localized, presenter?.participantsCount ?? 0)
     }
     
     func bindEventDetail(for event: EventModel) {
