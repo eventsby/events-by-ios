@@ -13,4 +13,5 @@ protocol EventDetailRouterProtocol: class {
     
     func presentParticipantDetailScreen(from view: EventDetailViewProtocol, for participant: ParticipantModel)
     func openWebsite(url: String)
+    func writeEmail(to email: String)
 }

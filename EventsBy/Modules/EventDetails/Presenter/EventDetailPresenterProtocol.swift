@@ -20,4 +20,5 @@ protocol EventDetailPresenterProtocol: class {
     func participant(at index: Int) -> ParticipantModel?
     
     func websiteTapAction()
+    func emailTapAction()
 }

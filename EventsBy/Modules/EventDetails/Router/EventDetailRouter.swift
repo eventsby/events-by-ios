@@ -38,10 +38,13 @@ class EventDetailRouter: EventDetailRouterProtocol {
     }
     
     func openWebsite(url: String) {
-        guard let url = URL(string: url),
-            UIApplication.shared.canOpenURL(url) else {
-                return
-        }
+        guard let url = URL(string: url), UIApplication.shared.canOpenURL(url) else { return }
+        UIApplication.shared.open(url)
+    }
+    
+    func writeEmail(to email: String) {
+        guard let url = URL(string: "mailto:\(email)"),
+            UIApplication.shared.canOpenURL(url) else { return }
         UIApplication.shared.open(url)
     }
     

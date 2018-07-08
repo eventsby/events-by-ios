@@ -36,4 +36,9 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
         router?.openWebsite(url: websiteUrl)
     }
     
+    func emailTapAction() {
+        guard let email = event?.organaizer.email else { return }
+        router?.writeEmail(to: email)
+    }
+    
 }
