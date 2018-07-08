@@ -12,9 +12,10 @@ protocol EventDetailPresenterProtocol: class {
     var view: EventDetailViewProtocol? { get set }
     var router: EventDetailRouterProtocol? { get set }
     var event: EventModel? { get set }
-    var participants: [ParticipantModel] { get }
+    var participantsCount: Int { get }
     
     // VIEW -> PRESENTER
     func viewDidLoad()
     func showParticipantDetail(for participant: ParticipantModel)
+    func participant(at index: Int) -> ParticipantModel?
 }

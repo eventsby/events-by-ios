@@ -91,14 +91,14 @@ extension EventDetailView: MKMapViewDelegate {
 extension EventDetailView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.participants.count ?? 0
+        return presenter?.participantsCount ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Consts.participantCell, for: indexPath) as? ParticipantCell else {
             return UITableViewCell()
         }
-        guard let participant = presenter?.participants[indexPath.row] else {
+        guard let participant = presenter?.participant(at: indexPath.row) else {
             return UITableViewCell()
         }
         cell.setup(with: participant)
@@ -111,7 +111,7 @@ extension EventDetailView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        guard let participant = presenter?.participants[indexPath.row] else { return }
+        guard let participant = presenter?.participant(at: indexPath.row) else { return }
         presenter?.showParticipantDetail(for: participant)
     }
     
