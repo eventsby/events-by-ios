@@ -6,24 +6,27 @@
 //  Copyright © 2018 Events-By. All rights reserved.
 //
 
+import ReactiveSwift
+
 class EventDetailPresenter: EventDetailPresenterProtocol {
     
     internal weak var view: EventDetailViewProtocol?
     internal var router: EventDetailRouterProtocol?
-    internal var event: EventProtocol?
+    internal var event: MutableProperty<EventProtocol>?
     
-    var participantsCount: Int {
-        return event?.participants.count ?? 0
+    var participantsCount: Property<Int> {
+        guard let event = event else { return Property<Int>(value: 0) }
+        return event.map { $0.participants.count }
     }
     
     init(view: EventDetailViewProtocol?, router: EventDetailRouterProtocol, event: EventProtocol) {
         self.view = view
         self.router = router
-        self.event = event
+        self.event = MutableProperty(event)
     }
     
     func viewDidLoad() {
-        guard let event = self.event else { return }
+        guard let event = self.event?.value else { return }
         view?.setupView()
         view?.bindEventDetail(for: event)
     }
@@ -34,17 +37,21 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
     }
     
     func participant(at index: Int) -> ParticipantModel? {
-        return event?.participants[index]
+        return event?.value.participants[index]
     }
     
     func websiteTapAction() {
-        guard let websiteUrl = event?.organaizer.website else { return }
+        guard let websiteUrl = event?.value.organaizer.website else { return }
         router?.openWebsite(url: websiteUrl)
     }
     
     func emailTapAction() {
-        guard let email = event?.organaizer.email else { return }
+        guard let email = event?.value.organaizer.email else { return }
         router?.writeEmail(to: email)
     }
+    
+//    func add(event: EventProtocol) {
+//        self.event?.value = event
+//    }
     
 }

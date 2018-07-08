@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import Kingfisher
+import ReactiveSwift
 
 class EventDetailView: UIViewController {
     
@@ -70,9 +71,6 @@ extension EventDetailView: EventDetailViewProtocol {
     func setupView() {
         mapView.delegate = self
         mapView.register(EventMapAnnotationView.self, forAnnotationViewWithReuseIdentifier: Consts.annotationIdentifier)
-        
-        participantsLabel.text = String(format:
-            "title_participants".localized, presenter?.participantsCount ?? 0)
     }
     
     func bindEventDetail(for event: EventProtocol) {
@@ -101,6 +99,11 @@ extension EventDetailView: EventDetailViewProtocol {
         
         // title
         navigationItem.title = event.name
+        
+        // participants
+        presenter?.participantsCount.producer.startWithValues {
+            self.participantsLabel.text = String(format: "title_participants".localized, $0)
+        }
     }
     
 }
@@ -130,7 +133,7 @@ extension EventDetailView: UIScrollViewDelegate {
 extension EventDetailView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter?.participantsCount ?? 0
+        return presenter?.participantsCount.value ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -151,6 +154,16 @@ extension EventDetailView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         guard let participant = presenter?.participant(at: indexPath.row) else { return }
+        
+//        var participants: [ParticipantModel] = []
+//        participants.append(ParticipantModel(id: 1, email: "e", username: "s", fullname: "asdasd", company: "qwe", website: "qwe", phone: "qew"))
+//        participants.append(ParticipantModel(id: 2, email: "e", username: "s", fullname: "asdasd", company: "qwe", website: "qwe", phone: "qew"))
+//        participants.append(ParticipantModel(id: 3, email: "e", username: "s", fullname: "asdasd", company: "qwe", website: "qwe", phone: "qew"))
+//
+//        let location = LocationModel(id: 0, country: "2", city: "s", address: "as", longitude: 12323.0, latitude: 12312.30)
+//        let organaizer = OrganaizerModel(id: 1, email: "s", username: "s", fullname: "s", company: "s", website: "s", phone: "s")
+//        let event = EventModel(id: 100, name: "Name", description: "descr", startDate: 12323.0, endDate: 123213.0, image: nil, organaizer: organaizer, location: location, participants: participants)
+//        presenter?.add(event: event)
         presenter?.showParticipantDetail(for: participant)
     }
     

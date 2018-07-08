@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import ReactiveSwift
 
 protocol EventDetailPresenterProtocol: class {
     var view: EventDetailViewProtocol? { get set }
     var router: EventDetailRouterProtocol? { get set }
-    var event: EventProtocol? { get set }
-    var participantsCount: Int { get }
+    var event: MutableProperty<EventProtocol>? { get set }
+    var participantsCount: Property<Int> { get }
     
     // VIEW -> PRESENTER
     func viewDidLoad()
@@ -21,4 +22,6 @@ protocol EventDetailPresenterProtocol: class {
     
     func websiteTapAction()
     func emailTapAction()
+    
+    //func add(event: EventProtocol)
 }
