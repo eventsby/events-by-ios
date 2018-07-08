@@ -27,6 +27,7 @@ class EventDetailView: UIViewController {
     @IBOutlet weak var eventTimeLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var participantsTableView: UITableView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var organaizerDescription: UILabel!
     @IBOutlet weak var organaizerWebsiteLabel: UILabel!
@@ -40,6 +41,16 @@ class EventDetailView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let imageHeight = eventImageView.frame.height / 2
+        let newOrigin = CGPoint(x: 0, y: -imageHeight)
+        scrollView.contentOffset = newOrigin
+        scrollView.contentInset = UIEdgeInsets(top: imageHeight, left: 0, bottom: 0, right: 0)
+        eventImageView.frame.size.height = imageHeight
     }
 
 }
@@ -89,6 +100,19 @@ extension EventDetailView: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: Consts.annotationIdentifier, for: annotation)
         return annotationView
+    }
+    
+}
+
+extension EventDetailView: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        if offsetY < 0 {
+            eventImageView.frame.size.height = -offsetY
+        } else {
+            eventImageView.frame.size.height = eventImageView.frame.height
+        }
     }
     
 }
