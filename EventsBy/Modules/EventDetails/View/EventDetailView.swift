@@ -108,6 +108,7 @@ extension EventDetailView: EventDetailViewProtocol {
         presenter?.participantsCount.producer.startWithValues {
             self.participantsLabel.text = String(format: "title_participants".localized, $0)
         }
+        participantsTableView.reloadData()
     }
     
 }
