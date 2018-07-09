@@ -23,15 +23,15 @@ class LoginPresenter: LoginPresenterProtocol {
         view?.showLoading()
     }
     
-    func loginAction() {
-        interactor?.login()
+    func loginAction(_ login: String, _ password: String) {
+        interactor?.login(login, password)
     }
     
 }
 
 extension LoginPresenter: LoginInteractorOutputProtocol {
     
-    func onSuccessLogin() {
+    func onSuccessLogin(_ user: UserDetailProtocol) {
         view?.hideLoading()
         view?.onSuccessLogin()
     }

@@ -81,6 +81,8 @@
 		A37D461520F3D31000676BAB /* LoginInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D461420F3D31000676BAB /* LoginInteractorProtocol.swift */; };
 		A37D461720F3D75800676BAB /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D461620F3D75800676BAB /* TokenModel.swift */; };
 		A37D461920F3DDC100676BAB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A37D461820F3DDC100676BAB /* Login.storyboard */; };
+		A37D461D20F3E87F00676BAB /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D461C20F3E87F00676BAB /* UserService.swift */; };
+		A37D461F20F3EB2F00676BAB /* UserDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D461E20F3EB2F00676BAB /* UserDetailProtocol.swift */; };
 		A3D6E77F20F12B0300C0DB07 /* AppSkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E77E20F12B0300C0DB07 /* AppSkin.swift */; };
 		A3D6E78320F12B5D00C0DB07 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E78220F12B5D00C0DB07 /* Colors.swift */; };
 		A3D6E78520F12B6E00C0DB07 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E78420F12B6E00C0DB07 /* Fonts.swift */; };
@@ -200,6 +202,8 @@
 		A37D461420F3D31000676BAB /* LoginInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractorProtocol.swift; sourceTree = "<group>"; };
 		A37D461620F3D75800676BAB /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
 		A37D461820F3DDC100676BAB /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		A37D461C20F3E87F00676BAB /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		A37D461E20F3EB2F00676BAB /* UserDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailProtocol.swift; sourceTree = "<group>"; };
 		A3D6E77E20F12B0300C0DB07 /* AppSkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSkin.swift; sourceTree = "<group>"; };
 		A3D6E78220F12B5D00C0DB07 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A3D6E78420F12B6E00C0DB07 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -302,6 +306,7 @@
 		0C2F6FB920701A0800493876 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A37D461A20F3E86400676BAB /* Common */,
 				A37D45F920F28F2600676BAB /* Login */,
 				A37D460320F3D28000676BAB /* Registration */,
 				0C2F6FBA20701A1A00493876 /* EventList */,
@@ -429,6 +434,7 @@
 				A30AF7DA20EB935E00CA6951 /* LocationModel.swift */,
 				A30AF7DC20EB936600CA6951 /* ParticipantModel.swift */,
 				A37D461620F3D75800676BAB /* TokenModel.swift */,
+				A37D461E20F3EB2F00676BAB /* UserDetailProtocol.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -596,6 +602,14 @@
 			children = (
 			);
 			path = Registration;
+			sourceTree = "<group>";
+		};
+		A37D461A20F3E86400676BAB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A37D461C20F3E87F00676BAB /* UserService.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		A3D6E77D20F12ACD00C0DB07 /* App */ = {
@@ -828,6 +842,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EventsBy/Pods-EventsBy-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework",
@@ -838,6 +853,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinLayout.framework",
@@ -961,7 +977,9 @@
 				A35A9CC820EA85E000037F8B /* Errors.swift in Sources */,
 				A30AF80520EBE32000CA6951 /* MKMapView.swift in Sources */,
 				0C2F6FBD20701A5800493876 /* EventListView.swift in Sources */,
+				A37D461F20F3EB2F00676BAB /* UserDetailProtocol.swift in Sources */,
 				A30AF80C20EBE80C00CA6951 /* EventMapNoteView.swift in Sources */,
+				A37D461D20F3E87F00676BAB /* UserService.swift in Sources */,
 				A3D6E78920F12C6800C0DB07 /* AppRouter.swift in Sources */,
 				A30AF80320EBE27800CA6951 /* Location.swift in Sources */,
 				A35A9CA320EA470B00037F8B /* EventListRouter.swift in Sources */,

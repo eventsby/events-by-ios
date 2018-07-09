@@ -10,17 +10,19 @@ class LoginInteractor: LoginInteractorInputProtocol {
     
     weak var presenter: LoginInteractorOutputProtocol?
     var service: LoginServiceInputProtocol?
+    var userService: UserServiceProtocol?
     
-    func login() {
-        service?.login()
+    func login(_ login: String, _ password: String) {
+        service?.login(login: login, password: password)
     }
     
 }
 
 extension LoginInteractor: LoginServiceOutputProtocol {
     
-    func onSuccessLogin(_ token: TokenProtocol) {
-        presenter?.onSuccessLogin()
+    func onSuccessLogin(_ user: UserDetailProtocol) {
+        presenter?.onSuccessLogin(user)
+        userService?.saveUser(user)
     }
     
     func onInvalidCredentials() {

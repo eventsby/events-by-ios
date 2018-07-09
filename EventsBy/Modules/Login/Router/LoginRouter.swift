@@ -17,10 +17,12 @@ class LoginRouter: LoginRouterProtocol {
         let router: LoginRouterProtocol = LoginRouter()
         let presenter: LoginPresenterProtocol & LoginInteractorOutputProtocol = LoginPresenter(view: view, interactor: interactor, router: router)
         let service: LoginServiceInputProtocol = LoginService()
+        let userService: UserServiceProtocol = UserService()
         
         view.presenter = presenter
         interactor.presenter = presenter
         interactor.service = service
+        interactor.userService = userService
         service.remoteRequestHandler = interactor
         
         return navController

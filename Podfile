@@ -17,6 +17,7 @@ target 'EventsBy' do
   pod 'PKHUD', '~> 5.0'
   pod 'SwiftLint'
   pod 'PinLayout', '~> 1.0'
+  pod 'KeychainAccess', '~> 3.0'
 
   target 'EventsByTests' do
     inherit! :search_paths

@@ -29,7 +29,6 @@ enum Endpoints {
             case .fetch: return "events"
             }
         }
-        
         public var url: String {
             switch self {
             case .fetch: return "\(API.baseUrl)\(API.version)\(path)"
@@ -39,19 +38,20 @@ enum Endpoints {
     
     enum Auth: Endpoint {
         case token
+        case userInfo
         
         public var path: String {
             switch self {
             case .token: return "oauth/token"
+            case .userInfo: return "users/info"
             }
         }
-        
         public var url: String {
             switch self {
             case .token: return "\(API.baseUrl)\(API.version)\(path)"
+            case .userInfo: return "\(API.baseUrl)\(API.version)\(path)"
             }
         }
-        
     }
     
 }

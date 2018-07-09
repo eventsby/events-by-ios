@@ -8,15 +8,7 @@
 
 import Foundation
 
-protocol OrganaizerProtocol {
-    
-    var id: Int { get }
-    var email: String { get }
-    var username: String { get }
-    var fullname: String { get }
-    var company: String { get }
-    var website: String { get }
-    var phone: String { get }
+protocol OrganaizerProtocol: UserDetailProtocol {
     
 }
 
