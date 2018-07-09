@@ -70,6 +70,17 @@
 		A37D45F420F2418A00676BAB /* EventDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D45F320F2418A00676BAB /* EventDetailService.swift */; };
 		A37D45F620F2422A00676BAB /* EventDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D45F520F2422A00676BAB /* EventDetailInteractor.swift */; };
 		A37D45F820F2423900676BAB /* EventDetailInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D45F720F2423900676BAB /* EventDetailInteractorProtocol.swift */; };
+		A37D460520F3D29300676BAB /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D460420F3D29300676BAB /* LoginView.swift */; };
+		A37D460720F3D2A200676BAB /* LoginViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D460620F3D2A200676BAB /* LoginViewProtocol.swift */; };
+		A37D460920F3D2AE00676BAB /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D460820F3D2AE00676BAB /* LoginRouter.swift */; };
+		A37D460B20F3D2B900676BAB /* LoginRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D460A20F3D2B900676BAB /* LoginRouterProtocol.swift */; };
+		A37D460D20F3D2C300676BAB /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D460C20F3D2C300676BAB /* LoginPresenter.swift */; };
+		A37D460F20F3D2CC00676BAB /* LoginPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D460E20F3D2CC00676BAB /* LoginPresenterProtocol.swift */; };
+		A37D461120F3D2FD00676BAB /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D461020F3D2FD00676BAB /* LoginService.swift */; };
+		A37D461320F3D30800676BAB /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D461220F3D30800676BAB /* LoginInteractor.swift */; };
+		A37D461520F3D31000676BAB /* LoginInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D461420F3D31000676BAB /* LoginInteractorProtocol.swift */; };
+		A37D461720F3D75800676BAB /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D461620F3D75800676BAB /* TokenModel.swift */; };
+		A37D461920F3DDC100676BAB /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A37D461820F3DDC100676BAB /* Login.storyboard */; };
 		A3D6E77F20F12B0300C0DB07 /* AppSkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E77E20F12B0300C0DB07 /* AppSkin.swift */; };
 		A3D6E78320F12B5D00C0DB07 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E78220F12B5D00C0DB07 /* Colors.swift */; };
 		A3D6E78520F12B6E00C0DB07 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E78420F12B6E00C0DB07 /* Fonts.swift */; };
@@ -178,6 +189,17 @@
 		A37D45F320F2418A00676BAB /* EventDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailService.swift; sourceTree = "<group>"; };
 		A37D45F520F2422A00676BAB /* EventDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailInteractor.swift; sourceTree = "<group>"; };
 		A37D45F720F2423900676BAB /* EventDetailInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailInteractorProtocol.swift; sourceTree = "<group>"; };
+		A37D460420F3D29300676BAB /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		A37D460620F3D2A200676BAB /* LoginViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewProtocol.swift; sourceTree = "<group>"; };
+		A37D460820F3D2AE00676BAB /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		A37D460A20F3D2B900676BAB /* LoginRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouterProtocol.swift; sourceTree = "<group>"; };
+		A37D460C20F3D2C300676BAB /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		A37D460E20F3D2CC00676BAB /* LoginPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterProtocol.swift; sourceTree = "<group>"; };
+		A37D461020F3D2FD00676BAB /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		A37D461220F3D30800676BAB /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		A37D461420F3D31000676BAB /* LoginInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractorProtocol.swift; sourceTree = "<group>"; };
+		A37D461620F3D75800676BAB /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
+		A37D461820F3DDC100676BAB /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		A3D6E77E20F12B0300C0DB07 /* AppSkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSkin.swift; sourceTree = "<group>"; };
 		A3D6E78220F12B5D00C0DB07 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A3D6E78420F12B6E00C0DB07 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -280,6 +302,8 @@
 		0C2F6FB920701A0800493876 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A37D45F920F28F2600676BAB /* Login */,
+				A37D460320F3D28000676BAB /* Registration */,
 				0C2F6FBA20701A1A00493876 /* EventList */,
 				0C2F6FBB20701A3200493876 /* EventDetails */,
 			);
@@ -294,7 +318,6 @@
 				A35A9C9920EA3CD400037F8B /* Router */,
 				A35A9C9820EA3C7800037F8B /* View */,
 				A35A9C9620EA3AA100037F8B /* Interactor */,
-				0C2F6FBE20701A6500493876 /* Events.storyboard */,
 			);
 			path = EventList;
 			sourceTree = "<group>";
@@ -307,7 +330,6 @@
 				A35A9CCB20EAB5D300037F8B /* Router */,
 				A35A9CCC20EAB5DB00037F8B /* View */,
 				A35A9CCD20EAB5E400037F8B /* Interactor */,
-				0C2F6FC2207023F300493876 /* EventDetails.storyboard */,
 			);
 			path = EventDetails;
 			sourceTree = "<group>";
@@ -377,6 +399,7 @@
 				0C2F6FBC20701A5800493876 /* EventListView.swift */,
 				A35A9CA920EA4B9100037F8B /* EventListViewProtocol.swift */,
 				A35A9CBB20EA5C0F00037F8B /* EventViewCell.swift */,
+				0C2F6FBE20701A6500493876 /* Events.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -405,6 +428,7 @@
 				A30AF7D820EB935500CA6951 /* OrganaizerModel.swift */,
 				A30AF7DA20EB935E00CA6951 /* LocationModel.swift */,
 				A30AF7DC20EB936600CA6951 /* ParticipantModel.swift */,
+				A37D461620F3D75800676BAB /* TokenModel.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -496,6 +520,7 @@
 				A30AF80B20EBE80C00CA6951 /* EventMapNoteView.swift */,
 				A30AF81020EBED1F00CA6951 /* EventMapNoteView.xib */,
 				A30AF81220EBF3F000CA6951 /* ParticipantCell.swift */,
+				0C2F6FC2207023F300493876 /* EventDetails.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -507,6 +532,70 @@
 				A37D45F720F2423900676BAB /* EventDetailInteractorProtocol.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		A37D45F920F28F2600676BAB /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A37D45FA20F28F2F00676BAB /* Service */,
+				A37D45FB20F28F3600676BAB /* Presenter */,
+				A37D45FC20F28F4400676BAB /* Router */,
+				A37D45FD20F28F4900676BAB /* View */,
+				A37D45FE20F28F4C00676BAB /* Interactor */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A37D45FA20F28F2F00676BAB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A37D461020F3D2FD00676BAB /* LoginService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A37D45FB20F28F3600676BAB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A37D460C20F3D2C300676BAB /* LoginPresenter.swift */,
+				A37D460E20F3D2CC00676BAB /* LoginPresenterProtocol.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		A37D45FC20F28F4400676BAB /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				A37D460820F3D2AE00676BAB /* LoginRouter.swift */,
+				A37D460A20F3D2B900676BAB /* LoginRouterProtocol.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		A37D45FD20F28F4900676BAB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A37D460420F3D29300676BAB /* LoginView.swift */,
+				A37D460620F3D2A200676BAB /* LoginViewProtocol.swift */,
+				A37D461820F3DDC100676BAB /* Login.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A37D45FE20F28F4C00676BAB /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				A37D461220F3D30800676BAB /* LoginInteractor.swift */,
+				A37D461420F3D31000676BAB /* LoginInteractorProtocol.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		A37D460320F3D28000676BAB /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Registration;
 			sourceTree = "<group>";
 		};
 		A3D6E77D20F12ACD00C0DB07 /* App */ = {
@@ -675,6 +764,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A30AF80020EBD61900CA6951 /* Montserrat-Light.ttf in Resources */,
+				A37D461920F3DDC100676BAB /* Login.storyboard in Resources */,
 				A30AF7F320EBD5F200CA6951 /* Raleway-SemiBold.ttf in Resources */,
 				A30AF81120EBED1F00CA6951 /* EventMapNoteView.xib in Resources */,
 				A30AF7EF20EBD5E400CA6951 /* Raleway-Medium.ttf in Resources */,
@@ -820,10 +910,13 @@
 				A35A9CD720EAB71300037F8B /* EventDetailViewProtocol.swift in Sources */,
 				A35A9CA120EA458A00037F8B /* Uniq.swift in Sources */,
 				A30AF7D920EB935500CA6951 /* OrganaizerModel.swift in Sources */,
+				A37D461120F3D2FD00676BAB /* LoginService.swift in Sources */,
 				A35A9CB020EA4BF800037F8B /* EventListInteractorProtocol.swift in Sources */,
 				0C2F6FC1207023E900493876 /* EventDetailView.swift in Sources */,
 				A35A9CC620EA843800037F8B /* DateUtils.swift in Sources */,
+				A37D461320F3D30800676BAB /* LoginInteractor.swift in Sources */,
 				A35A9CBA20EA57DA00037F8B /* NetworkManager.swift in Sources */,
+				A37D460920F3D2AE00676BAB /* LoginRouter.swift in Sources */,
 				A3D6E78F20F1343C00C0DB07 /* Badge.swift in Sources */,
 				A35A9CB820EA4DF300037F8B /* Endpoints.swift in Sources */,
 				A30AF80A20EBE7A800CA6951 /* EventMapAnnotationView.swift in Sources */,
@@ -841,8 +934,10 @@
 				A35A9CAE20EA4BD700037F8B /* EventListPresenterProtocol.swift in Sources */,
 				A35A9CAA20EA4B9100037F8B /* EventListViewProtocol.swift in Sources */,
 				A3D6E78D20F133B900C0DB07 /* LabledButton.swift in Sources */,
+				A37D461520F3D31000676BAB /* LoginInteractorProtocol.swift in Sources */,
 				A3D6E78B20F132AB00C0DB07 /* UIBarButtonItem+Factory.swift in Sources */,
 				A35A9CD120EAB63C00037F8B /* EventDetailPresenterProtocol.swift in Sources */,
+				A37D461720F3D75800676BAB /* TokenModel.swift in Sources */,
 				A35A9CBE20EA5DA900037F8B /* EventPageArray.swift in Sources */,
 				A35A9CBC20EA5C0F00037F8B /* EventViewCell.swift in Sources */,
 				A30AF80E20EBE85700CA6951 /* UIView+Nib.swift in Sources */,
@@ -855,9 +950,13 @@
 				A35A9CA520EA49FC00037F8B /* EventListInteractor.swift in Sources */,
 				A35A9CB320EA4C7A00037F8B /* EventListService.swift in Sources */,
 				A3D6E79120F1355B00C0DB07 /* UIViewController+Menu.swift in Sources */,
+				A37D460B20F3D2B900676BAB /* LoginRouterProtocol.swift in Sources */,
 				A35A9CCF20EAB63000037F8B /* EventDetailPresenter.swift in Sources */,
+				A37D460D20F3D2C300676BAB /* LoginPresenter.swift in Sources */,
+				A37D460720F3D2A200676BAB /* LoginViewProtocol.swift in Sources */,
 				A3D6E77F20F12B0300C0DB07 /* AppSkin.swift in Sources */,
 				A35A9CC420EA821D00037F8B /* DateFormatters.swift in Sources */,
+				A37D460F20F3D2CC00676BAB /* LoginPresenterProtocol.swift in Sources */,
 				A30AF80820EBE56600CA6951 /* EventAnnotation.swift in Sources */,
 				A35A9CC820EA85E000037F8B /* Errors.swift in Sources */,
 				A30AF80520EBE32000CA6951 /* MKMapView.swift in Sources */,
@@ -866,6 +965,7 @@
 				A3D6E78920F12C6800C0DB07 /* AppRouter.swift in Sources */,
 				A30AF80320EBE27800CA6951 /* Location.swift in Sources */,
 				A35A9CA320EA470B00037F8B /* EventListRouter.swift in Sources */,
+				A37D460520F3D29300676BAB /* LoginView.swift in Sources */,
 				A37D45F420F2418A00676BAB /* EventDetailService.swift in Sources */,
 				A35A9CA720EA4AEB00037F8B /* EventListPresenter.swift in Sources */,
 			);

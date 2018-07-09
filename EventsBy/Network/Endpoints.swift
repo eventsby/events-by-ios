@@ -9,8 +9,8 @@
 import Foundation
 
 struct API {
-    static let version = "v1"
-    static let baseUrl = "https://eventsby.herokuapp.com/api/" + version + "/"
+    static let version = "api/v1/"
+    static let baseUrl = "https://eventsby.herokuapp.com/"
 }
 
 protocol Endpoint {
@@ -32,8 +32,26 @@ enum Endpoints {
         
         public var url: String {
             switch self {
-            case .fetch: return "\(API.baseUrl)\(path)"
+            case .fetch: return "\(API.baseUrl)\(API.version)\(path)"
             }
         }
     }
+    
+    enum Auth: Endpoint {
+        case token
+        
+        public var path: String {
+            switch self {
+            case .token: return "oauth/token"
+            }
+        }
+        
+        public var url: String {
+            switch self {
+            case .token: return "\(API.baseUrl)\(API.version)\(path)"
+            }
+        }
+        
+    }
+    
 }

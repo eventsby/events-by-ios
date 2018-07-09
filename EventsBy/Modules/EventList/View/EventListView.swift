@@ -14,7 +14,7 @@ class EventListView: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var presenter: EventListPresenterProtocol?
-    var eventList: [EventModel] = []
+    var eventList: [EventModel] = [] // TODO extract it and get it from presenter
     
     private struct Consts {
         static let cellHeight: CGFloat = 170
