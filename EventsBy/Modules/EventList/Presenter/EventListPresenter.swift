@@ -11,6 +11,15 @@ class EventListPresenter: EventListPresenterProtocol {
     internal weak var view: EventListViewProtocol?
     internal var interactor: EventListInteractorInputProtocol?
     internal var router: EventListRouterProtocol?
+    internal var eventList: [EventModel] = []
+    
+    var eventsCount: Int {
+        return eventList.count
+    }
+    
+    func event(at index: Int) -> EventModel? {
+        return eventList[index]
+    }
     
     init(view: EventListViewProtocol?, interactor: EventListInteractorInputProtocol, router: EventListRouterProtocol?) {
         self.view = view
@@ -23,6 +32,8 @@ class EventListPresenter: EventListPresenterProtocol {
         view?.showLoading()
         interactor?.retrieveEventList()
     }
+    
+    // MARK: Actions
     
     func showEventDetail(for event: EventModel) {
         guard let view = view else { return }
@@ -38,8 +49,9 @@ class EventListPresenter: EventListPresenterProtocol {
 extension EventListPresenter: EventListInteractorOutputProtocol {
     
     func didRetrieveEvents(_ events: [EventModel]) {
+        self.eventList = events
         view?.hideLoading()
-        view?.showEvents(events)
+        view?.showEvents()
     }
     
     func onError(_ error: Error?) {

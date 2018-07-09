@@ -14,7 +14,6 @@ class EventListView: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var presenter: EventListPresenterProtocol?
-    var eventList: [EventModel] = [] // TODO extract it and get it from presenter
     
     private struct Consts {
         static let cellHeight: CGFloat = 170
@@ -66,8 +65,7 @@ extension EventListView: EventListViewProtocol {
         collectionView.addSubview(self.refreshControl)
     }
     
-    func showEvents(_ events: [EventModel]) {
-        eventList = events
+    func showEvents() {
         collectionView.reloadData()
     }
     
@@ -90,15 +88,15 @@ extension EventListView: EventListViewProtocol {
 extension EventListView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return eventList.count
+        return presenter?.eventsCount ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventViewCell", for: indexPath) as? EventViewCell else {
             return UICollectionViewCell()
         }
-        let item = eventList[indexPath.row]
-        cell.setup(with: item)
+        guard let event = presenter?.event(at: indexPath.row) else { return UICollectionViewCell() }
+        cell.setup(with: event)
         return cell
     }
     
@@ -109,7 +107,8 @@ extension EventListView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter?.showEventDetail(for: eventList[indexPath.row])
+        guard let event = presenter?.event(at: indexPath.row) else { return }
+        presenter?.showEventDetail(for: event)
     }
     
 }

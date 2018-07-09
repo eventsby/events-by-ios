@@ -12,9 +12,12 @@ protocol EventListPresenterProtocol: class {
     var view: EventListViewProtocol? { get set }
     var interactor: EventListInteractorInputProtocol? { get set }
     var router: EventListRouterProtocol? { get set }
+    var eventList: [EventModel] { get set }
+    var eventsCount: Int { get }
     
     // View -> Presenter
     func viewDidLoad()
     func pullToRefresh()
     func showEventDetail(for event: EventModel)
+    func event(at index: Int) -> EventModel?
 }

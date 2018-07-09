@@ -11,7 +11,7 @@ import UIKit
 protocol EventListViewProtocol: class {
     var presenter: EventListPresenterProtocol? { get set }
     
-    func showEvents(_ events: [EventModel])
+    func showEvents()
     func showError(_ error: Error?)
     func showLoading()
     func hideLoading()
