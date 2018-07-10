@@ -27,6 +27,10 @@ class LoginPresenter: LoginPresenterProtocol {
         interactor?.login(login, password)
     }
     
+    func closeAction() {
+        view?.onClose()
+    }
+    
 }
 
 extension LoginPresenter: LoginInteractorOutputProtocol {

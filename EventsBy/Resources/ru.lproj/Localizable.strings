@@ -21,3 +21,8 @@
 // Event List
 
 "title_event_list" = "События";
+
+// Login
+
+"login_form_username" = "Логин";
+"login_form_password" = "Пароль";

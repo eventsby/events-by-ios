@@ -21,3 +21,8 @@
 // Event List
 
 "title_event_list" = "Events";
+
+// Login
+
+"login_form_username" = "Username";
+"login_form_password" = "Password";

@@ -16,4 +16,5 @@ protocol LoginPresenterProtocol: class {
     // View -> Presenter
     func viewDidLoad()
     func loginAction(_ login: String, _ password: String)
+    func closeAction()
 }

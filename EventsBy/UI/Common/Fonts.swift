@@ -15,6 +15,10 @@ enum Fonts {
     
     case badgeText
     
+    case inputFieldError
+    case inputFieldTip
+    case inputFieldText
+    
     case custom(name: String, size: CGFloat)
     case button(size: CGFloat)
     
@@ -30,6 +34,12 @@ enum Fonts {
             return UIFont(name: "Montserrat-SemiBold", size: size)!
         case .badgeText:
             return UIFont(name: "Montserrat-SemiBold", size: 13)!
+        case .inputFieldError:
+            return UIFont(name: "Montserrat-Medium", size: 9)!
+        case .inputFieldText:
+            return UIFont(name: "Montserrat-Medium", size: 17)!
+        case .inputFieldTip:
+             return UIFont(name: "Montserrat-SemiBold", size: 13)!
         }
     }
     

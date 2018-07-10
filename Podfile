@@ -18,6 +18,7 @@ target 'EventsBy' do
   pod 'SwiftLint'
   pod 'PinLayout', '~> 1.0'
   pod 'KeychainAccess', '~> 3.0'
+  pod 'TPKeyboardAvoiding', '~> 1.0'
 
   target 'EventsByTests' do
     inherit! :search_paths

@@ -53,6 +53,9 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
     func wantToParticipateAction() {
         // if user is authorized, then call interactor's method to add particiant
         // otherwise navigate to login
+        
+        guard let view = self.view else { return }
+        router?.presentLoginScreen(from: view)
     }
     
 //    func add(event: EventProtocol) {

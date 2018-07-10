@@ -18,4 +18,5 @@ protocol LoginViewProtocol: class {
     func hideLoading()
     
     func setupView()
+    func onClose()
 }

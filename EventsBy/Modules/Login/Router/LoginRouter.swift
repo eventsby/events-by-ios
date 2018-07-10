@@ -11,8 +11,7 @@ import UIKit
 class LoginRouter: LoginRouterProtocol {
     
     class func initializeLoginModule() -> UIViewController {
-        guard let navController = loginStoryboard.instantiateInitialViewController() else { return UIViewController() }
-        guard let view = navController.childViewControllers.first as? LoginView else { return UIViewController() }
+        guard let view = loginStoryboard.instantiateInitialViewController() as? LoginView else { return UIViewController() }
         let interactor: LoginInteractorInputProtocol & LoginServiceOutputProtocol = LoginInteractor()
         let router: LoginRouterProtocol = LoginRouter()
         let presenter: LoginPresenterProtocol & LoginInteractorOutputProtocol = LoginPresenter(view: view, interactor: interactor, router: router)
@@ -25,7 +24,7 @@ class LoginRouter: LoginRouterProtocol {
         interactor.userService = userService
         service.remoteRequestHandler = interactor
         
-        return navController
+        return view
     }
     
     static var loginStoryboard: UIStoryboard {

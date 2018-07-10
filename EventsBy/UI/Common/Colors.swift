@@ -21,6 +21,13 @@ enum Colors {
     case buttonNormal
     case buttonSelected
     
+    case inputFieldError
+    case inputFieldTip
+    case inputFieldText
+    case inputFieldSeparator
+    
+    case primaryText
+    
     var uiColor: UIColor {
         switch self {
         case .backgroundMain:
@@ -39,6 +46,16 @@ enum Colors {
             return UIColor(253, 192, 44)
         case .buttonNormal:
             return .white
+        case .inputFieldError:
+            return .red
+        case .inputFieldTip:
+            return Colors.primaryText.uiColor.withAlphaComponent(0.5)
+        case .inputFieldText:
+            return Colors.primaryText.uiColor
+        case .primaryText:
+            return UIColor(46, 46, 46)
+        case .inputFieldSeparator:
+            return UIColor(200, 200, 200, 1)
         }
     }
     

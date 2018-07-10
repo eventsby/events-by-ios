@@ -24,7 +24,9 @@ class LoginView: UIViewController {
     
     // MARK: Actions
     
-    
+    @IBAction func onCloseAction(_ sender: Any) {
+        presenter?.closeAction()
+    }
     
 }
 
@@ -32,6 +34,10 @@ extension LoginView: LoginViewProtocol {
     
     func setupView() {
         
+    }
+    
+    func onClose() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func onSuccessLogin() {
