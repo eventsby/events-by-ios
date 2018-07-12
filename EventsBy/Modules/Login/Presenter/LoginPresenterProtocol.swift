@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import ReactiveSwift
 
 protocol LoginPresenterProtocol: class {
     var view: LoginViewProtocol? { get set }
     var interactor: LoginInteractorInputProtocol? { get set }
     var router: LoginRouterProtocol? { get set }
     
+    var login: MutableProperty<String?> { get }
+    var password: MutableProperty<String?> { get }
+    
     // View -> Presenter
     func viewDidLoad()
-    func loginAction(_ login: String, _ password: String)
+    func loginAction()
     func closeAction()
 }

@@ -81,6 +81,9 @@
                                                     <constraint firstAttribute="width" constant="200" id="uxh-Ml-66F"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="onLoginAction:" destination="GDW-lH-rS2" eventType="touchUpInside" id="MPI-NM-8dE"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -126,6 +129,10 @@
                         <viewLayoutGuide key="safeArea" id="kYb-hh-R1B"/>
                     </view>
                     <navigationItem key="navigationItem" id="J6s-Kz-kdq"/>
+                    <connections>
+                        <outlet property="nameInputField" destination="vMa-5M-ppW" id="0FD-Ox-Iwa"/>
+                        <outlet property="passwordInputField" destination="SO8-Io-g44" id="joa-Z9-O3g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7U-bP-5fO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -29,15 +29,18 @@ class LoginService: LoginServiceInputProtocol {
     let sessionManager = NetworkManager.shared.sessionManager
     
     func login(login: String, password: String) {
+        let endpoint = AuthEndpoint.token(login: login, password: password)
+        
         sessionManager
-            .request(Endpoints.Auth.token.url, method: .get)
+            .request(endpoint.url, method: endpoint.method, parameters: endpoint.parameters)
             .validate()
             .responseJSON { response in
                 if response.result.error == nil, let data = response.data {
-                    if let token = try? JSONDecoder().decode(TokenModel.self, from: data) {
-                        self.getUserInfo(token: token)
+                    guard let token = try? JSONDecoder().decode(TokenModel.self, from: data) else {
+                        self.remoteRequestHandler?.onInvalidCredentials()
+                        return
                     }
-                    self.remoteRequestHandler?.onInvalidCredentials()
+                    self.getUserInfo(token: token)
                 } else {
                     self.remoteRequestHandler?.onError(response.result.error)
                 }
@@ -45,8 +48,10 @@ class LoginService: LoginServiceInputProtocol {
     }
     
     func getUserInfo(token: TokenProtocol) {
+        let endpoint = AuthEndpoint.userInfo
+        
         sessionManager
-            .request(Endpoints.Auth.userInfo.url, method: .get)
+            .request(endpoint.url, method: endpoint.method)
             .validate()
             .responseJSON { response in
                 if response.result.error == nil, let data = response.data {

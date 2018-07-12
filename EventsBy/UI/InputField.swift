@@ -49,6 +49,15 @@ final class InputField: UIView {
         }
     }
     
+    var returnKeyType: UIReturnKeyType {
+        get {
+            return inputField?.returnKeyType ?? .default
+        }
+        set {
+            inputField?.returnKeyType = newValue
+        }
+    }
+    
     var autocapitalizationType: UITextAutocapitalizationType {
         get {
             return inputField?.autocapitalizationType ?? .sentences

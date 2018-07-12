@@ -8,10 +8,13 @@
 
 import UIKit
 import PKHUD
+import ReactiveSwift
+import Result
 
 class LoginView: UIViewController {
     
-    
+    @IBOutlet weak var nameInputField: InputField!
+    @IBOutlet weak var passwordInputField: InputField!
     
     var presenter: LoginPresenterProtocol?
     
@@ -24,6 +27,10 @@ class LoginView: UIViewController {
     
     // MARK: Actions
     
+    @IBAction func onLoginAction(_ sender: Any) {
+        presenter?.loginAction()
+    }
+    
     @IBAction func onCloseAction(_ sender: Any) {
         presenter?.closeAction()
     }
@@ -33,7 +40,14 @@ class LoginView: UIViewController {
 extension LoginView: LoginViewProtocol {
     
     func setupView() {
+        guard let presenter = self.presenter else { return }
+        presenter.login <~ nameInputField.reactive.continuousTextValues
+        presenter.password <~ passwordInputField.reactive.continuousTextValues
         
+        nameInputField.returnKeyType = .next
+        nameInputField.autocapitalizationType = .none
+        passwordInputField.returnKeyType = .done
+        passwordInputField.autocapitalizationType = .none
     }
     
     func onClose() {

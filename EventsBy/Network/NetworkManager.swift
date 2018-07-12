@@ -19,9 +19,8 @@ class NetworkManager: NSObject {
         configuration.timeoutIntervalForRequest = 40
         configuration.timeoutIntervalForResource = 40
         sessionManager = SessionManager(configuration: configuration)
-        //let handler = OAuth2Handler(sessionManager)
-        //sessionManager.adapter = handler
-        //sessionManager.retrier = handler
+        let handler = OAuth2Handler(sessionManager)
+        sessionManager.adapter = handler
     }
 
 }

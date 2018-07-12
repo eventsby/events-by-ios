@@ -27,8 +27,10 @@ class EventListService: EventListServiceInputProtocol {
     let sessionManager = NetworkManager.shared.sessionManager
     
     func retrieveEventList() {
+        let endpoint = EventEndpoint.events
+        
         sessionManager
-            .request(Endpoints.Events.fetch.url, method: .get)
+            .request(endpoint.url, method: endpoint.method)
             .validate()
             .responseJSON { response in
                 if response.result.error == nil, let data = response.data {

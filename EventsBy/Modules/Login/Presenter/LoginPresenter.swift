@@ -6,11 +6,16 @@
 //  Copyright © 2018 Events-By. All rights reserved.
 //
 
+import ReactiveSwift
+
 class LoginPresenter: LoginPresenterProtocol {
     
     internal weak var view: LoginViewProtocol?
     internal var interactor: LoginInteractorInputProtocol?
     internal var router: LoginRouterProtocol?
+    
+    let login: MutableProperty<String?> = MutableProperty(nil)
+    let password: MutableProperty<String?> = MutableProperty(nil)
     
     init(view: LoginViewProtocol?, interactor: LoginInteractorInputProtocol, router: LoginRouterProtocol?) {
         self.view = view
@@ -23,7 +28,8 @@ class LoginPresenter: LoginPresenterProtocol {
         view?.showLoading()
     }
     
-    func loginAction(_ login: String, _ password: String) {
+    func loginAction() {
+        guard let login = self.login.value, let password = self.password.value else { return }
         interactor?.login(login, password)
     }
     
