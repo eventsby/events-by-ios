@@ -8,10 +8,16 @@
 
 class EventListPresenter: EventListPresenterProtocol {
     
+    private struct Pagination {
+        static let limit = 5
+    }
+    
     internal weak var view: EventListViewProtocol?
     internal var interactor: EventListInteractorInputProtocol?
     internal var router: EventListRouterProtocol?
     internal var eventList: [EventModel] = []
+    
+    var totalItems: Int = 0
     
     var eventsCount: Int {
         return eventList.count
@@ -30,7 +36,7 @@ class EventListPresenter: EventListPresenterProtocol {
     func viewDidLoad() {
         view?.setupView()
         view?.showLoading()
-        interactor?.retrieveEventList()
+        interactor?.retrieveEventList(offset: 0, limit: Pagination.limit)
     }
     
     // MARK: Actions
@@ -41,15 +47,23 @@ class EventListPresenter: EventListPresenterProtocol {
     }
     
     func pullToRefresh() {
-        interactor?.retrieveEventList()
+        interactor?.retrieveEventList(offset: 0, limit: Pagination.limit)
+    }
+    
+    func loadMore() {
+        guard eventsCount < totalItems else { return }
+        view?.showLoading()
+        let page = eventsCount / Pagination.limit
+        interactor?.retrieveEventList(offset: page, limit: Pagination.limit)
     }
     
 }
 
 extension EventListPresenter: EventListInteractorOutputProtocol {
     
-    func didRetrieveEvents(_ events: [EventModel]) {
-        self.eventList = events
+    func didRetrieveEvents(_ events: EventPageArray) {
+        self.eventList.append(contentsOf: events.content)
+        self.totalItems = events.totalElements
         view?.hideLoading()
         view?.showEvents()
     }

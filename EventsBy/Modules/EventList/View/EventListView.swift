@@ -101,9 +101,12 @@ extension EventListView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        if indexPath.item >= eventList.count - 2 {
-//            presenter?.loadMore()
-//        }
+        guard let count = presenter?.eventsCount else {
+            return
+        }
+        if indexPath.item >= count - 1 {
+            presenter?.loadMore()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

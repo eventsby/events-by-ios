@@ -14,10 +14,12 @@ protocol EventListPresenterProtocol: class {
     var router: EventListRouterProtocol? { get set }
     var eventList: [EventModel] { get set }
     var eventsCount: Int { get }
+    var totalItems: Int { get }
     
     // View -> Presenter
     func viewDidLoad()
     func pullToRefresh()
+    func loadMore()
     func showEventDetail(for event: EventModel)
     func event(at index: Int) -> EventModel?
 }

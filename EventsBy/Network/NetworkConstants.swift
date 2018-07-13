@@ -19,6 +19,6 @@ class NetworkConstants {
     static let username = "username"
     static let password = "password"
     
-    static let headerAuthorization = "Authorization";
-    static let authorizationValue = "Basic Y2xpZW50YXBwOjEyMzQ1Ng==";
+    static let headerAuthorization = "Authorization"
+    static let authorizationValue = "Basic Y2xpZW50YXBwOjEyMzQ1Ng=="
 }

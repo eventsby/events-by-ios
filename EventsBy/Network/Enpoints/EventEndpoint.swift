@@ -11,13 +11,13 @@ import Alamofire
 
 enum EventEndpoint: BaseEndPoint {
     
-    case events
+    case events(page: Int, limit: Int)
     
     func requestDetails() -> (url: String, method: HTTPMethod, parameters: [String : Any]?) {
         switch self {
-        case .events:
+        case .events(let page, let limit):
             var url = "\(NetworkConstants.baseUrl)\(NetworkConstants.version)"
-            url.append("events")
+            url.append("events?page=\(page)&size=\(limit)")
             return (url: url, method: .get, parameters: nil)
         }
     }

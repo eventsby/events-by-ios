@@ -22,10 +22,11 @@ class OAuth2Handler: RequestAdapter {
     
     func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
         var urlRequest = urlRequest
-        if (urlRequest.url?.absoluteString.contains(NetworkConstants.authTokenUrl))! {
+        guard let requestUrl = urlRequest.url else { return urlRequest }
+        if requestUrl.absoluteString.contains(NetworkConstants.authTokenUrl) {
             urlRequest.setValue(NetworkConstants.authorizationValue, forHTTPHeaderField: NetworkConstants.headerAuthorization)
         } else {
-            let token = "e2d20c25-1d9b-438c-8925-022780100079" // TODO
+            let token = "c672cbb8-b491-4d46-a0d6-bda514198bf3" // TODO
             urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: NetworkConstants.headerAuthorization)
         }
         return urlRequest

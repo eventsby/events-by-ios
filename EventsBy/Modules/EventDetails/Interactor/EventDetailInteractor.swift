@@ -19,7 +19,7 @@ class EventDetailInteractor: EventDetailInteractorInputProtocol {
 
 extension EventDetailInteractor: EventListServiceOutputProtocol {
     
-    func onEventListRetrieved(_ events: [EventModel]) {
+    func onEventListRetrieved(_ events: EventPageArray) {
         presenter?.didRetrieveEvents(events)
         // TODO A.T 02.06.18: save events to the local db if needed
     }
