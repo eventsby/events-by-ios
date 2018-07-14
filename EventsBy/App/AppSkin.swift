@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 struct AppSkin {
     
@@ -18,6 +19,16 @@ struct AppSkin {
         
         UINavigationBar.appearance().backIndicatorImage = #imageLiteral(resourceName: "icn_back").withRenderingMode(.alwaysOriginal)
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "icn_back").withRenderingMode(.alwaysOriginal)
+    }
+    
+    static func customizeProgressHUD(for window: UIWindow? = nil, progressColor: UIColor = .blue) {
+        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setBackgroundColor(.clear)
+        SVProgressHUD.setForegroundColor(progressColor)
+        
+        if let view = window {
+            SVProgressHUD.setContainerView(view)
+        }
     }
     
     static func setShadow(to view: UIView, path: CGRect? = nil, offset: CGSize? = nil) {

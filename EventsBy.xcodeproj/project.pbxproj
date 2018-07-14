@@ -45,6 +45,7 @@
 		A30AF81820EBF8C800CA6951 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A30AF81A20EBF8C800CA6951 /* Localizable.strings */; };
 		A30AF81D20EBF96F00CA6951 /* UIKit+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30AF81C20EBF96F00CA6951 /* UIKit+Localized.swift */; };
 		A3144ACC20FA136E0082C00F /* MessangerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3144ACB20FA136E0082C00F /* MessangerService.swift */; };
+		A3144ACE20FA26D10082C00F /* HUDProgressService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3144ACD20FA26D10082C00F /* HUDProgressService.swift */; };
 		A35A9C9F20EA409500037F8B /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9C9E20EA409500037F8B /* EventModel.swift */; };
 		A35A9CA120EA458A00037F8B /* Uniq.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CA020EA458A00037F8B /* Uniq.swift */; };
 		A35A9CA320EA470B00037F8B /* EventListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CA220EA470B00037F8B /* EventListRouter.swift */; };
@@ -172,6 +173,7 @@
 		A30AF81B20EBF8DD00CA6951 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A30AF81C20EBF96F00CA6951 /* UIKit+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Localized.swift"; sourceTree = "<group>"; };
 		A3144ACB20FA136E0082C00F /* MessangerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessangerService.swift; sourceTree = "<group>"; };
+		A3144ACD20FA26D10082C00F /* HUDProgressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDProgressService.swift; sourceTree = "<group>"; };
 		A35A9C9E20EA409500037F8B /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		A35A9CA020EA458A00037F8B /* Uniq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uniq.swift; sourceTree = "<group>"; };
 		A35A9CA220EA470B00037F8B /* EventListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListRouter.swift; sourceTree = "<group>"; };
@@ -486,6 +488,7 @@
 				A35A9CC320EA821D00037F8B /* DateFormatters.swift */,
 				A35A9CC520EA843800037F8B /* DateUtils.swift */,
 				A3144ACB20FA136E0082C00F /* MessangerService.swift */,
+				A3144ACD20FA26D10082C00F /* HUDProgressService.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -870,11 +873,11 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 			);
@@ -883,11 +886,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 			);
@@ -1017,6 +1020,7 @@
 				A37D461D20F3E87F00676BAB /* UserService.swift in Sources */,
 				A3D6E78920F12C6800C0DB07 /* AppRouter.swift in Sources */,
 				A30AF80320EBE27800CA6951 /* Location.swift in Sources */,
+				A3144ACE20FA26D10082C00F /* HUDProgressService.swift in Sources */,
 				A35A9CA320EA470B00037F8B /* EventListRouter.swift in Sources */,
 				A37D460520F3D29300676BAB /* LoginView.swift in Sources */,
 				A3E6545A20F68B49006B5B60 /* OAuth2Handler.swift in Sources */,

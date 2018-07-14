@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PKHUD
 
 class EventListView: UIViewController {
     
@@ -71,15 +70,15 @@ extension EventListView: EventListViewProtocol {
     
     func showError(_ error: Error?) {
         guard let errorStr = error?.localizedDescription else { return }
-        HUD.flash(.label(errorStr), delay: 2.0)
+        MessangerService.showError(str: errorStr)
     }
     
     func showLoading() {
-        HUD.show(.progress)
+        HUDProgressService.show()
     }
     
     func hideLoading() {
-        HUD.hide()
+        HUDProgressService.dismiss()
         refreshControl.endRefreshing()
     }
     

@@ -28,6 +28,8 @@ enum Colors {
     
     case primaryText
     
+    case loadingBarProgress
+    
     var uiColor: UIColor {
         switch self {
         case .backgroundMain:
@@ -56,6 +58,8 @@ enum Colors {
             return UIColor(46, 46, 46)
         case .inputFieldSeparator:
             return UIColor(200, 200, 200, 1)
+        case .loadingBarProgress:
+            return UIColor(255, 87, 0, 1)
         }
     }
     
