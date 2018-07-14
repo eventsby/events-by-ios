@@ -27,6 +27,7 @@ class OAuth2Handler: RequestAdapter {
             urlRequest.setValue(NetworkConstants.authorizationValue, forHTTPHeaderField: NetworkConstants.headerAuthorization)
         } else {
             let token = PreferenceManager.shared.token
+            guard !token.isEmpty else { return urlRequest }
             urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: NetworkConstants.headerAuthorization)
         }
         return urlRequest
