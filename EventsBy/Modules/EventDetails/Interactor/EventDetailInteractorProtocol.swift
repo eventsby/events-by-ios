@@ -10,7 +10,7 @@ import UIKit
 
 protocol EventDetailInteractorOutputProtocol: class {
     // Interactor -> Presenter
-    func didRetrieveEvents(_ events: [EventModel])
+    func didRetrieveEvents(_ events: EventPageArray)
     func onError(_ error: Error?)
 }
 

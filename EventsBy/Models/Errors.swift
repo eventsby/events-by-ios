@@ -14,4 +14,19 @@ enum ParseError: Error {
 
 enum GenericError: Error {
     case failed(String?)
+    case unexpectedError(String?)
+}
+
+enum ServerResponseError: String {
+    
+    case unexpected = "Unexpected error"
+    case badCredentials = "Bad credentials"
+    
+    func raw() -> String {
+        switch self {
+        case .unexpected: return self.rawValue
+        case .badCredentials: return self.rawValue
+        }
+    }
+    
 }

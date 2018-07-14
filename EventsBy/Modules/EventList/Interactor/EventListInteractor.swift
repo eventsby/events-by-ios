@@ -11,15 +11,15 @@ class EventListInteractor: EventListInteractorInputProtocol {
     weak var presenter: EventListInteractorOutputProtocol?
     var service: EventListServiceInputProtocol?
     
-    func retrieveEventList() {
-        service?.retrieveEventList()
+    func retrieveEventList(offset: Int = 0, limit: Int) {
+        service?.retrieveEventList(page: offset, limit: limit)
     }
     
 }
 
 extension EventListInteractor: EventListServiceOutputProtocol {
     
-    func onEventListRetrieved(_ events: [EventModel]) {
+    func onEventListRetrieved(_ events: EventPageArray) {
         presenter?.didRetrieveEvents(events)
         // TODO A.T 02.06.18: save events to the local db if needed
     }

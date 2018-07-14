@@ -12,11 +12,11 @@ import Alamofire
 protocol EventListServiceInputProtocol: class {
     var remoteRequestHandler: EventListServiceOutputProtocol? { get set }
     
-    func retrieveEventList()
+    func retrieveEventList(page: Int, limit: Int)
 }
 
 protocol EventListServiceOutputProtocol: class {
-    func onEventListRetrieved(_ events: [EventModel])
+    func onEventListRetrieved(_ events: EventPageArray)
     func onError(_ error: Error?)
 }
 
@@ -26,9 +26,11 @@ class EventListService: EventListServiceInputProtocol {
     
     let sessionManager = NetworkManager.shared.sessionManager
     
-    func retrieveEventList() {
+    func retrieveEventList(page: Int = 0, limit: Int) {
+        let endpoint = EventEndpoint.events(page: page, limit: limit)
+        
         sessionManager
-            .request(Endpoints.Events.fetch.url, method: .get)
+            .request(endpoint.url, method: endpoint.method)
             .validate()
             .responseJSON { response in
                 if response.result.error == nil, let data = response.data {
@@ -36,7 +38,7 @@ class EventListService: EventListServiceInputProtocol {
                         self.remoteRequestHandler?.onError(response.result.error)
                         return
                     }
-                    self.remoteRequestHandler?.onEventListRetrieved(events.content)
+                    self.remoteRequestHandler?.onEventListRetrieved(events)
                 } else {
                     self.remoteRequestHandler?.onError(response.result.error)
                 }

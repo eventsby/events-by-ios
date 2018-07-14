@@ -7,14 +7,12 @@
 //
 
 import UIKit
-import PKHUD
 
 class EventListView: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     var presenter: EventListPresenterProtocol?
-    var eventList: [EventModel] = []
     
     private struct Consts {
         static let cellHeight: CGFloat = 170
@@ -66,22 +64,21 @@ extension EventListView: EventListViewProtocol {
         collectionView.addSubview(self.refreshControl)
     }
     
-    func showEvents(_ events: [EventModel]) {
-        eventList = events
+    func showEvents() {
         collectionView.reloadData()
     }
     
     func showError(_ error: Error?) {
         guard let errorStr = error?.localizedDescription else { return }
-        HUD.flash(.label(errorStr), delay: 2.0)
+        MessangerService.showError(str: errorStr)
     }
     
     func showLoading() {
-        HUD.show(.progress)
+        HUDProgressService.show()
     }
     
     func hideLoading() {
-        HUD.hide()
+        HUDProgressService.dismiss()
         refreshControl.endRefreshing()
     }
     
@@ -90,26 +87,30 @@ extension EventListView: EventListViewProtocol {
 extension EventListView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return eventList.count
+        return presenter?.eventsCount ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventViewCell", for: indexPath) as? EventViewCell else {
             return UICollectionViewCell()
         }
-        let item = eventList[indexPath.row]
-        cell.setup(with: item)
+        guard let event = presenter?.event(at: indexPath.row) else { return UICollectionViewCell() }
+        cell.setup(with: event)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        if indexPath.item >= eventList.count - 2 {
-//            presenter?.loadMore()
-//        }
+        guard let count = presenter?.eventsCount else {
+            return
+        }
+        if indexPath.item >= count - 1 {
+            presenter?.loadMore()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter?.showEventDetail(for: eventList[indexPath.row])
+        guard let event = presenter?.event(at: indexPath.row) else { return }
+        presenter?.showEventDetail(for: event)
     }
     
 }

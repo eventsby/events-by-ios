@@ -14,9 +14,12 @@ target 'EventsBy' do
   pod 'ReactiveSwift', '~> 3.0', :inhibit_warnings => true
   
   # Additional
-  pod 'PKHUD', '~> 5.0'
   pod 'SwiftLint'
   pod 'PinLayout', '~> 1.0'
+  pod 'KeychainAccess', '~> 3.0'
+  pod 'TPKeyboardAvoiding', '~> 1.0'
+  pod 'SwiftMessages', '~> 4.0'
+  pod 'SVProgressHUD', '~> 2.2.2'
 
   target 'EventsByTests' do
     inherit! :search_paths

@@ -21,3 +21,10 @@
 // Event List
 
 "title_event_list" = "События";
+
+// Login
+
+"login_form_username" = "Логин";
+"login_form_password" = "Пароль";
+"login_success" = "Вы успешно авторизовались!";
+"login_invalid_credentials" = "Неправильный логин или пароль. Пожалуйста, попробуйте еще раз";

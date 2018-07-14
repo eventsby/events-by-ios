@@ -34,6 +34,15 @@ class EventDetailRouter: EventDetailRouterProtocol {
         Swift.print("Present participant detail screen for: \(participant.id)")
     }
     
+    func presentLoginScreen(from view: EventDetailViewProtocol) {
+        let loginVC = LoginRouter.initializeLoginModule()
+        
+        if let sourceView = view as? UIViewController {
+            //sourceView.navigationController?.pushViewController(loginVC, animated: true)
+            sourceView.present(loginVC, animated: true, completion: nil)
+        }
+    }
+    
     func openWebsite(url: String) {
         guard let url = URL(string: url), UIApplication.shared.canOpenURL(url) else { return }
         UIApplication.shared.open(url)
