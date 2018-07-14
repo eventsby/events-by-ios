@@ -8,7 +8,7 @@
 
 import Foundation
 
-fileprivate enum PreferenceKeys: String {
+private enum PreferenceKeys: String {
     case firstRun = "key.events.by.firstRun"
     case accessToken = "key.events.by.AccessTokenKey"
     case refreshToken = "key.events.by.RefreshTokenKey"

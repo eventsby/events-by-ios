@@ -132,31 +132,47 @@ final class InputField: UIView {
 
 private extension InputField {
     
-    func setupView() {
+    func addInputField() -> UITextField {
         let inputField = UITextField(frame: .zero)
         self.inputField = inputField
         inputField.delegate = delegate
         inputField.textColor = Colors.inputFieldText.uiColor
         inputField.font = Fonts.inputFieldText.uiFont
-        
+        addSubview(inputField)
+        return inputField
+    }
+    
+    func addTipLabel() -> UILabel {
         let tipLabel = UILabel(frame: .zero)
         self.tipLabel = tipLabel
         tipLabel.textColor = Colors.inputFieldTip.uiColor
         tipLabel.font = Fonts.inputFieldTip.uiFont
-        
+        addSubview(tipLabel)
+        return tipLabel
+    }
+    
+    func addSeparatorView() -> UIView {
         let separator = UIView(frame: .zero)
         self.separator = separator
         separator.backgroundColor = Colors.inputFieldSeparator.uiColor
-        
+        addSubview(separator)
+        return separator
+    }
+    
+    func addErrorLabel() -> UIView {
         let errorLabel = UILabel(frame: .zero)
         self.errorLabel = errorLabel
         errorLabel.textColor = Colors.inputFieldError.uiColor
         errorLabel.font = Fonts.inputFieldError.uiFont
-        
-        addSubview(tipLabel)
-        addSubview(inputField)
-        addSubview(separator)
         addSubview(errorLabel)
+        return errorLabel
+    }
+    
+    func setupView() {
+        let inputField = addInputField()
+        let tipLabel = addTipLabel()
+        let separator = addSeparatorView()
+        let errorLabel = addErrorLabel()
         
         tipLabel.translatesAutoresizingMaskIntoConstraints = false
         inputField.translatesAutoresizingMaskIntoConstraints = false
