@@ -18,14 +18,17 @@ enum GenericError: Error {
 }
 
 enum ServerResponseError: String {
+    // TODO A.T. - refactor this
     
     case unexpected = "Unexpected error"
     case badCredentials = "Bad credentials"
+    case alreadyParticipate = "User already participate in event"
     
     func raw() -> String {
         switch self {
         case .unexpected: return self.rawValue
         case .badCredentials: return self.rawValue
+        case .alreadyParticipate: return self.rawValue
         }
     }
     

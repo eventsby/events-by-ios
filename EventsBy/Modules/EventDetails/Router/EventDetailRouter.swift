@@ -14,9 +14,16 @@ class EventDetailRouter: EventDetailRouterProtocol {
         guard let viewController = eventDetails.instantiateInitialViewController() else { return UIViewController() }
         guard let view = viewController as? EventDetailView else { return UIViewController() }
         let router: EventDetailRouterProtocol = EventDetailRouter()
-        let presenter: EventDetailPresenterProtocol = EventDetailPresenter(view: view, router: router, event: event)
+        let interactor: EventDetailInteractorInputProtocol & EventDetailServiceOutputProtocol = EventDetailInteractor()
+        let presenter: EventDetailPresenterProtocol & EventDetailInteractorOutputProtocol = EventDetailPresenter(view: view, router: router, interactor: interactor, event: event)
+        let userService: UserServiceProtocol = UserService()
+        presenter.userService = userService
+        let service: EventDetailServiceInputProtocol = EventDetailService()
         
         view.presenter = presenter
+        interactor.presenter = presenter
+        interactor.service = service
+        service.remoteRequestHandler = interactor
         
         return viewController
     }

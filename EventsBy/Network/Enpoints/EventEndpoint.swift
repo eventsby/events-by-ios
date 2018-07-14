@@ -12,6 +12,7 @@ import Alamofire
 enum EventEndpoint: BaseEndPoint {
     
     case events(page: Int, limit: Int)
+    case participate(eventId: Int, user: UserDetailProtocol)
     
     func requestDetails() -> (url: String, method: HTTPMethod, parameters: [String : Any]?) {
         switch self {
@@ -19,6 +20,13 @@ enum EventEndpoint: BaseEndPoint {
             var url = "\(NetworkConstants.baseUrl)\(NetworkConstants.version)"
             url.append("events?page=\(page)&size=\(limit)")
             return (url: url, method: .get, parameters: nil)
+        case .participate(let eventId, let user):
+            var url = "\(NetworkConstants.baseUrl)\(NetworkConstants.version)"
+            url.append("events/\(eventId)/participants")
+            let userInfo: [String: String] = [
+                "id": String(user.id)
+            ]
+            return (url: url, method: .post, parameters: userInfo)
         }
     }
     

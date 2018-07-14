@@ -12,7 +12,6 @@ private enum PreferenceKeys: String {
     case firstRun = "key.events.by.firstRun"
     case accessToken = "key.events.by.AccessTokenKey"
     case refreshToken = "key.events.by.RefreshTokenKey"
-    case userId = "key.events.by.UserIdKeyPreference"
 }
 
 class PreferenceManager: NSObject {
@@ -45,21 +44,11 @@ class PreferenceManager: NSObject {
         }
     }
     
-    var userId: Int {
-        get {
-            return UserDefaults.standard.integer(forKey: PreferenceKeys.userId.rawValue)
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: PreferenceKeys.userId.rawValue)
-        }
-    }
-    
     // MARK: Clear
     
     func clear() {
         UserDefaults.standard.removeObject(forKey: PreferenceKeys.accessToken.rawValue)
         UserDefaults.standard.removeObject(forKey: PreferenceKeys.refreshToken.rawValue)
-        UserDefaults.standard.removeObject(forKey: PreferenceKeys.userId.rawValue)
     }
     
     func isFirstRunApp() -> Bool {

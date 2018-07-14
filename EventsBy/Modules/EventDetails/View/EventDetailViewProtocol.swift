@@ -10,5 +10,11 @@ protocol EventDetailViewProtocol: class {
     var presenter: EventDetailPresenterProtocol? { get set }
     
     func bindEventDetail(for event: EventProtocol)
+    
+    func participantAdded()
+    func alreadyParticipate()
+    func showError(_ error: Error?)
+    func showLoading()
+    func hideLoading()
     func setupView()
 }

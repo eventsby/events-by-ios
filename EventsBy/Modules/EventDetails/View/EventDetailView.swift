@@ -72,6 +72,29 @@ class EventDetailView: UIViewController {
 
 extension EventDetailView: EventDetailViewProtocol {
     
+    func participantAdded() {
+        let participantAddedMsg = "participant_added".localized
+        MessangerService.showWarning(str: participantAddedMsg)
+    }
+    
+    func alreadyParticipate() {
+        let alreadyParticipateMsg = "participant_already_exists".localized
+        MessangerService.showWarning(str: alreadyParticipateMsg)
+    }
+    
+    func showError(_ error: Error?) {
+        guard let errorStr = error?.localizedDescription else { return }
+        MessangerService.showInfo(str: errorStr)
+    }
+    
+    func showLoading() {
+        HUDProgressService.show()
+    }
+    
+    func hideLoading() {
+        HUDProgressService.dismiss()
+    }
+    
     func setupView() {
         mapView.delegate = self
         mapView.register(EventMapAnnotationView.self, forAnnotationViewWithReuseIdentifier: Consts.annotationIdentifier)
@@ -108,7 +131,10 @@ extension EventDetailView: EventDetailViewProtocol {
         presenter?.participantsCount.producer.startWithValues {
             self.participantsLabel.text = String(format: "title_participants".localized, $0)
         }
-        participantsTableView.reloadData()
+        
+        presenter?.event?.producer.startWithValues {_ in
+            self.participantsTableView.reloadData()
+        }
     }
     
 }

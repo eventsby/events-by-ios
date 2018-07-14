@@ -12,6 +12,9 @@ import ReactiveSwift
 protocol EventDetailPresenterProtocol: class {
     var view: EventDetailViewProtocol? { get set }
     var router: EventDetailRouterProtocol? { get set }
+    var interactor: EventDetailInteractorInputProtocol? { get set }
+    var userService: UserServiceProtocol? { get set }
+    
     var event: MutableProperty<EventProtocol>? { get set }
     var participantsCount: Property<Int> { get }
     

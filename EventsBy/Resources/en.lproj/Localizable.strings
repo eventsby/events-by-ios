@@ -17,6 +17,8 @@
 "title_participants" = "Participants (%d)";
 "title_email" = "Email";
 "title_website" = "Website";
+"participant_added" = "Participant added!";
+"participant_already_exists" = "You're already participate in the event!";
 
 // Event List
 

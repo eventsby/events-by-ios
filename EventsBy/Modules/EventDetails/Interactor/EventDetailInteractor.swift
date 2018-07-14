@@ -11,17 +11,20 @@ class EventDetailInteractor: EventDetailInteractorInputProtocol {
     weak var presenter: EventDetailInteractorOutputProtocol?
     var service: EventDetailServiceInputProtocol?
     
-    func retrieveEventList() {
-        service?.retrieveEventList()
+    func participate(eventId: Int, user: UserDetailProtocol) {
+        service?.participateRequest(eventId: eventId, user: user)
     }
     
 }
 
-extension EventDetailInteractor: EventListServiceOutputProtocol {
+extension EventDetailInteractor: EventDetailServiceOutputProtocol {
     
-    func onEventListRetrieved(_ events: EventPageArray) {
-        presenter?.didRetrieveEvents(events)
-        // TODO A.T 02.06.18: save events to the local db if needed
+    func onParticipantAdded(_ event: EventModel) {
+        presenter?.onParticipantAdded(event)
+    }
+    
+    func onAlreadyParticipate() {
+        presenter?.onAlreadyParticipate()
     }
     
     func onError(_ error: Error?) {

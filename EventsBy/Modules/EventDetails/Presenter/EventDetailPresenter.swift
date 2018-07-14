@@ -12,16 +12,19 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
     
     internal weak var view: EventDetailViewProtocol?
     internal var router: EventDetailRouterProtocol?
+    internal var interactor: EventDetailInteractorInputProtocol?
     internal var event: MutableProperty<EventProtocol>?
+    internal var userService: UserServiceProtocol?
     
     var participantsCount: Property<Int> {
         guard let event = event else { return Property<Int>(value: 0) }
         return event.map { $0.participants.count }
     }
     
-    init(view: EventDetailViewProtocol?, router: EventDetailRouterProtocol, event: EventProtocol) {
+    init(view: EventDetailViewProtocol?, router: EventDetailRouterProtocol, interactor: EventDetailInteractorInputProtocol, event: EventProtocol) {
         self.view = view
         self.router = router
+        self.interactor = interactor
         self.event = MutableProperty(event)
     }
     
@@ -51,15 +54,42 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
     }
     
     func wantToParticipateAction() {
-        // if user is authorized, then call interactor's method to add particiant
-        // otherwise navigate to login
-        
         guard let view = self.view else { return }
-        router?.presentLoginScreen(from: view)
+        
+        if let eventId = event?.value.id, let user = userService?.lastUser(), isAuthorized() {
+            view.showLoading()
+            interactor?.participate(eventId: eventId, user: user)
+        } else {
+            router?.presentLoginScreen(from: view)
+        }
+    }
+    
+    private func isAuthorized() -> Bool {
+        return PreferenceManager.shared.isAuthorized()
     }
     
 //    func add(event: EventProtocol) {
 //        self.event?.value = event
 //    }
+    
+}
+
+extension EventDetailPresenter: EventDetailInteractorOutputProtocol {
+    
+    func onParticipantAdded(_ event: EventModel) {
+        self.event?.value = event
+        view?.hideLoading()
+        view?.participantAdded()
+    }
+    
+    func onAlreadyParticipate() {
+        view?.hideLoading()
+        view?.alreadyParticipate()
+    }
+    
+    func onError(_ error: Error?) {
+        view?.hideLoading()
+        view?.showError(error)
+    }
     
 }
