@@ -55,7 +55,8 @@ extension LoginView: LoginViewProtocol {
     }
     
     func onSuccessLogin() {
-        
+        let successLoginMsg = "login_success".localized
+        MessangerService.showSuccess(str: successLoginMsg)
     }
     
     func showLoading() {

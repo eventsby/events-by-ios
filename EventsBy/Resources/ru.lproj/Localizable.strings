@@ -26,3 +26,4 @@
 
 "login_form_username" = "Логин";
 "login_form_password" = "Пароль";
+"login_success" = "Вы успешно авторизовались!";

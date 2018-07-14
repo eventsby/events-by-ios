@@ -55,10 +55,11 @@ class LoginService: LoginServiceInputProtocol {
             .validate()
             .responseJSON { response in
                 if response.result.error == nil, let data = response.data {
-                    if let user = try? JSONDecoder().decode(UserDetail.self, from: data) {
-                        self.remoteRequestHandler?.onSuccessLogin(user)
+                    guard let user = try? JSONDecoder().decode(UserDetail.self, from: data) else {
+                        self.remoteRequestHandler?.onInvalidCredentials()
+                        return
                     }
-                    self.remoteRequestHandler?.onInvalidCredentials()
+                    self.remoteRequestHandler?.onSuccessLogin(user)
                 } else {
                     self.remoteRequestHandler?.onError(response.result.error)
                 }

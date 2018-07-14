@@ -44,6 +44,7 @@ extension LoginPresenter: LoginInteractorOutputProtocol {
     func onSuccessLogin(_ user: UserDetailProtocol) {
         view?.hideLoading()
         view?.onSuccessLogin()
+        view?.onClose()
     }
     
     func onInvalidCredentials() {

@@ -26,3 +26,4 @@
 
 "login_form_username" = "Username";
 "login_form_password" = "Password";
+"login_success" = "You have successfully logged in!";

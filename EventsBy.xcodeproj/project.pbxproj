@@ -44,6 +44,7 @@
 		A30AF81520EBF82400CA6951 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30AF81420EBF82400CA6951 /* String.swift */; };
 		A30AF81820EBF8C800CA6951 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A30AF81A20EBF8C800CA6951 /* Localizable.strings */; };
 		A30AF81D20EBF96F00CA6951 /* UIKit+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30AF81C20EBF96F00CA6951 /* UIKit+Localized.swift */; };
+		A3144ACC20FA136E0082C00F /* MessangerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3144ACB20FA136E0082C00F /* MessangerService.swift */; };
 		A35A9C9F20EA409500037F8B /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9C9E20EA409500037F8B /* EventModel.swift */; };
 		A35A9CA120EA458A00037F8B /* Uniq.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CA020EA458A00037F8B /* Uniq.swift */; };
 		A35A9CA320EA470B00037F8B /* EventListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CA220EA470B00037F8B /* EventListRouter.swift */; };
@@ -170,6 +171,7 @@
 		A30AF81920EBF8C800CA6951 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A30AF81B20EBF8DD00CA6951 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A30AF81C20EBF96F00CA6951 /* UIKit+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Localized.swift"; sourceTree = "<group>"; };
+		A3144ACB20FA136E0082C00F /* MessangerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessangerService.swift; sourceTree = "<group>"; };
 		A35A9C9E20EA409500037F8B /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		A35A9CA020EA458A00037F8B /* Uniq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uniq.swift; sourceTree = "<group>"; };
 		A35A9CA220EA470B00037F8B /* EventListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListRouter.swift; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 				A35A9CC020EA7AF600037F8B /* Extensions */,
 				A35A9CC320EA821D00037F8B /* DateFormatters.swift */,
 				A35A9CC520EA843800037F8B /* DateUtils.swift */,
+				A3144ACB20FA136E0082C00F /* MessangerService.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -872,6 +875,7 @@
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -884,6 +888,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -982,6 +987,7 @@
 				A37D461720F3D75800676BAB /* TokenModel.swift in Sources */,
 				A35A9CBE20EA5DA900037F8B /* EventPageArray.swift in Sources */,
 				A3E6543E20F53446006B5B60 /* InputField.swift in Sources */,
+				A3144ACC20FA136E0082C00F /* MessangerService.swift in Sources */,
 				A35A9CBC20EA5C0F00037F8B /* EventViewCell.swift in Sources */,
 				A30AF80E20EBE85700CA6951 /* UIView+Nib.swift in Sources */,
 				A3D6E78320F12B5D00C0DB07 /* Colors.swift in Sources */,
