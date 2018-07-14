@@ -33,16 +33,20 @@ class LoginService: LoginServiceInputProtocol {
         
         sessionManager
             .request(endpoint.url, method: endpoint.method, parameters: endpoint.parameters)
-            .validate()
+            .validate(statusCode: 200..<402)
             .responseJSON { response in
                 if response.result.error == nil, let data = response.data {
-                    guard let token = try? JSONDecoder().decode(TokenModel.self, from: data) else {
+                    if let res = response.result.value as? [String: Any], let error = res["error_description"] as? String, error == ServerResponseError.badCredentials.raw() {
                         self.remoteRequestHandler?.onInvalidCredentials()
+                        return
+                    }
+                    guard let token = try? JSONDecoder().decode(TokenModel.self, from: data) else {
+                        self.remoteRequestHandler?.onError(ParseError.invalidFormat)
                         return
                     }
                     self.getUserInfo(token: token)
                 } else {
-                    self.remoteRequestHandler?.onError(response.result.error)
+                    self.remoteRequestHandler?.onError(GenericError.unexpectedError(nil))
                 }
         }
     }

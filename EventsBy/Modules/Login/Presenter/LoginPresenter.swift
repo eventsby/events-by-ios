@@ -30,6 +30,7 @@ class LoginPresenter: LoginPresenterProtocol {
     func loginAction() {
         guard let login = self.login.value, let password = self.password.value else { return }
         interactor?.login(login, password)
+        view?.showLoading()
     }
     
     func closeAction() {
