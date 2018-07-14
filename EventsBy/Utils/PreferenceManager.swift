@@ -9,10 +9,10 @@
 import Foundation
 
 fileprivate enum PreferenceKeys: String {
-    case firstRun = "key.diber.firstRun"
-    case accessToken = "key.diber.AccessTokenKey"
-    case refreshToken = "key.diber.RefreshTokenKey"
-    case userId = "key.diber.UserIdKeyPreference"
+    case firstRun = "key.events.by.firstRun"
+    case accessToken = "key.events.by.AccessTokenKey"
+    case refreshToken = "key.events.by.RefreshTokenKey"
+    case userId = "key.events.by.UserIdKeyPreference"
 }
 
 class PreferenceManager: NSObject {
