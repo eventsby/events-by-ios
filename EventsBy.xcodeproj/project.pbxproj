@@ -46,6 +46,7 @@
 		A30AF81D20EBF96F00CA6951 /* UIKit+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30AF81C20EBF96F00CA6951 /* UIKit+Localized.swift */; };
 		A3144ACC20FA136E0082C00F /* MessangerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3144ACB20FA136E0082C00F /* MessangerService.swift */; };
 		A3144ACE20FA26D10082C00F /* HUDProgressService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3144ACD20FA26D10082C00F /* HUDProgressService.swift */; };
+		A3257DD820FA781B00C6A169 /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3257DD720FA781B00C6A169 /* PreferenceManager.swift */; };
 		A35A9C9F20EA409500037F8B /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9C9E20EA409500037F8B /* EventModel.swift */; };
 		A35A9CA120EA458A00037F8B /* Uniq.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CA020EA458A00037F8B /* Uniq.swift */; };
 		A35A9CA320EA470B00037F8B /* EventListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CA220EA470B00037F8B /* EventListRouter.swift */; };
@@ -174,6 +175,7 @@
 		A30AF81C20EBF96F00CA6951 /* UIKit+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Localized.swift"; sourceTree = "<group>"; };
 		A3144ACB20FA136E0082C00F /* MessangerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessangerService.swift; sourceTree = "<group>"; };
 		A3144ACD20FA26D10082C00F /* HUDProgressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDProgressService.swift; sourceTree = "<group>"; };
+		A3257DD720FA781B00C6A169 /* PreferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
 		A35A9C9E20EA409500037F8B /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		A35A9CA020EA458A00037F8B /* Uniq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uniq.swift; sourceTree = "<group>"; };
 		A35A9CA220EA470B00037F8B /* EventListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListRouter.swift; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 				A35A9CC520EA843800037F8B /* DateUtils.swift */,
 				A3144ACB20FA136E0082C00F /* MessangerService.swift */,
 				A3144ACD20FA26D10082C00F /* HUDProgressService.swift */,
+				A3257DD720FA781B00C6A169 /* PreferenceManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -959,6 +962,7 @@
 				A35A9CD720EAB71300037F8B /* EventDetailViewProtocol.swift in Sources */,
 				A35A9CA120EA458A00037F8B /* Uniq.swift in Sources */,
 				A30AF7D920EB935500CA6951 /* OrganaizerModel.swift in Sources */,
+				A3257DD820FA781B00C6A169 /* PreferenceManager.swift in Sources */,
 				A37D461120F3D2FD00676BAB /* LoginService.swift in Sources */,
 				A35A9CB020EA4BF800037F8B /* EventListInteractorProtocol.swift in Sources */,
 				0C2F6FC1207023E900493876 /* EventDetailView.swift in Sources */,

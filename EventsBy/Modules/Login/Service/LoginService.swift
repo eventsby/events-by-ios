@@ -44,6 +44,7 @@ class LoginService: LoginServiceInputProtocol {
                         self.remoteRequestHandler?.onError(ParseError.invalidFormat)
                         return
                     }
+                    self.saveToken(token)
                     self.getUserInfo(token: token)
                 } else {
                     self.remoteRequestHandler?.onError(GenericError.unexpectedError(nil))
@@ -68,6 +69,11 @@ class LoginService: LoginServiceInputProtocol {
                     self.remoteRequestHandler?.onError(response.result.error)
                 }
         }
+    }
+    
+    private func saveToken(_ token: TokenProtocol) {
+        PreferenceManager.shared.token = token.accessToken
+        PreferenceManager.shared.refreshToken = token.refreshToken
     }
     
 }
