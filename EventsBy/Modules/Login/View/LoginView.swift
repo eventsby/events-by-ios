@@ -59,19 +59,21 @@ extension LoginView: LoginViewProtocol {
     }
     
     func showLoading() {
-        
+        HUDProgressService.show()
     }
     
     func hideLoading() {
-        
+        HUDProgressService.dismiss()
     }
     
     func showError(_ error: Error?) {
-        
+        guard let errorStr = error?.localizedDescription else { return }
+        MessangerService.showError(str: errorStr)
     }
     
     func showInvalidCredentialsError() {
-        
+        let invalidCredentialsMsg = "login_invalid_credentials".localized
+        MessangerService.showWarning(str: invalidCredentialsMsg)
     }
     
 }

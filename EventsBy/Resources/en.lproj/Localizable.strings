@@ -27,3 +27,4 @@
 "login_form_username" = "Username";
 "login_form_password" = "Password";
 "login_success" = "You have successfully logged in!";
+"login_invalid_credentials" = "Incorrect username or password. Please try again";

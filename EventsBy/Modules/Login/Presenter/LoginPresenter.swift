@@ -25,7 +25,6 @@ class LoginPresenter: LoginPresenterProtocol {
     
     func viewDidLoad() {
         view?.setupView()
-        view?.showLoading()
     }
     
     func loginAction() {
