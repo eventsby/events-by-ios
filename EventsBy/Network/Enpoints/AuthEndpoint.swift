@@ -13,6 +13,7 @@ enum AuthEndpoint: BaseEndPoint {
     
     case userInfo
     case token(login: String, password: String)
+    case refreshToken
     
     func requestDetails() -> (url: String, method: HTTPMethod, parameters: [String : Any]?) {
         switch self {
@@ -30,6 +31,10 @@ enum AuthEndpoint: BaseEndPoint {
             var url = "\(NetworkConstants.baseUrl)\(NetworkConstants.version)"
             url.append("users/info")
             return (url: url, method: .get, parameters: nil)
+        case .refreshToken:
+            var url = "\(NetworkConstants.baseUrl)"
+            url.append(NetworkConstants.refreshToken)
+            return (url: url, method: .post, parameters: nil)
         }
     }
     

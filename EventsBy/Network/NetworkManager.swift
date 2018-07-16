@@ -21,6 +21,7 @@ class NetworkManager: NSObject {
         sessionManager = SessionManager(configuration: configuration)
         let handler = OAuth2Handler(sessionManager)
         sessionManager.adapter = handler
+        sessionManager.retrier = handler
     }
 
 }

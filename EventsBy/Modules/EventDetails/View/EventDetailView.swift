@@ -20,6 +20,7 @@ class EventDetailView: UIViewController {
         static let participantCell = "participantCell"
     }
 
+    @IBOutlet weak var participateButton: UIButton!
     @IBOutlet weak var eventImageView: UIImageView!
     @IBOutlet weak var eventCityLabel: UILabel!
     @IBOutlet weak var eventNameLabel: UILabel!
@@ -72,13 +73,25 @@ class EventDetailView: UIViewController {
 
 extension EventDetailView: EventDetailViewProtocol {
     
+    // Participant Removed
+    
+    func participantRemoved() {
+        let participantAddedMsg = "participant_removed".localized
+        MessangerService.showWarning(str: participantAddedMsg)
+    }
+    
+    func userNotParticipating() {
+        let notParticipating = "participant_not_in_event".localized
+        MessangerService.showWarning(str: notParticipating)
+    }
+    
     func showEventDetail(_ event: EventProtocol) {
         self.bindEventDetail(for: event)
     }
     
     func participantAdded() {
         let participantAddedMsg = "participant_added".localized
-        MessangerService.showWarning(str: participantAddedMsg)
+        MessangerService.showSuccess(str: participantAddedMsg)
     }
     
     func alreadyParticipate() {
@@ -141,6 +154,9 @@ extension EventDetailView: EventDetailViewProtocol {
         }
         
         presenter?.event?.producer.startWithValues {_ in
+            guard let isParticipating = self.presenter?.isUserParticipating else { return }
+            let participantButtonTitle = isParticipating.value ? "already_participate_btn".localized : "want_participate_button".localized
+            self.participateButton.setTitle(participantButtonTitle, for: .normal)
             self.participantsTableView.reloadData()
         }
     }
@@ -193,16 +209,6 @@ extension EventDetailView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         guard let participant = presenter?.participant(at: indexPath.row) else { return }
-        
-//        var participants: [ParticipantModel] = []
-//        participants.append(ParticipantModel(id: 1, email: "e", username: "s", fullname: "asdasd", company: "qwe", website: "qwe", phone: "qew"))
-//        participants.append(ParticipantModel(id: 2, email: "e", username: "s", fullname: "asdasd", company: "qwe", website: "qwe", phone: "qew"))
-//        participants.append(ParticipantModel(id: 3, email: "e", username: "s", fullname: "asdasd", company: "qwe", website: "qwe", phone: "qew"))
-//
-//        let location = LocationModel(id: 0, country: "2", city: "s", address: "as", longitude: 12323.0, latitude: 12312.30)
-//        let organaizer = OrganaizerModel(id: 1, email: "s", username: "s", fullname: "s", company: "s", website: "s", phone: "s")
-//        let event = EventModel(id: 100, name: "Name", description: "descr", startDate: 12323.0, endDate: 123213.0, image: nil, organaizer: organaizer, location: location, participants: participants)
-//        presenter?.add(event: event)
         presenter?.showParticipantDetail(for: participant)
     }
     

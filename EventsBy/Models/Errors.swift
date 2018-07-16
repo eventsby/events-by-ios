@@ -23,12 +23,14 @@ enum ServerResponseError: String {
     case unexpected = "Unexpected error"
     case badCredentials = "Bad credentials"
     case alreadyParticipate = "User already participate in event"
+    case notParticipating = "User isn't participating in this event"
     
     func raw() -> String {
         switch self {
         case .unexpected: return self.rawValue
         case .badCredentials: return self.rawValue
         case .alreadyParticipate: return self.rawValue
+        case .notParticipating: return self.rawValue
         }
     }
     

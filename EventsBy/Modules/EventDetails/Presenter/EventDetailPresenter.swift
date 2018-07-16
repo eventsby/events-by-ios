@@ -21,6 +21,12 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
         return event.map { $0.participants.count }
     }
     
+    var isUserParticipating: Property<Bool> {
+        guard let event = event else { return Property<Bool>(value: false) }
+        guard let userId = userService?.lastUser()?.id else { return Property<Bool>(value: false) }
+        return event.map { $0.participants.contains(where: { user in user.id == userId }) }
+    }
+    
     init(view: EventDetailViewProtocol?, router: EventDetailRouterProtocol, interactor: EventDetailInteractorInputProtocol, event: EventProtocol) {
         self.view = view
         self.router = router
@@ -59,7 +65,11 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
         
         if let eventId = event?.value.id, let user = userService?.lastUser(), isAuthorized() {
             view.showLoading(initial: false)
-            interactor?.participate(eventId: eventId, user: user)
+            if isUserParticipating.value {
+                interactor?.removeParticipant(eventId: eventId, user: user)
+            } else {
+                interactor?.participate(eventId: eventId, user: user)
+            }
         } else {
             router?.presentLoginScreen(from: view)
         }
@@ -69,13 +79,20 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
         return PreferenceManager.shared.isAuthorized()
     }
     
-//    func add(event: EventProtocol) {
-//        self.event?.value = event
-//    }
-    
 }
 
 extension EventDetailPresenter: EventDetailInteractorOutputProtocol {
+    
+    func onParticipantRemoved(_ event: EventProtocol) {
+        self.event?.value = event
+        view?.hideLoading()
+        view?.participantRemoved()
+    }
+    
+    func userNotParticipating() {
+        view?.hideLoading()
+        view?.userNotParticipating()
+    }
     
     func onParticipantAdded(_ event: EventProtocol) {
         self.event?.value = event

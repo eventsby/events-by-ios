@@ -16,6 +16,9 @@ protocol EventDetailInteractorOutputProtocol: class {
     
     func onEventDetailError(_ error: Error?)
     func onEventDetailRetrieved(_ event: EventProtocol)
+    
+    func onParticipantRemoved(_ event: EventProtocol)
+    func userNotParticipating()
 }
 
 protocol EventDetailInteractorInputProtocol: class {
@@ -23,6 +26,7 @@ protocol EventDetailInteractorInputProtocol: class {
     var service: EventDetailServiceInputProtocol? { get set }
     
     // Presenter -> Interactor
-    func participate(eventId: Int, user: UserDetailProtocol)
     func getEventDetails(eventId: Int)
+    func participate(eventId: Int, user: UserDetailProtocol)
+    func removeParticipant(eventId: Int, user: UserDetailProtocol)
 }

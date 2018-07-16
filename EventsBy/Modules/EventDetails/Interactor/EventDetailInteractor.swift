@@ -11,17 +11,33 @@ class EventDetailInteractor: EventDetailInteractorInputProtocol {
     weak var presenter: EventDetailInteractorOutputProtocol?
     var service: EventDetailServiceInputProtocol?
     
+    func getEventDetails(eventId: Int) {
+        service?.getEventDetails(eventId: eventId)
+    }
+    
     func participate(eventId: Int, user: UserDetailProtocol) {
         service?.participateRequest(eventId: eventId, user: user)
     }
     
-    func getEventDetails(eventId: Int) {
-        service?.getEventDetails(eventId: eventId)
+    func removeParticipant(eventId: Int, user: UserDetailProtocol) {
+        service?.removeParticipant(eventId: eventId, user: user)
     }
     
 }
 
 extension EventDetailInteractor: EventDetailServiceOutputProtocol {
+    
+    // Remove Participant
+    
+    func onParticipantRemoved(_ event: EventProtocol) {
+        presenter?.onParticipantRemoved(event)
+    }
+    
+    func onNotParticipating() {
+        presenter?.userNotParticipating()
+    }
+    
+    // Add Participant
     
     func onParticipantAdded(_ event: EventProtocol) {
         presenter?.onParticipantAdded(event)
@@ -34,6 +50,8 @@ extension EventDetailInteractor: EventDetailServiceOutputProtocol {
     func onError(_ error: Error?) {
         presenter?.onError(error)
     }
+    
+    // Event Detail
     
     func onEventDetailError(_ error: Error?) {
         presenter?.onEventDetailError(error)

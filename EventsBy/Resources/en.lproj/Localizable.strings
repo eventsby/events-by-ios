@@ -13,12 +13,15 @@
 // Event Details
 
 "want_participate_button" = "I'm in!";
+"already_participate_btn" = "I'm not going!";
 "title_organaizer" = "Organaizer";
 "title_participants" = "Participants (%d)";
 "title_email" = "Email";
 "title_website" = "Website";
 "participant_added" = "Participant added!";
 "participant_already_exists" = "You're already participate in the event!";
+"participant_removed" = "Participant removed!";
+"participant_not_in_event" = "User isn't participating in this event";
 
 // Event List
 

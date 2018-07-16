@@ -417,6 +417,7 @@
                         <outlet property="organaizerWebsiteLabel" destination="IkJ-gJ-5QW" id="Hbk-rI-7E1"/>
                         <outlet property="participantsLabel" destination="Fbg-Qt-tbz" id="vCH-fZ-djB"/>
                         <outlet property="participantsTableView" destination="eWY-GU-5o9" id="7IW-dm-kFp"/>
+                        <outlet property="participateButton" destination="eq9-m2-ZIO" id="68H-PT-USt"/>
                         <outlet property="scrollView" destination="eBA-dg-3r2" id="r0p-Qu-E1w"/>
                     </connections>
                 </viewController>

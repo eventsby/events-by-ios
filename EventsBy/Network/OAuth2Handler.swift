@@ -8,9 +8,14 @@
 
 import Alamofire
 
-class OAuth2Handler: RequestAdapter {
+class OAuth2Handler {
     
     fileprivate weak var sessionManager: SessionManager?
+    
+    fileprivate typealias RefreshCompletion = (_ succeeded: Bool, _ accessToken: String?, _ refreshToken: String?) -> Void
+    fileprivate let lock = NSLock()
+    fileprivate var isRefreshing = false
+    fileprivate var requestsToRetry: [RequestRetryCompletion] = []
     
     // MARK: - Initialization
     
@@ -18,7 +23,43 @@ class OAuth2Handler: RequestAdapter {
         self.sessionManager = sessionManager
     }
     
-    // MARK: - RequestAdapter
+    // MARK: - Private - Refresh Tokens
+    
+    private func refreshTokens(completion: @escaping RefreshCompletion) {
+        guard !isRefreshing else { return }
+        isRefreshing = true
+        
+        let url = AuthEndpoint.refreshToken.url
+        
+        let params: [String: String] = [
+            NetworkConstants.grantType: NetworkConstants.refreshToken,
+            NetworkConstants.clientId: NetworkConstants.clientIdValue,
+            NetworkConstants.refreshToken: PreferenceManager.shared.refreshToken
+        ]
+        
+        Swift.print(params)
+        
+        sessionManager?.request(url, method: .post, parameters: params)
+            .responseJSON { [weak self] response in
+                guard let strongSelf = self else { return }
+                if
+                    let json = response.result.value as? [String: Any],
+                    let accessToken = json["access_token"] as? String,
+                    let refreshToken = json["refresh_token"] as? String
+                {
+                    PreferenceManager.shared.token = accessToken
+                    PreferenceManager.shared.refreshToken = refreshToken
+                    completion(true, accessToken, refreshToken)
+                } else {
+                    completion(false, nil, nil)
+                }
+                strongSelf.isRefreshing = false
+        }
+    }
+    
+}
+
+extension OAuth2Handler: RequestAdapter {
     
     func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
         var urlRequest = urlRequest
@@ -31,6 +72,28 @@ class OAuth2Handler: RequestAdapter {
             urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: NetworkConstants.headerAuthorization)
         }
         return urlRequest
+    }
+    
+}
+
+extension OAuth2Handler: RequestRetrier {
+    
+    func should(_ manager: SessionManager, retry request: Request, with error: Error, completion: @escaping RequestRetryCompletion) {
+        lock.lock() ; defer { lock.unlock() }
+        if let response = request.task?.response as? HTTPURLResponse, response.statusCode == 401 {
+            requestsToRetry.append(completion)
+            
+            if !isRefreshing {
+                refreshTokens { [weak self] succeeded, accessToken, refreshToken in
+                    guard let strongSelf = self else { return }
+                    strongSelf.lock.lock() ; defer { strongSelf.lock.unlock() }
+                    strongSelf.requestsToRetry.forEach { $0(succeeded, 0.0) }
+                    strongSelf.requestsToRetry.removeAll()
+                }
+            }
+        } else {
+            completion(false, 0.0)
+        }
     }
     
 }

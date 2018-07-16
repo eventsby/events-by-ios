@@ -17,6 +17,10 @@
 "title_participants" = "Участники (%d)";
 "title_email" = "Электронная почта";
 "title_website" = "Сайт";
+"participant_added" = "Вы учавствуете в ивенте!";
+"participant_already_exists" = "Вы уже учавствуете в этом ивенте!";
+"participant_removed" = "Вы удалены из ивента!";
+"participant_not_in_event" = "Вы не учавствуете в этом ивенте!";
 
 // Event List
 
