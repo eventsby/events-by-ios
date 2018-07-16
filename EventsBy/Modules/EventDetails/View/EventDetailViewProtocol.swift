@@ -14,7 +14,8 @@ protocol EventDetailViewProtocol: class {
     func participantAdded()
     func alreadyParticipate()
     func showError(_ error: Error?)
-    func showLoading()
+    func showEventDetail(_ event: EventProtocol)
+    func showLoading(initial: Bool)
     func hideLoading()
     func setupView()
 }

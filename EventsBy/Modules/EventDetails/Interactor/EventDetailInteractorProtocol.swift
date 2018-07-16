@@ -10,9 +10,12 @@ import UIKit
 
 protocol EventDetailInteractorOutputProtocol: class {
     // Interactor -> Presenter
-    func onParticipantAdded(_ event: EventModel)
+    func onParticipantAdded(_ event: EventProtocol)
     func onAlreadyParticipate()
     func onError(_ error: Error?)
+    
+    func onEventDetailError(_ error: Error?)
+    func onEventDetailRetrieved(_ event: EventProtocol)
 }
 
 protocol EventDetailInteractorInputProtocol: class {
@@ -21,4 +24,5 @@ protocol EventDetailInteractorInputProtocol: class {
     
     // Presenter -> Interactor
     func participate(eventId: Int, user: UserDetailProtocol)
+    func getEventDetails(eventId: Int)
 }

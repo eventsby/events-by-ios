@@ -15,11 +15,15 @@ class EventDetailInteractor: EventDetailInteractorInputProtocol {
         service?.participateRequest(eventId: eventId, user: user)
     }
     
+    func getEventDetails(eventId: Int) {
+        service?.getEventDetails(eventId: eventId)
+    }
+    
 }
 
 extension EventDetailInteractor: EventDetailServiceOutputProtocol {
     
-    func onParticipantAdded(_ event: EventModel) {
+    func onParticipantAdded(_ event: EventProtocol) {
         presenter?.onParticipantAdded(event)
     }
     
@@ -29,6 +33,14 @@ extension EventDetailInteractor: EventDetailServiceOutputProtocol {
     
     func onError(_ error: Error?) {
         presenter?.onError(error)
+    }
+    
+    func onEventDetailError(_ error: Error?) {
+        presenter?.onEventDetailError(error)
+    }
+    
+    func onEventDetailRetrieved(_ event: EventProtocol) {
+        presenter?.onEventDetailRetrieved(event)
     }
     
 }

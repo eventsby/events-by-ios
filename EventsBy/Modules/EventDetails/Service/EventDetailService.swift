@@ -13,12 +13,16 @@ protocol EventDetailServiceInputProtocol: class {
     var remoteRequestHandler: EventDetailServiceOutputProtocol? { get set }
     
     func participateRequest(eventId: Int, user: UserDetailProtocol)
+    func getEventDetails(eventId: Int)
 }
 
 protocol EventDetailServiceOutputProtocol: class {
-    func onParticipantAdded(_ event: EventModel)
+    func onParticipantAdded(_ event: EventProtocol)
     func onAlreadyParticipate()
     func onError(_ error: Error?)
+    
+    func onEventDetailError(_ error: Error?)
+    func onEventDetailRetrieved(_ event: EventProtocol)
 }
 
 class EventDetailService: EventDetailServiceInputProtocol {
@@ -46,6 +50,25 @@ class EventDetailService: EventDetailServiceInputProtocol {
                     self.remoteRequestHandler?.onParticipantAdded(event)
                 } else {
                     self.remoteRequestHandler?.onError(response.result.error)
+                }
+        }
+    }
+    
+    func getEventDetails(eventId: Int) {
+        let endpoint = EventEndpoint.eventDetails(eventId: eventId)
+        
+        sessionManager
+            .request(endpoint.url, method: endpoint.method, encoding: JSONEncoding.default)
+            .validate()
+            .responseJSON { response in
+                if response.result.error == nil, let data = response.data {
+                    guard let event = try? JSONDecoder().decode(EventModel.self, from: data) else {
+                        self.remoteRequestHandler?.onEventDetailError(response.result.error)
+                        return
+                    }
+                    self.remoteRequestHandler?.onEventDetailRetrieved(event)
+                } else {
+                    self.remoteRequestHandler?.onEventDetailError(response.result.error)
                 }
         }
     }

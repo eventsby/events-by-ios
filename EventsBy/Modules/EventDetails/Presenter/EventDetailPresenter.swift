@@ -31,7 +31,8 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
     func viewDidLoad() {
         guard let event = self.event?.value else { return }
         view?.setupView()
-        view?.bindEventDetail(for: event)
+        view?.showLoading(initial: true)
+        interactor?.getEventDetails(eventId: event.id)
     }
     
     func showParticipantDetail(for participant: ParticipantModel) {
@@ -57,7 +58,7 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
         guard let view = self.view else { return }
         
         if let eventId = event?.value.id, let user = userService?.lastUser(), isAuthorized() {
-            view.showLoading()
+            view.showLoading(initial: false)
             interactor?.participate(eventId: eventId, user: user)
         } else {
             router?.presentLoginScreen(from: view)
@@ -76,7 +77,7 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
 
 extension EventDetailPresenter: EventDetailInteractorOutputProtocol {
     
-    func onParticipantAdded(_ event: EventModel) {
+    func onParticipantAdded(_ event: EventProtocol) {
         self.event?.value = event
         view?.hideLoading()
         view?.participantAdded()
@@ -90,6 +91,16 @@ extension EventDetailPresenter: EventDetailInteractorOutputProtocol {
     func onError(_ error: Error?) {
         view?.hideLoading()
         view?.showError(error)
+    }
+    
+    func onEventDetailError(_ error: Error?) {
+        view?.hideLoading()
+        view?.showError(error)
+    }
+    
+    func onEventDetailRetrieved(_ event: EventProtocol) {
+        view?.hideLoading()
+        view?.showEventDetail(event)
     }
     
 }

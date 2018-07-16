@@ -72,6 +72,10 @@ class EventDetailView: UIViewController {
 
 extension EventDetailView: EventDetailViewProtocol {
     
+    func showEventDetail(_ event: EventProtocol) {
+        self.bindEventDetail(for: event)
+    }
+    
     func participantAdded() {
         let participantAddedMsg = "participant_added".localized
         MessangerService.showWarning(str: participantAddedMsg)
@@ -87,12 +91,16 @@ extension EventDetailView: EventDetailViewProtocol {
         MessangerService.showInfo(str: errorStr)
     }
     
-    func showLoading() {
+    func showLoading(initial: Bool) {
         HUDProgressService.show()
+        if initial {
+            scrollView.isHidden = true
+        }
     }
     
     func hideLoading() {
         HUDProgressService.dismiss()
+        scrollView.isHidden = false
     }
     
     func setupView() {

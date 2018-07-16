@@ -13,6 +13,7 @@ enum EventEndpoint: BaseEndPoint {
     
     case events(page: Int, limit: Int)
     case participate(eventId: Int, user: UserDetailProtocol)
+    case eventDetails(eventId: Int)
     
     func requestDetails() -> (url: String, method: HTTPMethod, parameters: [String : Any]?) {
         switch self {
@@ -27,6 +28,10 @@ enum EventEndpoint: BaseEndPoint {
                 "id": String(user.id)
             ]
             return (url: url, method: .post, parameters: userInfo)
+        case .eventDetails(let eventId):
+            var url = "\(NetworkConstants.baseUrl)\(NetworkConstants.version)"
+            url.append("events/\(eventId)")
+            return (url: url, method: .get, parameters: nil)
         }
     }
     
