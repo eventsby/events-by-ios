@@ -24,5 +24,4 @@ protocol EventDetailViewProtocol: class {
     func showLoading(initial: Bool)
     func hideLoading()
     
-    
 }

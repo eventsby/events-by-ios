@@ -84,7 +84,7 @@ extension OAuth2Handler: RequestRetrier {
             requestsToRetry.append(completion)
             
             if !isRefreshing {
-                refreshTokens { [weak self] succeeded, accessToken, refreshToken in
+                refreshTokens { [weak self] succeeded, _, _ in
                     guard let strongSelf = self else { return }
                     strongSelf.lock.lock() ; defer { strongSelf.lock.unlock() }
                     strongSelf.requestsToRetry.forEach { $0(succeeded, 0.0) }
