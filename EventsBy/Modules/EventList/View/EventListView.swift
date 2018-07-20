@@ -64,6 +64,10 @@ extension EventListView: EventListViewProtocol {
         collectionView.addSubview(self.refreshControl)
     }
     
+    func reloadData() {
+        self.collectionView.reloadData()
+    }
+    
     func showEvents() {
         collectionView.reloadData()
     }

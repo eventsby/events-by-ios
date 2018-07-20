@@ -17,4 +17,5 @@ protocol EventListViewProtocol: class {
     func hideLoading()
     
     func setupView()
+    func reloadData()
 }
