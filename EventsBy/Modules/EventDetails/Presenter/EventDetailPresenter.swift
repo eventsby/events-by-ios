@@ -116,6 +116,7 @@ extension EventDetailPresenter: EventDetailInteractorOutputProtocol {
     }
     
     func onEventDetailRetrieved(_ event: EventProtocol) {
+        self.event?.value = event
         view?.hideLoading()
         view?.showEventDetail(event)
     }
