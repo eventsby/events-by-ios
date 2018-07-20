@@ -47,6 +47,7 @@ class EventListPresenter: EventListPresenterProtocol {
     }
     
     func pullToRefresh() {
+        self.eventList.removeAll()
         interactor?.retrieveEventList(offset: 0, limit: Pagination.limit)
     }
     
