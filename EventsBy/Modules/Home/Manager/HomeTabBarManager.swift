@@ -59,17 +59,21 @@ class HomeTabBarManager: HomeManagerInputProtocol {
     }
     
     func setupButtons() -> [UIButton] {
+        var buttons: [UIButton] = []
         let button1 = UIButton(type: .system)
-        button1.tag = 0
-        button1.setTitle("EVENTS", for: .normal)
-        button1.setTitle("EVENTS", for: .selected)
-        button1.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        button1.setImage(#imageLiteral(resourceName: "icn_event"), for: .normal)
+        buttons.append(button1)
         let button2 = UIButton(type: .system)
-        button2.tag = 1
-        button2.setTitle("LOGIN", for: .normal)
-        button2.setTitle("LOGIN", for: .selected)
-        button2.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        return [button1, button2]
+        button2.setImage(#imageLiteral(resourceName: "icn_map"), for: .normal)
+        buttons.append(button2)
+        
+        for index in 0..<buttons.count {
+            buttons[index].tag = index
+            buttons[index].addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+            buttons[index].tintColor = Colors.tabBarIconNormal.uiColor
+        }
+        
+        return buttons
     }
     
     func setupControllers() -> [UIViewController] {
@@ -83,10 +87,8 @@ class HomeTabBarManager: HomeManagerInputProtocol {
         let previousIndex = self.selectedIndex
         self.selectedIndex = sender.tag
         
-        buttons[previousIndex].isSelected = false
-        buttons[previousIndex].tintColor = .red
-        sender.isSelected = true
-        sender.tintColor = .yellow
+        buttons[previousIndex].tintColor = Colors.tabBarIconNormal.uiColor
+        sender.tintColor = Colors.tabBarIconSelected.uiColor
         
         let previousVC = items[previousIndex]
         let selectedVC = items[selectedIndex]
