@@ -24,16 +24,16 @@
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="uny-Dn-0Gh">
-                                        <rect key="frame" x="28" y="0.0" width="319" height="50"/>
+                                        <rect key="frame" x="38" y="0.0" width="299" height="50"/>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="291-06-TG4"/>
                                     <constraint firstAttribute="bottom" secondItem="uny-Dn-0Gh" secondAttribute="bottom" id="Tq8-I7-2HQ"/>
-                                    <constraint firstItem="uny-Dn-0Gh" firstAttribute="leading" secondItem="WXi-zn-X0k" secondAttribute="leading" constant="28" id="i3L-7t-OcV"/>
+                                    <constraint firstItem="uny-Dn-0Gh" firstAttribute="leading" secondItem="WXi-zn-X0k" secondAttribute="leading" constant="38" id="i3L-7t-OcV"/>
                                     <constraint firstItem="uny-Dn-0Gh" firstAttribute="top" secondItem="WXi-zn-X0k" secondAttribute="top" id="inn-qG-Jhx"/>
-                                    <constraint firstAttribute="trailing" secondItem="uny-Dn-0Gh" secondAttribute="trailing" constant="28" id="zB6-bu-dee"/>
+                                    <constraint firstAttribute="trailing" secondItem="uny-Dn-0Gh" secondAttribute="trailing" constant="38" id="zB6-bu-dee"/>
                                 </constraints>
                             </view>
                         </subviews>

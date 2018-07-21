@@ -66,6 +66,9 @@ class HomeTabBarManager: HomeManagerInputProtocol {
         let button2 = UIButton(type: .system)
         button2.setImage(#imageLiteral(resourceName: "icn_map"), for: .normal)
         buttons.append(button2)
+        let button3 = UIButton(type: .system)
+        button3.setImage(#imageLiteral(resourceName: "icn_account_box"), for: .normal)
+        buttons.append(button3)
         
         for index in 0..<buttons.count {
             buttons[index].tag = index
@@ -79,7 +82,8 @@ class HomeTabBarManager: HomeManagerInputProtocol {
     func setupControllers() -> [UIViewController] {
         let eventsVC = EventListRouter.initializeEventListModule()
         let loginVC = LoginRouter.initializeLoginModule()
-        return [eventsVC, loginVC]
+        let profileVC = ProfileRouter.initializeProfileModule()
+        return [eventsVC, loginVC, profileVC]
     }
     
     @objc private func buttonAction(_ sender: UIButton) {

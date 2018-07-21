@@ -28,7 +28,7 @@ class ProfileRouter: ProfileRouterProtocol {
     }
     
     static var profileStoryboard: UIStoryboard {
-        return UIStoryboard(name: "Login", bundle: Bundle.main)
+        return UIStoryboard(name: "Profile", bundle: Bundle.main)
     }
     
 }
