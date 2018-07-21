@@ -17,9 +17,10 @@ final class AppRouter {
     }
     
     func start() {
-        let eventListVC = EventListRouter.initializeEventListModule()
+        //let eventListVC = EventListRouter.initializeEventListModule()
+        let homeVC = HomeRouter.initializeHomeModule()
         
-        window.rootViewController = eventListVC
+        window.rootViewController = homeVC
         window.makeKeyAndVisible()
     }
     

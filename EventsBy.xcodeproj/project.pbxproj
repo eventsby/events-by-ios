@@ -69,6 +69,17 @@
 		A35A9CD320EAB6AC00037F8B /* EventDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CD220EAB6AC00037F8B /* EventDetailRouter.swift */; };
 		A35A9CD520EAB6DC00037F8B /* EventDetailRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CD420EAB6DC00037F8B /* EventDetailRouterProtocol.swift */; };
 		A35A9CD720EAB71300037F8B /* EventDetailViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CD620EAB71300037F8B /* EventDetailViewProtocol.swift */; };
+		A35B1919210260DD00FBEA44 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A35B1918210260DD00FBEA44 /* Home.storyboard */; };
+		A35B191B210260F300FBEA44 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B191A210260F300FBEA44 /* HomePresenter.swift */; };
+		A35B191D210260FD00FBEA44 /* HomePresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B191C210260FD00FBEA44 /* HomePresenterProtocol.swift */; };
+		A35B191F2102612700FBEA44 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B191E2102612700FBEA44 /* HomeRouter.swift */; };
+		A35B19212102613200FBEA44 /* HomeRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B19202102613200FBEA44 /* HomeRouterProtocol.swift */; };
+		A35B19232102613B00FBEA44 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B19222102613B00FBEA44 /* HomeView.swift */; };
+		A35B19252102614000FBEA44 /* HomeViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B19242102614000FBEA44 /* HomeViewProtocol.swift */; };
+		A35B19282102730A00FBEA44 /* HomeTabBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B19272102730A00FBEA44 /* HomeTabBarManager.swift */; };
+		A35B192B2103199800FBEA44 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B192A2103199800FBEA44 /* HomeInteractor.swift */; };
+		A35B192D210319A100FBEA44 /* HomeInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B192C210319A100FBEA44 /* HomeInteractorProtocol.swift */; };
+		A35B192F21032E3E00FBEA44 /* HomeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B192E21032E3E00FBEA44 /* HomeTabBarItem.swift */; };
 		A37D45F420F2418A00676BAB /* EventDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D45F320F2418A00676BAB /* EventDetailService.swift */; };
 		A37D45F620F2422A00676BAB /* EventDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D45F520F2422A00676BAB /* EventDetailInteractor.swift */; };
 		A37D45F820F2423900676BAB /* EventDetailInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D45F720F2423900676BAB /* EventDetailInteractorProtocol.swift */; };
@@ -198,6 +209,17 @@
 		A35A9CD220EAB6AC00037F8B /* EventDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailRouter.swift; sourceTree = "<group>"; };
 		A35A9CD420EAB6DC00037F8B /* EventDetailRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailRouterProtocol.swift; sourceTree = "<group>"; };
 		A35A9CD620EAB71300037F8B /* EventDetailViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewProtocol.swift; sourceTree = "<group>"; };
+		A35B1918210260DD00FBEA44 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		A35B191A210260F300FBEA44 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		A35B191C210260FD00FBEA44 /* HomePresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterProtocol.swift; sourceTree = "<group>"; };
+		A35B191E2102612700FBEA44 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		A35B19202102613200FBEA44 /* HomeRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouterProtocol.swift; sourceTree = "<group>"; };
+		A35B19222102613B00FBEA44 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A35B19242102614000FBEA44 /* HomeViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewProtocol.swift; sourceTree = "<group>"; };
+		A35B19272102730A00FBEA44 /* HomeTabBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarManager.swift; sourceTree = "<group>"; };
+		A35B192A2103199800FBEA44 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		A35B192C210319A100FBEA44 /* HomeInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorProtocol.swift; sourceTree = "<group>"; };
+		A35B192E21032E3E00FBEA44 /* HomeTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarItem.swift; sourceTree = "<group>"; };
 		A37D45F320F2418A00676BAB /* EventDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailService.swift; sourceTree = "<group>"; };
 		A37D45F520F2422A00676BAB /* EventDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailInteractor.swift; sourceTree = "<group>"; };
 		A37D45F720F2423900676BAB /* EventDetailInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailInteractorProtocol.swift; sourceTree = "<group>"; };
@@ -325,6 +347,7 @@
 				A37D461A20F3E86400676BAB /* Common */,
 				A37D45F920F28F2600676BAB /* Login */,
 				A37D460320F3D28000676BAB /* Registration */,
+				A35B191321025EF400FBEA44 /* Home */,
 				0C2F6FBA20701A1A00493876 /* EventList */,
 				0C2F6FBB20701A3200493876 /* EventDetails */,
 			);
@@ -410,6 +433,7 @@
 				A35A9CA020EA458A00037F8B /* Uniq.swift */,
 				A35A9CC720EA85E000037F8B /* Errors.swift */,
 				A3D6E79420F164B300C0DB07 /* UserStatus.swift */,
+				A35B192E21032E3E00FBEA44 /* HomeTabBarItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -557,6 +581,63 @@
 			children = (
 				A37D45F520F2422A00676BAB /* EventDetailInteractor.swift */,
 				A37D45F720F2423900676BAB /* EventDetailInteractorProtocol.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		A35B191321025EF400FBEA44 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A35B1926210272F000FBEA44 /* Manager */,
+				A35B1914210260AC00FBEA44 /* Presenter */,
+				A35B1915210260B200FBEA44 /* Router */,
+				A35B1916210260BC00FBEA44 /* View */,
+				A35B19292103196C00FBEA44 /* Interactor */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A35B1914210260AC00FBEA44 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				A35B191A210260F300FBEA44 /* HomePresenter.swift */,
+				A35B191C210260FD00FBEA44 /* HomePresenterProtocol.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		A35B1915210260B200FBEA44 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				A35B191E2102612700FBEA44 /* HomeRouter.swift */,
+				A35B19202102613200FBEA44 /* HomeRouterProtocol.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		A35B1916210260BC00FBEA44 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A35B19222102613B00FBEA44 /* HomeView.swift */,
+				A35B19242102614000FBEA44 /* HomeViewProtocol.swift */,
+				A35B1918210260DD00FBEA44 /* Home.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A35B1926210272F000FBEA44 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A35B19272102730A00FBEA44 /* HomeTabBarManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		A35B19292103196C00FBEA44 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				A35B192A2103199800FBEA44 /* HomeInteractor.swift */,
+				A35B192C210319A100FBEA44 /* HomeInteractorProtocol.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -820,6 +901,7 @@
 				0C2F6FBF20701A6500493876 /* Events.storyboard in Resources */,
 				A30AF7F520EBD5FC00CA6951 /* Raleway-Black.ttf in Resources */,
 				A30AF7F120EBD5EC00CA6951 /* Raleway-Regular.ttf in Resources */,
+				A35B1919210260DD00FBEA44 /* Home.storyboard in Resources */,
 				0C2F6FC3207023F300493876 /* EventDetails.storyboard in Resources */,
 				A30AF7F720EBD60600CA6951 /* Montserrat-Black.ttf in Resources */,
 				A30AF7F920EBD60C00CA6951 /* Montserrat-Bold.ttf in Resources */,
@@ -961,6 +1043,7 @@
 				A30AF81520EBF82400CA6951 /* String.swift in Sources */,
 				A35A9CD720EAB71300037F8B /* EventDetailViewProtocol.swift in Sources */,
 				A35A9CA120EA458A00037F8B /* Uniq.swift in Sources */,
+				A35B192B2103199800FBEA44 /* HomeInteractor.swift in Sources */,
 				A30AF7D920EB935500CA6951 /* OrganaizerModel.swift in Sources */,
 				A3257DD820FA781B00C6A169 /* PreferenceManager.swift in Sources */,
 				A37D461120F3D2FD00676BAB /* LoginService.swift in Sources */,
@@ -982,7 +1065,9 @@
 				A30AF7DB20EB935E00CA6951 /* LocationModel.swift in Sources */,
 				A3D6E79320F1382100C0DB07 /* UINavigationItem+Title.swift in Sources */,
 				A30AF81320EBF3F000CA6951 /* ParticipantCell.swift in Sources */,
+				A35B192D210319A100FBEA44 /* HomeInteractorProtocol.swift in Sources */,
 				A3E6546120F68F50006B5B60 /* NetworkConstants.swift in Sources */,
+				A35B191B210260F300FBEA44 /* HomePresenter.swift in Sources */,
 				A37D45F820F2423900676BAB /* EventDetailInteractorProtocol.swift in Sources */,
 				A3D6E78720F12BBB00C0DB07 /* UIColor+RGB.swift in Sources */,
 				A35A9CAE20EA4BD700037F8B /* EventListPresenterProtocol.swift in Sources */,
@@ -1006,6 +1091,8 @@
 				A35A9CA520EA49FC00037F8B /* EventListInteractor.swift in Sources */,
 				A35A9CB320EA4C7A00037F8B /* EventListService.swift in Sources */,
 				A3D6E79120F1355B00C0DB07 /* UIViewController+Menu.swift in Sources */,
+				A35B19252102614000FBEA44 /* HomeViewProtocol.swift in Sources */,
+				A35B19282102730A00FBEA44 /* HomeTabBarManager.swift in Sources */,
 				A37D460B20F3D2B900676BAB /* LoginRouterProtocol.swift in Sources */,
 				A35A9CCF20EAB63000037F8B /* EventDetailPresenter.swift in Sources */,
 				A37D460D20F3D2C300676BAB /* LoginPresenter.swift in Sources */,
@@ -1016,19 +1103,24 @@
 				A30AF80820EBE56600CA6951 /* EventAnnotation.swift in Sources */,
 				A3E6545D20F68EDB006B5B60 /* BaseEndpoint.swift in Sources */,
 				A35A9CC820EA85E000037F8B /* Errors.swift in Sources */,
+				A35B19212102613200FBEA44 /* HomeRouterProtocol.swift in Sources */,
 				A30AF80520EBE32000CA6951 /* MKMapView.swift in Sources */,
 				0C2F6FBD20701A5800493876 /* EventListView.swift in Sources */,
 				A37D461F20F3EB2F00676BAB /* UserDetailProtocol.swift in Sources */,
 				A30AF80C20EBE80C00CA6951 /* EventMapNoteView.swift in Sources */,
+				A35B192F21032E3E00FBEA44 /* HomeTabBarItem.swift in Sources */,
 				A3E6546320F68FD8006B5B60 /* EventEndpoint.swift in Sources */,
+				A35B191F2102612700FBEA44 /* HomeRouter.swift in Sources */,
 				A37D461D20F3E87F00676BAB /* UserService.swift in Sources */,
 				A3D6E78920F12C6800C0DB07 /* AppRouter.swift in Sources */,
 				A30AF80320EBE27800CA6951 /* Location.swift in Sources */,
 				A3144ACE20FA26D10082C00F /* HUDProgressService.swift in Sources */,
 				A35A9CA320EA470B00037F8B /* EventListRouter.swift in Sources */,
+				A35B19232102613B00FBEA44 /* HomeView.swift in Sources */,
 				A37D460520F3D29300676BAB /* LoginView.swift in Sources */,
 				A3E6545A20F68B49006B5B60 /* OAuth2Handler.swift in Sources */,
 				A37D45F420F2418A00676BAB /* EventDetailService.swift in Sources */,
+				A35B191D210260FD00FBEA44 /* HomePresenterProtocol.swift in Sources */,
 				A35A9CA720EA4AEB00037F8B /* EventListPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

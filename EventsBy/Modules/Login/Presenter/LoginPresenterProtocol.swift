@@ -6,7 +6,6 @@
 //  Copyright © 2018 Events-By. All rights reserved.
 //
 
-import UIKit
 import ReactiveSwift
 
 protocol LoginPresenterProtocol: class {

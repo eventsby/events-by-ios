@@ -6,8 +6,6 @@
 //  Copyright © 2018 Events-By. All rights reserved.
 //
 
-import UIKit
-
 protocol LoginViewProtocol: class {
     var presenter: LoginPresenterProtocol? { get set }
     
