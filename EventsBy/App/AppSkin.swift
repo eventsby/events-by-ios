@@ -31,12 +31,12 @@ struct AppSkin {
         }
     }
     
-    static func setShadow(to view: UIView, path: CGRect? = nil, offset: CGSize? = nil) {
+    static func setShadow(to view: UIView, path: CGRect? = nil, offset: CGSize? = nil, radius: CGFloat?) {
         if let offset = offset {
             view.layer.shadowOffset = offset
         }
         view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowRadius = 8
+        view.layer.shadowRadius = radius ?? 8
         view.layer.shadowOpacity = 0.2
     }
     

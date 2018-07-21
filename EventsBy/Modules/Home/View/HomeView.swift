@@ -14,6 +14,7 @@ class HomeView: UIViewController {
     
     var presenter: HomePresenterProtocol?
     
+    @IBOutlet weak var tabBarView: UIView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var tabBarStackView: UIStackView!
     
@@ -29,7 +30,7 @@ class HomeView: UIViewController {
 extension HomeView: HomeViewProtocol {
     
     func setupView() {
-        
+        AppSkin.setShadow(to: tabBarView, offset: CGSize(width: 0, height: -1), radius: 6)
     }
     
     func controllerSwitched(to: TabBarItemProtocol, from: TabBarItemProtocol) {

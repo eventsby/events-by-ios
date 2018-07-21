@@ -52,6 +52,7 @@
                     <connections>
                         <outlet property="containerView" destination="rT0-LD-VMX" id="bmy-gu-KVc"/>
                         <outlet property="tabBarStackView" destination="uny-Dn-0Gh" id="0XI-oY-WiD"/>
+                        <outlet property="tabBarView" destination="WXi-zn-X0k" id="tIn-aG-Y62"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="POn-vt-2Ad" userLabel="First Responder" sceneMemberID="firstResponder"/>
