@@ -9,7 +9,7 @@
 class EventListPresenter: EventListPresenterProtocol {
     
     private struct Pagination {
-        static let limit = 5
+        static let limit = 6
     }
     
     internal weak var view: EventListViewProtocol?
