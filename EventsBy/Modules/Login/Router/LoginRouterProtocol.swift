@@ -10,7 +10,5 @@ import Foundation
 import UIKit
 
 protocol LoginRouterProtocol: class {
-    static func initializeLoginModule() -> UIViewController
-    // Presenter -> Router
-    //func presentEventDetailScreen(from view: EventListViewProtocol, for event: EventModel)
+    static func initializeLoginModule(modal: Bool) -> UIViewController
 }

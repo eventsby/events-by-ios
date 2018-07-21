@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GDW-lH-rS2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GDW-lH-rS2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -130,6 +130,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="J6s-Kz-kdq"/>
                     <connections>
+                        <outlet property="closeButton" destination="un9-Ur-j3A" id="fGj-Xo-FdJ"/>
                         <outlet property="nameInputField" destination="vMa-5M-ppW" id="0FD-Ox-Iwa"/>
                         <outlet property="passwordInputField" destination="SO8-Io-g44" id="joa-Z9-O3g"/>
                     </connections>

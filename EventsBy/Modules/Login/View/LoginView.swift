@@ -12,6 +12,7 @@ import Result
 
 class LoginView: UIViewController {
     
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var nameInputField: InputField!
     @IBOutlet weak var passwordInputField: InputField!
     
@@ -47,6 +48,8 @@ extension LoginView: LoginViewProtocol {
         nameInputField.autocapitalizationType = .none
         passwordInputField.returnKeyType = .done
         passwordInputField.autocapitalizationType = .none
+        
+        closeButton.isHidden = presenter.isModal
     }
     
     func onClose() {

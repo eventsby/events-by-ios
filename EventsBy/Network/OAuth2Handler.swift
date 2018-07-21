@@ -29,17 +29,9 @@ class OAuth2Handler {
         guard !isRefreshing else { return }
         isRefreshing = true
         
-        let url = AuthEndpoint.refreshToken.url
+        let endpoint = AuthEndpoint.refreshToken
         
-        let params: [String: String] = [
-            NetworkConstants.grantType: NetworkConstants.refreshToken,
-            NetworkConstants.clientId: NetworkConstants.clientIdValue,
-            NetworkConstants.refreshToken: PreferenceManager.shared.refreshToken
-        ]
-        
-        Swift.print(params)
-        
-        sessionManager?.request(url, method: .post, parameters: params)
+        sessionManager?.request(endpoint.url, method: endpoint.method, parameters: endpoint.parameters)
             .responseJSON { [weak self] response in
                 guard let strongSelf = self else { return }
                 if
@@ -84,7 +76,12 @@ extension OAuth2Handler: RequestRetrier {
             requestsToRetry.append(completion)
             
             if !isRefreshing {
-                refreshTokens { [weak self] succeeded, _, _ in
+                refreshTokens { [weak self] succeeded, accessToken, _ in
+                    if !succeeded && accessToken == nil {
+                        PreferenceManager.shared.clear()
+                        guard let router = AppDelegate.shared?.router else { return }
+                        router.goToLogin(modal: true)
+                    }
                     guard let strongSelf = self else { return }
                     strongSelf.lock.lock() ; defer { strongSelf.lock.unlock() }
                     strongSelf.requestsToRetry.forEach { $0(succeeded, 0.0) }

@@ -33,8 +33,13 @@ enum AuthEndpoint: BaseEndPoint {
             return (url: url, method: .get, parameters: nil)
         case .refreshToken:
             var url = "\(NetworkConstants.baseUrl)"
-            url.append(NetworkConstants.refreshToken)
-            return (url: url, method: .post, parameters: nil)
+            url.append(NetworkConstants.authTokenUrl)
+            let params: [String: String] = [
+                NetworkConstants.grantType: NetworkConstants.refreshToken,
+                NetworkConstants.clientId: NetworkConstants.clientIdValue,
+                NetworkConstants.refreshToken: PreferenceManager.shared.refreshToken
+            ]
+            return (url: url, method: .post, parameters: params)
         }
     }
     

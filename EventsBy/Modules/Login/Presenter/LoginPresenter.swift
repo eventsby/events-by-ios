@@ -13,14 +13,16 @@ class LoginPresenter: LoginPresenterProtocol {
     internal weak var view: LoginViewProtocol?
     internal var interactor: LoginInteractorInputProtocol?
     internal var router: LoginRouterProtocol?
+    internal var isModal: Bool
     
     let login: MutableProperty<String?> = MutableProperty(nil)
     let password: MutableProperty<String?> = MutableProperty(nil)
     
-    init(view: LoginViewProtocol?, interactor: LoginInteractorInputProtocol, router: LoginRouterProtocol?) {
+    init(view: LoginViewProtocol?, interactor: LoginInteractorInputProtocol, router: LoginRouterProtocol?, isModal: Bool) {
         self.view = view
         self.interactor = interactor
         self.router = router
+        self.isModal = isModal
     }
     
     func viewDidLoad() {
@@ -34,6 +36,7 @@ class LoginPresenter: LoginPresenterProtocol {
     }
     
     func closeAction() {
+        guard !isModal else { return }
         view?.onClose()
     }
     

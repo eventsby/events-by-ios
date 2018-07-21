@@ -17,11 +17,16 @@ final class AppRouter {
     }
     
     func start() {
-        //let eventListVC = EventListRouter.initializeEventListModule()
         let homeVC = HomeRouter.initializeHomeModule()
         
         window.rootViewController = homeVC
         window.makeKeyAndVisible()
+    }
+    
+    func goToLogin(modal: Bool = false) {
+        guard let rootVC = self.window.rootViewController else { return }
+        let loginVC = LoginRouter.initializeLoginModule(modal: modal)
+        rootVC.present(loginVC, animated: true, completion: nil)
     }
     
 }

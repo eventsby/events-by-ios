@@ -12,6 +12,7 @@ protocol LoginPresenterProtocol: class {
     var view: LoginViewProtocol? { get set }
     var interactor: LoginInteractorInputProtocol? { get set }
     var router: LoginRouterProtocol? { get set }
+    var isModal: Bool { get set }
     
     var login: MutableProperty<String?> { get }
     var password: MutableProperty<String?> { get }
