@@ -26,7 +26,7 @@ class HomeRouter: HomeRouterProtocol {
     }
     
     static var homeStoryboard: UIStoryboard {
-        return UIStoryboard(name: "Home", bundle: Bundle.main)
+        return UIStoryboard(name: Storyboards.home.rawValue, bundle: Bundle.main)
     }
     
 }

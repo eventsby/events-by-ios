@@ -27,7 +27,7 @@ class EventListRouter: EventListRouterProtocol {
     }
     
     static var eventsStoryboard: UIStoryboard {
-        return UIStoryboard(name: "Events", bundle: Bundle.main)
+        return UIStoryboard(name: Storyboards.eventList.rawValue, bundle: Bundle.main)
     }
         
     func presentEventDetailScreen(from view: EventListViewProtocol, for event: EventModel) {

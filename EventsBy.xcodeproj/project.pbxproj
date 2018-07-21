@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0220C6EC2103D83D009B8295 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220C6EB2103D83D009B8295 /* Constants.swift */; };
 		09D54588A8231E6ECAB5F6A7 /* Pods_EventsBy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0296282F67DE263368BDC378 /* Pods_EventsBy.framework */; };
 		0C2F6F8C2070169700493876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2F6F8B2070169700493876 /* AppDelegate.swift */; };
 		0C2F6F932070169700493876 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C2F6F922070169700493876 /* Assets.xcassets */; };
@@ -144,6 +145,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0220C6EB2103D83D009B8295 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0296282F67DE263368BDC378 /* Pods_EventsBy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EventsBy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C2F6F882070169700493876 /* EventsBy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventsBy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C2F6F8B2070169700493876 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -366,7 +368,6 @@
 			children = (
 				A37D461A20F3E86400676BAB /* Common */,
 				A37D45F920F28F2600676BAB /* Login */,
-				A37D460320F3D28000676BAB /* Registration */,
 				A34426172103BA9A002AE848 /* Profile */,
 				A35B191321025EF400FBEA44 /* Home */,
 				0C2F6FBA20701A1A00493876 /* EventList */,
@@ -594,6 +595,7 @@
 				A3144ACB20FA136E0082C00F /* MessangerService.swift */,
 				A3144ACD20FA26D10082C00F /* HUDProgressService.swift */,
 				A3257DD720FA781B00C6A169 /* PreferenceManager.swift */,
+				0220C6EB2103D83D009B8295 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -775,13 +777,6 @@
 				A37D461420F3D31000676BAB /* LoginInteractorProtocol.swift */,
 			);
 			path = Interactor;
-			sourceTree = "<group>";
-		};
-		A37D460320F3D28000676BAB /* Registration */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Registration;
 			sourceTree = "<group>";
 		};
 		A37D461A20F3E86400676BAB /* Common */ = {
@@ -1194,6 +1189,7 @@
 				A35B19212102613200FBEA44 /* HomeRouterProtocol.swift in Sources */,
 				A30AF80520EBE32000CA6951 /* MKMapView.swift in Sources */,
 				0C2F6FBD20701A5800493876 /* EventListView.swift in Sources */,
+				0220C6EC2103D83D009B8295 /* Constants.swift in Sources */,
 				A37D461F20F3EB2F00676BAB /* UserDetailProtocol.swift in Sources */,
 				A30AF80C20EBE80C00CA6951 /* EventMapNoteView.swift in Sources */,
 				A35B192F21032E3E00FBEA44 /* HomeTabBarItem.swift in Sources */,

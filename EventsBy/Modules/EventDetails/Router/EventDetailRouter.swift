@@ -29,7 +29,7 @@ class EventDetailRouter: EventDetailRouterProtocol {
     }
     
     static var eventDetails: UIStoryboard {
-        return UIStoryboard(name: "EventDetails", bundle: Bundle.main)
+        return UIStoryboard(name: Storyboards.eventDetails.rawValue, bundle: Bundle.main)
     }
     
     func presentParticipantDetailScreen(from view: EventDetailViewProtocol, for participant: ParticipantModel) {

@@ -28,7 +28,7 @@ class LoginRouter: LoginRouterProtocol {
     }
     
     static var loginStoryboard: UIStoryboard {
-        return UIStoryboard(name: "Login", bundle: Bundle.main)
+        return UIStoryboard(name: Storyboards.login.rawValue, bundle: Bundle.main)
     }
     
 }
