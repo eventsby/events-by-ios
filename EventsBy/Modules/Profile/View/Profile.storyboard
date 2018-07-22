@@ -271,6 +271,11 @@
                         <viewLayoutGuide key="safeArea" id="vr9-6q-LLy"/>
                     </view>
                     <navigationItem key="navigationItem" id="iWq-bx-3Pe"/>
+                    <connections>
+                        <outlet property="avatarImageView" destination="o3A-cP-9F2" id="WC9-VJ-p7l"/>
+                        <outlet property="fullNameLabel" destination="5EL-kI-Doi" id="JYz-5G-91b"/>
+                        <outlet property="locationLabel" destination="3J7-bN-HYS" id="dNr-cs-M1F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hfl-CW-hfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

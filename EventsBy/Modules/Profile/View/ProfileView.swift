@@ -10,6 +10,10 @@ import UIKit
 
 class ProfileView: UIViewController {
     
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    
     var presenter: ProfilePresenterProtocol?
     
     // MARK: Lifecycle
@@ -27,8 +31,8 @@ extension ProfileView: ProfileViewProtocol {
         self.navigationItem.title = "profile_title".localized
     }
     
-    func onSuccessUserInfo() {
-        
+    func onSuccessUserInfo(_ user: UserDetailProtocol) {
+        fullNameLabel.text = user.fullname
     }
     
     func showLoading() {

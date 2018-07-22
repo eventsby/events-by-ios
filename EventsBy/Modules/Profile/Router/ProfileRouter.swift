@@ -19,10 +19,10 @@ class ProfileRouter: ProfileRouterProtocol {
         let service: ProfileServiceInputProtocol = ProfileService()
         let userService: UserServiceProtocol = UserService()
         
+        presenter.userService = userService
         view.presenter = presenter
         interactor.presenter = presenter
         interactor.service = service
-        interactor.userService = userService
         service.remoteRequestHandler = interactor
         
         return navController

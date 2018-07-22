@@ -10,7 +10,6 @@ class ProfileInteractor: ProfileInteractorInputProtocol {
     
     weak var presenter: ProfileInteractorOutputProtocol?
     var service: ProfileServiceInputProtocol?
-    var userService: UserServiceProtocol?
     
     func getUserInfo(user: UserDetailProtocol) {
         service?.getUserInfo(user)

@@ -10,6 +10,9 @@ protocol ProfilePresenterProtocol: class {
     var view: ProfileViewProtocol? { get set }
     var interactor: ProfileInteractorInputProtocol? { get set }
     var router: ProfileRouterProtocol? { get set }
+    var userService: UserServiceProtocol? { get set }
+    
+    var userStatus: UserStatus { get }
     
     // View -> Presenter
     func viewDidLoad()
