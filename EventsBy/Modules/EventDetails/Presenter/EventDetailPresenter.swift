@@ -27,6 +27,14 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
         return event.map { $0.participants.contains(where: { user in user.id == userId }) }
     }
     
+    var userStatus: UserStatus {
+        let isAuthorized = PreferenceManager.shared.isAuthorized()
+        guard let user = userService?.lastUser(), isAuthorized else {
+            return .anonymous
+        }
+        return .registered(user)
+    }
+    
     init(view: EventDetailViewProtocol?, router: EventDetailRouterProtocol, interactor: EventDetailInteractorInputProtocol, event: EventProtocol) {
         self.view = view
         self.router = router
@@ -61,22 +69,19 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
     }
     
     func wantToParticipateAction() {
-        guard let view = self.view else { return }
+        guard let view = self.view, let eventId = event?.value.id else { return }
         
-        if let eventId = event?.value.id, let user = userService?.lastUser(), isAuthorized() {
+        switch userStatus {
+        case .registered(let user):
             view.showLoading(initial: false)
             if isUserParticipating.value {
                 interactor?.removeParticipant(eventId: eventId, user: user)
             } else {
                 interactor?.participate(eventId: eventId, user: user)
             }
-        } else {
+        case .anonymous:
             router?.presentLoginScreen(from: view)
         }
-    }
-    
-    private func isAuthorized() -> Bool {
-        return PreferenceManager.shared.isAuthorized()
     }
     
 }
