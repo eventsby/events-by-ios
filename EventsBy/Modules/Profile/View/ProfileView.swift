@@ -24,7 +24,7 @@ class ProfileView: UIViewController {
 extension ProfileView: ProfileViewProtocol {
     
     func setupView() {
-        
+        self.navigationItem.title = "profile_title".localized
     }
     
     func onSuccessUserInfo() {

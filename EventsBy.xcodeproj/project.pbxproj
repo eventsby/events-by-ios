@@ -58,6 +58,7 @@
 		A344262C2103BC91002AE848 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A344262B2103BC91002AE848 /* Profile.storyboard */; };
 		A344262E2103BCA1002AE848 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A344262D2103BCA1002AE848 /* ProfileInteractor.swift */; };
 		A34426302103BCB0002AE848 /* ProfileInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A344262F2103BCB0002AE848 /* ProfileInteractorProtocol.swift */; };
+		A344263221047C46002AE848 /* CircledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A344263121047C46002AE848 /* CircledView.swift */; };
 		A35A9C9F20EA409500037F8B /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9C9E20EA409500037F8B /* EventModel.swift */; };
 		A35A9CA120EA458A00037F8B /* Uniq.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CA020EA458A00037F8B /* Uniq.swift */; };
 		A35A9CA320EA470B00037F8B /* EventListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35A9CA220EA470B00037F8B /* EventListRouter.swift */; };
@@ -209,6 +210,7 @@
 		A344262B2103BC91002AE848 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		A344262D2103BCA1002AE848 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
 		A344262F2103BCB0002AE848 /* ProfileInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractorProtocol.swift; sourceTree = "<group>"; };
+		A344263121047C46002AE848 /* CircledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircledView.swift; sourceTree = "<group>"; };
 		A35A9C9E20EA409500037F8B /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		A35A9CA020EA458A00037F8B /* Uniq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uniq.swift; sourceTree = "<group>"; };
 		A35A9CA220EA470B00037F8B /* EventListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListRouter.swift; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 				A34426272103BC38002AE848 /* ProfileView.swift */,
 				A34426292103BC78002AE848 /* ProfileViewProtocol.swift */,
 				A344262B2103BC91002AE848 /* Profile.storyboard */,
+				A344263121047C46002AE848 /* CircledView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1122,6 +1125,7 @@
 				A3257DD820FA781B00C6A169 /* PreferenceManager.swift in Sources */,
 				A37D461120F3D2FD00676BAB /* LoginService.swift in Sources */,
 				A34426262103BC15002AE848 /* ProfilePresenterProtocol.swift in Sources */,
+				A344263221047C46002AE848 /* CircledView.swift in Sources */,
 				A35A9CB020EA4BF800037F8B /* EventListInteractorProtocol.swift in Sources */,
 				A34426242103BBBD002AE848 /* ProfilePresenter.swift in Sources */,
 				0C2F6FC1207023E900493876 /* EventDetailView.swift in Sources */,
