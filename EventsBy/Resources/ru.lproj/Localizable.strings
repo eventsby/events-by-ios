@@ -10,6 +10,12 @@
 
 "menu_btn_title" = "МЕНЮ";
 
+// Tab Bar
+
+"tab_bar_event_list" = "Ивенты";
+"tab_bar_map" = "Карта";
+"tab_bar_profile" = "Профиль";
+
 // Event Details
 
 "want_participate_button" = "Я иду!";

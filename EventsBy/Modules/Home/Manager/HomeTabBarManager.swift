@@ -17,7 +17,7 @@ protocol HomeManagerInputProtocol: class {
     
     func initialize()
     func selectTab(index: Int)
-    func setupButtons() -> [UIButton]
+    func setupButtons() -> [UIControl]
     func setupControllers() -> [UIViewController]
 }
 
@@ -58,17 +58,23 @@ class HomeTabBarManager: HomeManagerInputProtocol {
         buttonAction(buttons[index])
     }
     
-    func setupButtons() -> [UIButton] {
-        var buttons: [UIButton] = []
-        let button1 = UIButton(type: .system)
-        button1.setImage(#imageLiteral(resourceName: "icn_event"), for: .normal)
-        buttons.append(button1)
-        let button2 = UIButton(type: .system)
-        button2.setImage(#imageLiteral(resourceName: "icn_map"), for: .normal)
-        buttons.append(button2)
-        let button3 = UIButton(type: .system)
-        button3.setImage(#imageLiteral(resourceName: "icn_account_box"), for: .normal)
-        buttons.append(button3)
+    func setupButtons() -> [UIControl] {
+        var buttons: [UIControl] = []
+        let btn1 = TabBarButton(frame: .zero)
+        btn1.image = #imageLiteral(resourceName: "icn_event")
+        btn1.text = "tab_bar_event_list".localized
+        btn1.sizeToFit()
+        buttons.append(btn1)
+        let btn2 = TabBarButton(frame: .zero)
+        btn2.image = #imageLiteral(resourceName: "icn_map")
+        btn2.text = "tab_bar_map".localized
+        btn2.sizeToFit()
+        buttons.append(btn2)
+        let btn3 = TabBarButton(frame: .zero)
+        btn3.image = #imageLiteral(resourceName: "icn_account_box")
+        btn3.text = "tab_bar_profile".localized
+        btn3.sizeToFit()
+        buttons.append(btn3)
         
         for index in 0..<buttons.count {
             buttons[index].tag = index
@@ -86,7 +92,7 @@ class HomeTabBarManager: HomeManagerInputProtocol {
         return [eventsVC, loginVC, profileVC]
     }
     
-    @objc private func buttonAction(_ sender: UIButton) {
+    @objc private func buttonAction(_ sender: UIControl) {
         let buttons = items.map({ $0.button })
         let previousIndex = self.selectedIndex
         self.selectedIndex = sender.tag

@@ -12,6 +12,7 @@ enum Fonts {
     
     case navBarTitle
     case navBarButton
+    case tabBarButton
     
     case badgeText
     
@@ -40,6 +41,8 @@ enum Fonts {
             return UIFont(name: "Montserrat-Medium", size: 17)!
         case .inputFieldTip:
              return UIFont(name: "Montserrat-SemiBold", size: 13)!
+        case .tabBarButton:
+            return UIFont(name: "Montserrat-Medium", size: 9)!
         }
     }
     

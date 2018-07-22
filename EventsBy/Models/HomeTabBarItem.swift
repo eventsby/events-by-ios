@@ -12,16 +12,16 @@ import UIKit
 protocol TabBarItemProtocol {
     
     var item: UIViewController { get }
-    var button: UIButton { get }
+    var button: UIControl { get }
     
 }
 
 class HomeTabBarItem: TabBarItemProtocol {
     
     let item: UIViewController
-    let button: UIButton
+    let button: UIControl
     
-    init(item: UIViewController, button: UIButton) {
+    init(item: UIViewController, button: UIControl) {
         self.item = item
         self.button = button
     }
