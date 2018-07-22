@@ -11,4 +11,6 @@ import UIKit
 
 protocol ProfileRouterProtocol: class {
     static func initializeProfileModule() -> UIViewController
+    
+    func presentLogin(from view: ProfileViewProtocol)
 }

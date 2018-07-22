@@ -32,4 +32,12 @@ class ProfileRouter: ProfileRouterProtocol {
         return UIStoryboard(name: Storyboards.profile.rawValue, bundle: Bundle.main)
     }
     
+    func presentLogin(from view: ProfileViewProtocol) {
+        let loginVC = LoginRouter.initializeLoginModule(modal: true)
+        
+        if let sourceView = view as? UIViewController {
+            sourceView.navigationController?.pushViewController(loginVC, animated: true)
+        }
+    }
+    
 }

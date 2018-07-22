@@ -52,7 +52,8 @@ extension LoginView: LoginViewProtocol {
         closeButton.isHidden = presenter.isModal
     }
     
-    func onClose() {
+    func onClose(animated: Bool) {
+        self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
     

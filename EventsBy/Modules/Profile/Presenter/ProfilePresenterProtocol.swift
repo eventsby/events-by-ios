@@ -16,4 +16,7 @@ protocol ProfilePresenterProtocol: class {
     
     // View -> Presenter
     func viewDidLoad()
+    func viewWillAppear()
+    
+    func authenticateAction()
 }

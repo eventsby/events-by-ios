@@ -29,15 +29,26 @@ class ProfilePresenter: ProfilePresenterProtocol {
     
     func viewDidLoad() {
         view?.setupView()
+        view?.update(with: userStatus)
         
         switch userStatus {
         case .registered(let user):
             view?.showLoading()
             interactor?.getUserInfo(user: user)
         case .anonymous:
-            // TODO navigate to login
             break
         }
+    }
+    
+    func viewWillAppear() {
+        view?.update(with: userStatus)
+    }
+    
+    // MARK: Actions
+    
+    func authenticateAction() {
+        guard let view = self.view else { return }
+        router?.presentLogin(from: view)
     }
     
 }

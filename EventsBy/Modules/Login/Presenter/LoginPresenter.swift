@@ -37,7 +37,7 @@ class LoginPresenter: LoginPresenterProtocol {
     
     func closeAction() {
         guard !isModal else { return }
-        view?.onClose()
+        view?.onClose(animated: true)
     }
     
 }
@@ -47,7 +47,7 @@ extension LoginPresenter: LoginInteractorOutputProtocol {
     func onSuccessLogin(_ user: UserDetailProtocol) {
         view?.hideLoading()
         view?.onSuccessLogin()
-        view?.onClose()
+        view?.onClose(animated: true)
     }
     
     func onInvalidCredentials() {

@@ -15,4 +15,5 @@ protocol ProfileViewProtocol: class {
     func hideLoading()
     
     func setupView()
+    func update(with status: UserStatus)
 }
