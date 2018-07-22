@@ -57,12 +57,23 @@ extension ProfilePresenter: ProfileInteractorOutputProtocol {
     
     func onSuccessUserInfo(_ user: UserDetailProtocol) {
         view?.hideLoading()
+        view?.update(with: userStatus)
         view?.onSuccessUserInfo(user)
     }
     
     func onError(_ error: Error?) {
         view?.hideLoading()
         view?.showError(error)
+    }
+    
+}
+
+extension ProfilePresenter: LoginScreenDelegate {
+    
+    func onLoginScreenDismissed() {
+        // user status will be updated in case of user authorization on login screen
+        // TODO: A.T. - pass user data to the view or make a network call if use is authorized
+        view?.update(with: userStatus)
     }
     
 }

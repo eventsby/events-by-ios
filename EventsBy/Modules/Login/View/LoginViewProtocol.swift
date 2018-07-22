@@ -18,3 +18,7 @@ protocol LoginViewProtocol: class {
     func setupView()
     func onClose(animated: Bool)
 }
+
+protocol LoginScreenDelegate {
+    func onLoginScreenDismissed()
+}

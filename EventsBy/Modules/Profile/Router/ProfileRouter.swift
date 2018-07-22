@@ -33,7 +33,7 @@ class ProfileRouter: ProfileRouterProtocol {
     }
     
     func presentLogin(from view: ProfileViewProtocol) {
-        let loginVC = LoginRouter.initializeLoginModule(modal: true)
+        let loginVC = LoginRouter.initializeLoginModule(modal: true, delegate: view.presenter as? ProfilePresenter)
         
         if let sourceView = view as? UIViewController {
             sourceView.navigationController?.pushViewController(loginVC, animated: true)

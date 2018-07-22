@@ -12,6 +12,7 @@ protocol LoginPresenterProtocol: class {
     var view: LoginViewProtocol? { get set }
     var interactor: LoginInteractorInputProtocol? { get set }
     var router: LoginRouterProtocol? { get set }
+    var delegate: LoginScreenDelegate? { get set }
     var isModal: Bool { get set }
     
     var login: MutableProperty<String?> { get }
@@ -19,6 +20,8 @@ protocol LoginPresenterProtocol: class {
     
     // View -> Presenter
     func viewDidLoad()
+    func viewWillDisappear()
+    
     func loginAction()
     func closeAction()
 }

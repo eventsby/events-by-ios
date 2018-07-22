@@ -25,6 +25,11 @@ class LoginView: UIViewController {
         presenter?.viewDidLoad()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        presenter?.viewWillDisappear()
+    }
+    
     // MARK: Actions
     
     @IBAction func onLoginAction(_ sender: Any) {

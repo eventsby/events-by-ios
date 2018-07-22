@@ -13,6 +13,7 @@ class LoginPresenter: LoginPresenterProtocol {
     internal weak var view: LoginViewProtocol?
     internal var interactor: LoginInteractorInputProtocol?
     internal var router: LoginRouterProtocol?
+    internal var delegate: LoginScreenDelegate?
     internal var isModal: Bool
     
     let login: MutableProperty<String?> = MutableProperty(nil)
@@ -28,6 +29,12 @@ class LoginPresenter: LoginPresenterProtocol {
     func viewDidLoad() {
         view?.setupView()
     }
+    
+    func viewWillDisappear() {
+        delegate?.onLoginScreenDismissed()
+    }
+    
+    // MARK: Actions
     
     func loginAction() {
         guard let login = self.login.value, let password = self.password.value else { return }

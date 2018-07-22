@@ -10,7 +10,7 @@ import UIKit
 
 class LoginRouter: LoginRouterProtocol {
     
-    class func initializeLoginModule(modal: Bool = false) -> UIViewController {
+    class func initializeLoginModule(modal: Bool = false, delegate: LoginScreenDelegate? = nil) -> UIViewController {
         guard let view = loginStoryboard.instantiateInitialViewController() as? LoginView else { return UIViewController() }
         let interactor: LoginInteractorInputProtocol & LoginServiceOutputProtocol = LoginInteractor()
         let router: LoginRouterProtocol = LoginRouter()
@@ -18,6 +18,7 @@ class LoginRouter: LoginRouterProtocol {
         let service: LoginServiceInputProtocol = LoginService()
         let userService: UserServiceProtocol = UserService()
         
+        presenter.delegate = delegate
         view.presenter = presenter
         interactor.presenter = presenter
         interactor.service = service

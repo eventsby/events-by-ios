@@ -10,5 +10,5 @@ import Foundation
 import UIKit
 
 protocol LoginRouterProtocol: class {
-    static func initializeLoginModule(modal: Bool) -> UIViewController
+    static func initializeLoginModule(modal: Bool, delegate: LoginScreenDelegate?) -> UIViewController
 }
