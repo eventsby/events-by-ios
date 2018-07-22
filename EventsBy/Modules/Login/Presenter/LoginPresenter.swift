@@ -13,7 +13,7 @@ class LoginPresenter: LoginPresenterProtocol {
     internal weak var view: LoginViewProtocol?
     internal var interactor: LoginInteractorInputProtocol?
     internal var router: LoginRouterProtocol?
-    internal var delegate: LoginScreenDelegate?
+    internal weak var delegate: LoginScreenDelegate?
     internal var isModal: Bool
     
     let login: MutableProperty<String?> = MutableProperty(nil)
