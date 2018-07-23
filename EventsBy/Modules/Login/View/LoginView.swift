@@ -15,6 +15,7 @@ class LoginView: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var nameInputField: InputField!
     @IBOutlet weak var passwordInputField: InputField!
+    @IBOutlet weak var loginButton: UIButton!
     
     var presenter: LoginPresenterProtocol?
     

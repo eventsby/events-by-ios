@@ -21,6 +21,15 @@ final class InputField: UIView {
         }
     }
     
+    @IBInspectable override var tintColor: UIColor? {
+        get {
+            return inputField?.tintColor
+        }
+        set {
+            inputField?.tintColor = newValue
+        }
+    }
+    
     var text: String? {
         get {
             return inputField?.text
@@ -104,7 +113,7 @@ final class InputField: UIView {
     }
     
     private struct Consts {
-        static let height: CGFloat = 66
+        static let height: CGFloat = 60
         static let separatorHeight: CGFloat = 1
         static let errorLabelHeight: CGFloat = 16
     }

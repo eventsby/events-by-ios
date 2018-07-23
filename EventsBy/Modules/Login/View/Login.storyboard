@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-SemiBold.ttf">
+            <string>Montserrat-SemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Login View-->
         <scene sceneID="7zj-yf-D02">
@@ -53,34 +58,49 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHh-vI-mJi" userLabel="Center View">
-                                        <rect key="frame" x="12" y="120" width="351" height="220"/>
+                                        <rect key="frame" x="34" y="189.5" width="307" height="224"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMa-5M-ppW" customClass="InputField" customModule="EventsBy" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="8" width="335" height="68"/>
+                                                <rect key="frame" x="8" y="8" width="291" height="68"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="68" id="C11-96-WFU"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizedTip" value="login_form_username"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                        <color key="value" red="0.23137254900000001" green="0.25098039220000001" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SO8-Io-g44" customClass="InputField" customModule="EventsBy" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="82" width="335" height="68"/>
+                                                <rect key="frame" x="8" y="82" width="291" height="68"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="68" id="IgX-lL-6Pr"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="localizedTip" value="login_form_password"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                                        <color key="value" red="0.23137254900000001" green="0.25098039220000001" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0i-Dz-Krq">
-                                                <rect key="frame" x="75" y="168" width="200" height="30"/>
+                                                <rect key="frame" x="8" y="168" width="291" height="48"/>
+                                                <color key="backgroundColor" red="0.99607843139999996" green="0.90196078430000004" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="200" id="uxh-Ml-66F"/>
+                                                    <constraint firstAttribute="height" constant="48" id="yZz-cM-Ywa"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
+                                                <state key="normal" title="Login">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="24"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="onLoginAction:" destination="GDW-lH-rS2" eventType="touchUpInside" id="MPI-NM-8dE"/>
                                                 </connections>
@@ -92,22 +112,32 @@
                                             <constraint firstAttribute="trailing" secondItem="SO8-Io-g44" secondAttribute="trailing" constant="8" id="5Jv-ee-mSv"/>
                                             <constraint firstItem="SO8-Io-g44" firstAttribute="leading" secondItem="eHh-vI-mJi" secondAttribute="leading" constant="8" id="9yW-DI-xXw"/>
                                             <constraint firstItem="vMa-5M-ppW" firstAttribute="leading" secondItem="eHh-vI-mJi" secondAttribute="leading" constant="8" id="HXh-2P-qFl"/>
-                                            <constraint firstAttribute="height" constant="220" id="Ind-FE-1ge"/>
-                                            <constraint firstItem="i0i-Dz-Krq" firstAttribute="centerX" secondItem="eHh-vI-mJi" secondAttribute="centerX" id="M2t-Jv-qjF"/>
+                                            <constraint firstAttribute="trailing" secondItem="i0i-Dz-Krq" secondAttribute="trailing" constant="8" id="Y6J-EO-DIU"/>
                                             <constraint firstItem="SO8-Io-g44" firstAttribute="top" secondItem="vMa-5M-ppW" secondAttribute="bottom" constant="6" id="ZPS-hV-lUc"/>
+                                            <constraint firstItem="i0i-Dz-Krq" firstAttribute="leading" secondItem="eHh-vI-mJi" secondAttribute="leading" constant="8" id="fCJ-cN-axG"/>
                                             <constraint firstItem="i0i-Dz-Krq" firstAttribute="top" secondItem="SO8-Io-g44" secondAttribute="bottom" constant="18" id="iAc-b4-flq"/>
+                                            <constraint firstAttribute="bottom" secondItem="i0i-Dz-Krq" secondAttribute="bottom" constant="8" id="r9g-ZG-Oi0"/>
                                             <constraint firstAttribute="trailing" secondItem="vMa-5M-ppW" secondAttribute="trailing" constant="8" id="uKE-zg-zW0"/>
                                         </constraints>
                                     </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F8Y-V8-eZX">
+                                        <rect key="frame" x="157" y="98" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="3Gx-gX-EvL"/>
+                                            <constraint firstAttribute="width" constant="60" id="mo8-pz-0gt"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="eHh-vI-mJi" firstAttribute="leading" secondItem="M41-UB-nX3" secondAttribute="leading" constant="12" id="BGm-J1-WYK"/>
+                                    <constraint firstItem="eHh-vI-mJi" firstAttribute="leading" secondItem="M41-UB-nX3" secondAttribute="leading" constant="34" id="BGm-J1-WYK"/>
                                     <constraint firstAttribute="bottom" secondItem="eHh-vI-mJi" secondAttribute="bottom" constant="237" id="GJm-6K-ZFP"/>
-                                    <constraint firstItem="eHh-vI-mJi" firstAttribute="top" secondItem="M41-UB-nX3" secondAttribute="top" constant="120" id="MfV-Ig-cbO"/>
+                                    <constraint firstItem="F8Y-V8-eZX" firstAttribute="centerX" secondItem="M41-UB-nX3" secondAttribute="centerX" id="MVS-al-LBM"/>
+                                    <constraint firstItem="eHh-vI-mJi" firstAttribute="centerY" secondItem="M41-UB-nX3" secondAttribute="centerY" id="Xc5-Bd-QnT"/>
                                     <constraint firstItem="gut-08-Aec" firstAttribute="leading" secondItem="M41-UB-nX3" secondAttribute="leading" id="YnL-L0-XNZ"/>
                                     <constraint firstAttribute="trailing" secondItem="gut-08-Aec" secondAttribute="trailing" id="lyv-vg-mML"/>
-                                    <constraint firstAttribute="trailing" secondItem="eHh-vI-mJi" secondAttribute="trailing" constant="12" id="mTj-AO-pxT"/>
+                                    <constraint firstAttribute="trailing" secondItem="eHh-vI-mJi" secondAttribute="trailing" constant="34" id="mTj-AO-pxT"/>
+                                    <constraint firstItem="eHh-vI-mJi" firstAttribute="top" secondItem="F8Y-V8-eZX" secondAttribute="bottom" constant="31.5" id="ogf-RI-zKe"/>
                                     <constraint firstItem="gut-08-Aec" firstAttribute="width" secondItem="M41-UB-nX3" secondAttribute="width" id="qTJ-oc-6Ub"/>
                                     <constraint firstItem="gut-08-Aec" firstAttribute="top" secondItem="M41-UB-nX3" secondAttribute="top" id="xDG-IQ-N16"/>
                                 </constraints>
@@ -131,6 +161,7 @@
                     <navigationItem key="navigationItem" id="J6s-Kz-kdq"/>
                     <connections>
                         <outlet property="closeButton" destination="un9-Ur-j3A" id="fGj-Xo-FdJ"/>
+                        <outlet property="loginButton" destination="i0i-Dz-Krq" id="oxF-7n-keO"/>
                         <outlet property="nameInputField" destination="vMa-5M-ppW" id="0FD-Ox-Iwa"/>
                         <outlet property="passwordInputField" destination="SO8-Io-g44" id="joa-Z9-O3g"/>
                     </connections>
