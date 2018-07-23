@@ -67,6 +67,33 @@ final class InputField: UIView {
         }
     }
     
+    var autocorrectionType: UITextAutocorrectionType {
+        get {
+            return inputField?.autocorrectionType ?? .default
+        }
+        set {
+            inputField?.autocorrectionType = newValue
+        }
+    }
+    
+    var textContentType: UITextContentType? {
+        get {
+            return inputField?.textContentType
+        }
+        set {
+            inputField?.textContentType = newValue
+        }
+    }
+    
+    var isSecureTextEntry: Bool {
+        get {
+            return inputField?.isSecureTextEntry ?? false
+        }
+        set {
+            inputField?.isSecureTextEntry = newValue
+        }
+    }
+    
     var delegate: UITextFieldDelegate? {
         get {
             return inputField?.delegate

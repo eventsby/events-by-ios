@@ -51,8 +51,13 @@ extension LoginView: LoginViewProtocol {
         
         nameInputField.returnKeyType = .next
         nameInputField.autocapitalizationType = .none
+        nameInputField.autocorrectionType = .no
+        nameInputField.textContentType = .username
         passwordInputField.returnKeyType = .done
         passwordInputField.autocapitalizationType = .none
+        passwordInputField.autocorrectionType = .no
+        passwordInputField.textContentType = .password
+        passwordInputField.isSecureTextEntry = true
         
         closeButton.isHidden = presenter.isModal
     }
