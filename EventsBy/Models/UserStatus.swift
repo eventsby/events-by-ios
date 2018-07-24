@@ -11,7 +11,7 @@ import Foundation
 enum UserStatus {
     
     case anonymous
-    case registered(ParticipantProtocol)
+    case registered(UserDetailProtocol)
     
     var isAnonymous: Bool {
         switch self {

@@ -10,6 +10,12 @@
 
 "menu_btn_title" = "MENU";
 
+// Tab Bar
+
+"tab_bar_event_list" = "Events";
+"tab_bar_map" = "Map";
+"tab_bar_profile" = "Profile";
+
 // Event Details
 
 "want_participate_button" = "I'm in!";
@@ -33,3 +39,7 @@
 "login_form_password" = "Password";
 "login_success" = "You have successfully logged in!";
 "login_invalid_credentials" = "Incorrect username or password. Please try again";
+
+// Profile
+
+"profile_title" = "Profile";

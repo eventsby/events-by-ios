@@ -11,24 +11,33 @@ import UIKit
 class ProfileRouter: ProfileRouterProtocol {
     
     class func initializeProfileModule() -> UIViewController {
-        guard let view = profileStoryboard.instantiateInitialViewController() as? ProfileView else { return UIViewController() }
+        guard let navController = profileStoryboard.instantiateInitialViewController() else { return UIViewController() }
+        guard let view = navController.childViewControllers.first as? ProfileView else { return UIViewController() }
         let interactor: ProfileInteractorInputProtocol & ProfileServiceOutputProtocol = ProfileInteractor()
         let router: ProfileRouterProtocol = ProfileRouter()
         let presenter: ProfilePresenterProtocol & ProfileInteractorOutputProtocol = ProfilePresenter(view: view, interactor: interactor, router: router)
         let service: ProfileServiceInputProtocol = ProfileService()
         let userService: UserServiceProtocol = UserService()
         
+        presenter.userService = userService
         view.presenter = presenter
         interactor.presenter = presenter
         interactor.service = service
-        interactor.userService = userService
         service.remoteRequestHandler = interactor
         
-        return view
+        return navController
     }
     
     static var profileStoryboard: UIStoryboard {
         return UIStoryboard(name: Storyboards.profile.rawValue, bundle: Bundle.main)
+    }
+    
+    func presentLogin(from view: ProfileViewProtocol) {
+        let loginVC = LoginRouter.initializeLoginModule(modal: true, delegate: view.presenter as? ProfilePresenter)
+        
+        if let sourceView = view as? UIViewController {
+            sourceView.navigationController?.pushViewController(loginVC, animated: true)
+        }
     }
     
 }

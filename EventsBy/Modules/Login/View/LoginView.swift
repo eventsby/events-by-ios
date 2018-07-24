@@ -15,6 +15,7 @@ class LoginView: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var nameInputField: InputField!
     @IBOutlet weak var passwordInputField: InputField!
+    @IBOutlet weak var loginButton: UIButton!
     
     var presenter: LoginPresenterProtocol?
     
@@ -23,6 +24,11 @@ class LoginView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        presenter?.viewWillDisappear()
     }
     
     // MARK: Actions
@@ -46,13 +52,19 @@ extension LoginView: LoginViewProtocol {
         
         nameInputField.returnKeyType = .next
         nameInputField.autocapitalizationType = .none
+        nameInputField.autocorrectionType = .no
+        nameInputField.textContentType = .username
         passwordInputField.returnKeyType = .done
         passwordInputField.autocapitalizationType = .none
+        passwordInputField.autocorrectionType = .no
+        passwordInputField.textContentType = .password
+        passwordInputField.isSecureTextEntry = true
         
         closeButton.isHidden = presenter.isModal
     }
     
-    func onClose() {
+    func onClose(animated: Bool) {
+        self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
     

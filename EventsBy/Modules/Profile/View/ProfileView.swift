@@ -10,6 +10,12 @@ import UIKit
 
 class ProfileView: UIViewController {
     
+    @IBOutlet weak var profileView: UIView!
+    @IBOutlet weak var notAuthenticatedView: UIView!
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    
     var presenter: ProfilePresenterProtocol?
     
     // MARK: Lifecycle
@@ -19,16 +25,30 @@ class ProfileView: UIViewController {
         presenter?.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.viewWillAppear()
+    }
+    
+    @IBAction func authenticateAction(_ sender: Any) {
+        presenter?.authenticateAction()
+    }
+    
 }
 
 extension ProfileView: ProfileViewProtocol {
     
     func setupView() {
-        
+        self.navigationItem.title = "profile_title".localized
     }
     
-    func onSuccessUserInfo() {
-        
+    func update(with status: UserStatus) {
+        profileView.isHidden = status.isAnonymous
+        notAuthenticatedView.isHidden = !status.isAnonymous
+    }
+    
+    func onSuccessUserInfo(_ user: UserDetailProtocol) {
+        fullNameLabel.text = user.fullname
     }
     
     func showLoading() {

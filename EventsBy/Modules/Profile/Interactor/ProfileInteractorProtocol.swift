@@ -15,7 +15,6 @@ protocol ProfileInteractorOutputProtocol: class {
 protocol ProfileInteractorInputProtocol: class {
     var presenter: ProfileInteractorOutputProtocol? { get set }
     var service: ProfileServiceInputProtocol? { get set }
-    var userService: UserServiceProtocol? { get set }
     
     // Presenter -> Interactor
     func getUserInfo(user: UserDetailProtocol)

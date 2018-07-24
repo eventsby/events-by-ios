@@ -18,6 +18,7 @@ protocol EventDetailPresenterProtocol: class {
     var event: MutableProperty<EventProtocol>? { get set }
     var participantsCount: Property<Int> { get }
     var isUserParticipating: Property<Bool> { get }
+    var userStatus: UserStatus { get }
     
     // VIEW -> PRESENTER
     func viewDidLoad()

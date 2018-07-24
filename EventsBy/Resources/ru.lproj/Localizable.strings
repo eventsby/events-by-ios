@@ -10,9 +10,16 @@
 
 "menu_btn_title" = "МЕНЮ";
 
+// Tab Bar
+
+"tab_bar_event_list" = "Ивенты";
+"tab_bar_map" = "Карта";
+"tab_bar_profile" = "Профиль";
+
 // Event Details
 
 "want_participate_button" = "Я иду!";
+"already_participate_btn" = "Я не иду!";
 "title_organaizer" = "Организатор";
 "title_participants" = "Участники (%d)";
 "title_email" = "Электронная почта";
@@ -32,3 +39,7 @@
 "login_form_password" = "Пароль";
 "login_success" = "Вы успешно авторизовались!";
 "login_invalid_credentials" = "Неправильный логин или пароль. Пожалуйста, попробуйте еще раз";
+
+// Profile
+
+"profile_title" = "Profile";

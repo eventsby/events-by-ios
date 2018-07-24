@@ -9,10 +9,11 @@
 protocol ProfileViewProtocol: class {
     var presenter: ProfilePresenterProtocol? { get set }
     
-    func onSuccessUserInfo()
+    func onSuccessUserInfo(_ user: UserDetailProtocol)
     func showError(_ error: Error?)
     func showLoading()
     func hideLoading()
     
     func setupView()
+    func update(with status: UserStatus)
 }

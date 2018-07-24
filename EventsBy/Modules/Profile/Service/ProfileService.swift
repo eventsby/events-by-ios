@@ -27,7 +27,8 @@ class ProfileService: ProfileServiceInputProtocol {
     let sessionManager = NetworkManager.shared.sessionManager
     
     func getUserInfo(_ user: UserDetailProtocol) {
-        
+        // TODO A.T. network call
+        remoteRequestHandler?.onSuccessUserInfo(user)
     }
     
 }

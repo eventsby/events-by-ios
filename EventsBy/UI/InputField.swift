@@ -21,6 +21,15 @@ final class InputField: UIView {
         }
     }
     
+    @IBInspectable override var tintColor: UIColor? {
+        get {
+            return inputField?.tintColor
+        }
+        set {
+            inputField?.tintColor = newValue
+        }
+    }
+    
     var text: String? {
         get {
             return inputField?.text
@@ -67,6 +76,33 @@ final class InputField: UIView {
         }
     }
     
+    var autocorrectionType: UITextAutocorrectionType {
+        get {
+            return inputField?.autocorrectionType ?? .default
+        }
+        set {
+            inputField?.autocorrectionType = newValue
+        }
+    }
+    
+    var textContentType: UITextContentType? {
+        get {
+            return inputField?.textContentType
+        }
+        set {
+            inputField?.textContentType = newValue
+        }
+    }
+    
+    var isSecureTextEntry: Bool {
+        get {
+            return inputField?.isSecureTextEntry ?? false
+        }
+        set {
+            inputField?.isSecureTextEntry = newValue
+        }
+    }
+    
     var delegate: UITextFieldDelegate? {
         get {
             return inputField?.delegate
@@ -77,7 +113,7 @@ final class InputField: UIView {
     }
     
     private struct Consts {
-        static let height: CGFloat = 66
+        static let height: CGFloat = 60
         static let separatorHeight: CGFloat = 1
         static let errorLabelHeight: CGFloat = 16
     }
