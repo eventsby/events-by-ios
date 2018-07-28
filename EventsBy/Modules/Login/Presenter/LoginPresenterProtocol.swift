@@ -17,6 +17,7 @@ protocol LoginPresenterProtocol: class {
     
     var login: MutableProperty<String?> { get }
     var password: MutableProperty<String?> { get }
+    var loginButtonEnabled: Property<Bool> { get }
     
     // View -> Presenter
     func viewDidLoad()

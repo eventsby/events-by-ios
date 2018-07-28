@@ -49,6 +49,7 @@ extension LoginView: LoginViewProtocol {
         guard let presenter = self.presenter else { return }
         presenter.login <~ nameInputField.reactive.continuousTextValues
         presenter.password <~ passwordInputField.reactive.continuousTextValues
+        loginButton.reactive.isEnabled <~ presenter.loginButtonEnabled
         
         nameInputField.returnKeyType = .next
         nameInputField.autocapitalizationType = .none

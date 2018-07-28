@@ -19,6 +19,13 @@ class LoginPresenter: LoginPresenterProtocol {
     let login: MutableProperty<String?> = MutableProperty(nil)
     let password: MutableProperty<String?> = MutableProperty(nil)
     
+    var loginButtonEnabled: Property<Bool> {
+        let enabled = Property.combineLatest(login, password).map { login, password -> Bool in
+            return login?.isEmpty == false && password?.isEmpty == false
+        }
+        return enabled
+    }
+    
     init(view: LoginViewProtocol?, interactor: LoginInteractorInputProtocol, router: LoginRouterProtocol?, isModal: Bool) {
         self.view = view
         self.interactor = interactor
