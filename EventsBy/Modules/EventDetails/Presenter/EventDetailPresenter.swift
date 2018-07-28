@@ -22,6 +22,7 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
     }
     
     var isUserParticipating: Property<Bool> {
+        guard PreferenceManager.shared.isAuthorized() else { return Property<Bool>(value: false) }
         guard let event = event else { return Property<Bool>(value: false) }
         guard let userId = userService?.lastUser()?.id else { return Property<Bool>(value: false) }
         return event.map { $0.participants.contains(where: { user in user.id == userId }) }
