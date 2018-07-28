@@ -153,6 +153,7 @@ extension EventDetailView: EventDetailViewProtocol {
             self.participantsLabel.text = String(format: "title_participants".localized, $0)
         }
         
+        // TODO check user status after login (user can login, then status should be updated)
         presenter?.event?.producer.startWithValues {_ in
             guard let isParticipating = self.presenter?.isUserParticipating else { return }
             let participantButtonTitle = isParticipating.value ? "already_participate_btn".localized : "want_participate_button".localized
