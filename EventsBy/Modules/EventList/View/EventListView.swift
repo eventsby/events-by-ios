@@ -73,6 +73,7 @@ extension EventListView: EventListViewProtocol {
     }
     
     func showError(_ error: Error?) {
+        // TODO add check for 401 error, then show like "Session was expired. Please login"
         guard let errorStr = error?.localizedDescription else { return }
         MessangerService.showError(str: errorStr)
     }
