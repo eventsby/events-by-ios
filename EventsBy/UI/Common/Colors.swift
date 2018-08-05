@@ -29,6 +29,7 @@ enum Colors {
     case primaryText
     
     case loadingBarProgress
+    case pullToRefreshControl
     
     case tabBarIconNormal
     case tabBarIconSelected
@@ -66,6 +67,8 @@ enum Colors {
         case .tabBarIconNormal:
             return UIColor(59, 64, 83, 1)
         case .tabBarIconSelected:
+            return UIColor(255, 87, 0, 1)
+        case .pullToRefreshControl:
             return UIColor(255, 87, 0, 1)
         }
     }
