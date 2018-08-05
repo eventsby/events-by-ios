@@ -9,6 +9,11 @@
 import Alamofire
 
 class NetworkManager: NSObject {
+    
+    private struct Constants {
+        static let requestTimeout: TimeInterval = 40 // sec
+        static let resourceTimeout: TimeInterval = 40 // sec
+    }
 
     static let shared = NetworkManager()
 
@@ -16,8 +21,8 @@ class NetworkManager: NSObject {
 
     private override init() {
         let configuration: URLSessionConfiguration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 40
-        configuration.timeoutIntervalForResource = 40
+        configuration.timeoutIntervalForRequest = Constants.requestTimeout
+        configuration.timeoutIntervalForResource = Constants.resourceTimeout
         sessionManager = SessionManager(configuration: configuration)
         let handler = OAuth2Handler(sessionManager)
         sessionManager.adapter = handler
