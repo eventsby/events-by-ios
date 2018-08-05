@@ -16,12 +16,13 @@ class EventListView: UIViewController {
     
     private struct Consts {
         static let cellHeight: CGFloat = 170
+        static let collectionTopInset: CGFloat = 10
+        static let collectionBottomInset: CGFloat = 10
     }
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(handlePullToRefresh),
-                                 for: UIControlEvents.valueChanged)
+        refreshControl.addTarget(self, action: #selector(handlePullToRefresh), for: .valueChanged)
         refreshControl.tintColor = Colors.pullToRefreshControl.uiColor
         return refreshControl
     }()
@@ -51,8 +52,8 @@ class EventListView: UIViewController {
 extension EventListView: EventListViewProtocol {
     
     func setupView() {
-        collectionView.contentInset.top = 10.0
-        collectionView.contentInset.bottom = 10.0
+        collectionView.contentInset.top = Consts.collectionTopInset
+        collectionView.contentInset.bottom = Consts.collectionBottomInset
         navigationItem.title = "title_event_list".localized
         navigationItem.backBarButtonTitle = ""
         
