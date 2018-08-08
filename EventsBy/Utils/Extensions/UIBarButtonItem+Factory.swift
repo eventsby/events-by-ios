@@ -15,7 +15,7 @@ extension UIBarButtonItem {
     static func menuBtn(_ action: @escaping () -> Void) -> UIBarButtonItem {
         let btn = LabledButton(frame: .zero)
         btn.image = #imageLiteral(resourceName: "icn_menu")
-        btn.text = "menu_btn_title".localized
+        btn.text = L10n.Common.Menu.Button.title
         btn.space = 0
         btn.sizeToFit()
         btn.tintColor = Colors.navBarButton.uiColor

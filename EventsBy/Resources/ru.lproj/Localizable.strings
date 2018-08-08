@@ -8,38 +8,38 @@
 
 // Common
 
-"menu_btn_title" = "МЕНЮ";
+"common.menu.button.title" = "МЕНЮ";
 
 // Tab Bar
 
-"tab_bar_event_list" = "Ивенты";
-"tab_bar_map" = "Карта";
-"tab_bar_profile" = "Профиль";
+"tab-bar.events" = "Ивенты";
+"tab-bar.map" = "Карта";
+"tab-bar.profile" = "Профиль";
 
 // Event Details
 
-"want_participate_button" = "Я иду!";
-"already_participate_btn" = "Я не иду!";
-"title_organaizer" = "Организатор";
-"title_participants" = "Участники (%d)";
-"title_email" = "Электронная почта";
-"title_website" = "Сайт";
-"participant_added" = "Вы учавствуете в ивенте!";
-"participant_already_exists" = "Вы уже учавствуете в этом ивенте!";
-"participant_removed" = "Вы удалены из ивента!";
-"participant_not_in_event" = "Вы не учавствуете в этом ивенте!";
+"event-details.button.want-participate" = "Я иду!";
+"event-details.button.already_participate" = "Я не иду!";
+"event-details.title.organaizer" = "Организатор";
+"event-details.title.participants" = "Участники (%d)";
+"event-details.title.email" = "Электронная почта";
+"event-details.title.website" = "Сайт";
+"event-details.message.participant-added" = "Вы учавствуете в ивенте!";
+"event-details.message.participant-already-exists" = "Вы уже учавствуете в этом ивенте!";
+"event-details.message.participant-removed" = "Вы удалены из ивента!";
+"event-details.message.participant-not-in-event" = "Вы не учавствуете в этом ивенте!";
 
 // Event List
 
-"title_event_list" = "События";
+"event-list.title" = "События";
 
 // Login
 
-"login_form_username" = "Логин";
-"login_form_password" = "Пароль";
-"login_success" = "Вы успешно авторизовались!";
-"login_invalid_credentials" = "Неправильный логин или пароль. Пожалуйста, попробуйте еще раз";
+"login.form.username" = "Логин";
+"login.form.password" = "Пароль";
+"login.message.success" = "Вы успешно авторизовались!";
+"login.message.invalid-credentials" = "Неправильный логин или пароль. Пожалуйста, попробуйте еще раз";
 
 // Profile
 
-"profile_title" = "Profile";
+"profile.title" = "Profile";

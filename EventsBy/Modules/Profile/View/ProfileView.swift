@@ -39,7 +39,7 @@ class ProfileView: UIViewController {
 extension ProfileView: ProfileViewProtocol {
     
     func setupView() {
-        self.navigationItem.title = "profile_title".localized
+        self.navigationItem.title = L10n.Profile.title
     }
     
     func update(with status: UserStatus) {

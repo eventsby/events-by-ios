@@ -76,12 +76,12 @@ extension EventDetailView: EventDetailViewProtocol {
     // Participant Removed
     
     func participantRemoved() {
-        let participantAddedMsg = "participant_removed".localized
-        MessangerService.showWarning(str: participantAddedMsg)
+        let participantRemovedMsg = L10n.EventDetails.Message.participantRemoved
+        MessangerService.showWarning(str: participantRemovedMsg)
     }
     
     func userNotParticipating() {
-        let notParticipating = "participant_not_in_event".localized
+        let notParticipating = L10n.EventDetails.Message.participantNotInEvent
         MessangerService.showWarning(str: notParticipating)
     }
     
@@ -90,12 +90,12 @@ extension EventDetailView: EventDetailViewProtocol {
     }
     
     func participantAdded() {
-        let participantAddedMsg = "participant_added".localized
+        let participantAddedMsg = L10n.EventDetails.Message.participantAdded
         MessangerService.showSuccess(str: participantAddedMsg)
     }
     
     func alreadyParticipate() {
-        let alreadyParticipateMsg = "participant_already_exists".localized
+        let alreadyParticipateMsg = L10n.EventDetails.Message.participantAlreadyExists
         MessangerService.showWarning(str: alreadyParticipateMsg)
     }
     
@@ -150,13 +150,13 @@ extension EventDetailView: EventDetailViewProtocol {
         
         // participants
         presenter?.participantsCount.producer.startWithValues {
-            self.participantsLabel.text = String(format: "title_participants".localized, $0)
+            self.participantsLabel.text = L10n.EventDetails.Title.participants($0)
         }
         
         // TODO check user status after login (user can login, then status should be updated)
         presenter?.event?.producer.startWithValues {_ in
             guard let isParticipating = self.presenter?.isUserParticipating else { return }
-            let participantButtonTitle = isParticipating.value ? "already_participate_btn".localized : "want_participate_button".localized
+            let participantButtonTitle = isParticipating.value ? L10n.EventDetails.Button.alreadyParticipate : L10n.EventDetails.Button.wantParticipate
             self.participateButton.setTitle(participantButtonTitle, for: .normal)
             self.participantsTableView.reloadData()
         }

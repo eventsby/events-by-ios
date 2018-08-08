@@ -62,17 +62,17 @@ class HomeTabBarManager: HomeManagerInputProtocol {
         var buttons: [UIControl] = []
         let btn1 = TabBarButton(frame: .zero)
         btn1.image = #imageLiteral(resourceName: "icn_event")
-        btn1.text = "tab_bar_event_list".localized
+        btn1.text = L10n.TabBar.events
         btn1.sizeToFit()
         buttons.append(btn1)
         let btn2 = TabBarButton(frame: .zero)
         btn2.image = #imageLiteral(resourceName: "icn_map")
-        btn2.text = "tab_bar_map".localized
+        btn2.text = L10n.TabBar.map
         btn2.sizeToFit()
         buttons.append(btn2)
         let btn3 = TabBarButton(frame: .zero)
         btn3.image = #imageLiteral(resourceName: "icn_account_box")
-        btn3.text = "tab_bar_profile".localized
+        btn3.text = L10n.TabBar.profile
         btn3.sizeToFit()
         buttons.append(btn3)
         
