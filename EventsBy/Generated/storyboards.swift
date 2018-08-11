@@ -57,11 +57,15 @@ internal enum StoryboardScene {
     internal static let storyboardName = "EventDetails"
 
     internal static let initialScene = InitialSceneType<EventsBy.EventDetailView>(storyboard: EventDetails.self)
+
+    internal static let eventDetailView = SceneType<EventsBy.EventDetailView>(storyboard: EventDetails.self, identifier: "EventDetailView")
   }
   internal enum Events: StoryboardType {
     internal static let storyboardName = "Events"
 
     internal static let initialScene = InitialSceneType<UINavigationController>(storyboard: Events.self)
+
+    internal static let eventListView = SceneType<EventsBy.EventListView>(storyboard: Events.self, identifier: "EventListView")
   }
   internal enum Home: StoryboardType {
     internal static let storyboardName = "Home"
@@ -77,6 +81,8 @@ internal enum StoryboardScene {
     internal static let storyboardName = "Profile"
 
     internal static let initialScene = InitialSceneType<UINavigationController>(storyboard: Profile.self)
+
+    internal static let profileView = SceneType<EventsBy.ProfileView>(storyboard: Profile.self, identifier: "ProfileView")
   }
 }
 

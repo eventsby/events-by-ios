@@ -28,7 +28,7 @@
         <!--Event List View-->
         <scene sceneID="r1e-xH-bVd">
             <objects>
-                <viewController id="WSa-RS-AIB" customClass="EventListView" customModule="EventsBy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventListView" id="WSa-RS-AIB" customClass="EventListView" customModule="EventsBy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ej1-4s-bve">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

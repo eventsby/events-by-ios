@@ -11,7 +11,7 @@ import UIKit
 class HomeRouter: HomeRouterProtocol {
     
     class func initializeHomeModule() -> UIViewController {
-        guard let view = homeStoryboard.instantiateInitialViewController() as? HomeView else { return UIViewController() }
+        let view = StoryboardScene.Home.initialScene.instantiate()
         let router: HomeRouterProtocol = HomeRouter()
         let interactor: HomeInteractorInputProtocol & HomeManagerOutputProtocol = HomeInteractor()
         let manager: HomeManagerInputProtocol = HomeTabBarManager()
@@ -23,10 +23,6 @@ class HomeRouter: HomeRouterProtocol {
         view.presenter = presenter
         
         return view
-    }
-    
-    static var homeStoryboard: UIStoryboard {
-        return UIStoryboard(name: Storyboards.home.rawValue, bundle: Bundle.main)
     }
     
 }

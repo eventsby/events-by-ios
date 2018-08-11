@@ -11,7 +11,7 @@ import UIKit
 class LoginRouter: LoginRouterProtocol {
     
     class func initializeLoginModule(modal: Bool = false, delegate: LoginScreenDelegate? = nil) -> UIViewController {
-        guard let view = loginStoryboard.instantiateInitialViewController() as? LoginView else { return UIViewController() }
+        let view = StoryboardScene.Login.initialScene.instantiate()
         let interactor: LoginInteractorInputProtocol & LoginServiceOutputProtocol = LoginInteractor()
         let router: LoginRouterProtocol = LoginRouter()
         let presenter: LoginPresenterProtocol & LoginInteractorOutputProtocol = LoginPresenter(view: view, interactor: interactor, router: router, isModal: modal)
@@ -26,10 +26,6 @@ class LoginRouter: LoginRouterProtocol {
         service.remoteRequestHandler = interactor
         
         return view
-    }
-    
-    static var loginStoryboard: UIStoryboard {
-        return UIStoryboard(name: Storyboards.login.rawValue, bundle: Bundle.main)
     }
     
 }

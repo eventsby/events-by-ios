@@ -26,7 +26,7 @@
         <!--Event Detail View-->
         <scene sceneID="bEe-hN-4zu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="TNa-Oe-KT9" customClass="EventDetailView" customModule="EventsBy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventDetailView" automaticallyAdjustsScrollViewInsets="NO" id="TNa-Oe-KT9" customClass="EventDetailView" customModule="EventsBy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yfW-YS-zof">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -11,8 +11,8 @@ import UIKit
 class ProfileRouter: ProfileRouterProtocol {
     
     class func initializeProfileModule() -> UIViewController {
-        guard let navController = profileStoryboard.instantiateInitialViewController() else { return UIViewController() }
-        guard let view = navController.childViewControllers.first as? ProfileView else { return UIViewController() }
+        let navController = StoryboardScene.Profile.initialScene.instantiate()
+        let view = StoryboardScene.Profile.profileView.instantiate()
         let interactor: ProfileInteractorInputProtocol & ProfileServiceOutputProtocol = ProfileInteractor()
         let router: ProfileRouterProtocol = ProfileRouter()
         let presenter: ProfilePresenterProtocol & ProfileInteractorOutputProtocol = ProfilePresenter(view: view, interactor: interactor, router: router)
@@ -26,10 +26,6 @@ class ProfileRouter: ProfileRouterProtocol {
         service.remoteRequestHandler = interactor
         
         return navController
-    }
-    
-    static var profileStoryboard: UIStoryboard {
-        return UIStoryboard(name: Storyboards.profile.rawValue, bundle: Bundle.main)
     }
     
     func presentLogin(from view: ProfileViewProtocol) {
