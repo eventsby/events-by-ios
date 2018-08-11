@@ -67,7 +67,7 @@
                                                     <constraint firstAttribute="height" constant="68" id="C11-96-WFU"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedTip" value="login_form_username"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedTip" value="login.form.username"/>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                                         <color key="value" red="0.23137254900000001" green="0.25098039220000001" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     </userDefinedRuntimeAttribute>
@@ -80,7 +80,7 @@
                                                     <constraint firstAttribute="height" constant="68" id="IgX-lL-6Pr"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedTip" value="login_form_password"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedTip" value="login.form.password"/>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                                         <color key="value" red="0.23137254900000001" green="0.25098039220000001" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     </userDefinedRuntimeAttribute>
