@@ -24,8 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
         
         AppSkin.applyAppearance()
-        let progressColor = Colors.loadingBarProgress.uiColor
-        AppSkin.customizeProgressHUD(for: window, progressColor: progressColor)
+        AppSkin.customizeProgressHUD(for: window)
         
         router = AppRouter(window: window)
         router?.start()

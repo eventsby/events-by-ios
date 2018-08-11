@@ -62,24 +62,24 @@ class HomeTabBarManager: HomeManagerInputProtocol {
         var buttons: [UIControl] = []
         let btn1 = TabBarButton(frame: .zero)
         btn1.image = #imageLiteral(resourceName: "icn_event")
-        btn1.text = "tab_bar_event_list".localized
+        btn1.text = L10n.TabBar.events
         btn1.sizeToFit()
         buttons.append(btn1)
         let btn2 = TabBarButton(frame: .zero)
         btn2.image = #imageLiteral(resourceName: "icn_map")
-        btn2.text = "tab_bar_map".localized
+        btn2.text = L10n.TabBar.map
         btn2.sizeToFit()
         buttons.append(btn2)
         let btn3 = TabBarButton(frame: .zero)
         btn3.image = #imageLiteral(resourceName: "icn_account_box")
-        btn3.text = "tab_bar_profile".localized
+        btn3.text = L10n.TabBar.profile
         btn3.sizeToFit()
         buttons.append(btn3)
         
         for index in 0..<buttons.count {
             buttons[index].tag = index
             buttons[index].addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-            buttons[index].tintColor = Colors.tabBarIconNormal.uiColor
+            buttons[index].tintColor = Asset.Colors.TabBar.tabbarIconNormal.color
         }
         
         return buttons
@@ -97,8 +97,8 @@ class HomeTabBarManager: HomeManagerInputProtocol {
         let previousIndex = self.selectedIndex
         self.selectedIndex = sender.tag
         
-        buttons[previousIndex].tintColor = Colors.tabBarIconNormal.uiColor
-        sender.tintColor = Colors.tabBarIconSelected.uiColor
+        buttons[previousIndex].tintColor = Asset.Colors.TabBar.tabbarIconNormal.color
+        sender.tintColor = Asset.Colors.TabBar.tabbarIconSelected.color
         
         let previousVC = items[previousIndex]
         let selectedVC = items[selectedIndex]

@@ -8,38 +8,38 @@
 
 // Common
 
-"menu_btn_title" = "MENU";
+"common.menu.button.title" = "MENU";
 
 // Tab Bar
 
-"tab_bar_event_list" = "Events";
-"tab_bar_map" = "Map";
-"tab_bar_profile" = "Profile";
+"tab-bar.events" = "Events";
+"tab-bar.map" = "Map";
+"tab-bar.profile" = "Profile";
 
 // Event Details
 
-"want_participate_button" = "I'm in!";
-"already_participate_btn" = "I'm not going!";
-"title_organaizer" = "Organaizer";
-"title_participants" = "Participants (%d)";
-"title_email" = "Email";
-"title_website" = "Website";
-"participant_added" = "Participant added!";
-"participant_already_exists" = "You're already participate in the event!";
-"participant_removed" = "Participant removed!";
-"participant_not_in_event" = "User isn't participating in this event";
+"event-details.button.want-participate" = "I'm in!";
+"event-details.button.already_participate" = "I'm not going!";
+"event-details.title.organaizer" = "Organaizer";
+"event-details.title.participants" = "Participants (%d)";
+"event-details.title.email" = "Email";
+"event-details.title.website" = "Website";
+"event-details.message.participant-added" = "Participant added!";
+"event-details.message.participant-already-exists" = "You're already participate in the event!";
+"event-details.message.participant-removed" = "Participant removed!";
+"event-details.message.participant-not-in-event" = "User isn't participating in this event";
 
 // Event List
 
-"title_event_list" = "Events";
+"event-list.title" = "Events";
 
 // Login
 
-"login_form_username" = "Username";
-"login_form_password" = "Password";
-"login_success" = "You have successfully logged in!";
-"login_invalid_credentials" = "Incorrect username or password. Please try again";
+"login.form.username" = "Username";
+"login.form.password" = "Password";
+"login.message.success" = "You have successfully logged in!";
+"login.message.invalid-credentials" = "Incorrect username or password. Please try again";
 
 // Profile
 
-"profile_title" = "Profile";
+"profile.title" = "Profile";

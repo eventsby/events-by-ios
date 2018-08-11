@@ -20,6 +20,7 @@ target 'EventsBy' do
   pod 'TPKeyboardAvoiding', '~> 1.0'
   pod 'SwiftMessages', '~> 4.0'
   pod 'SVProgressHUD', '~> 2.2.2'
+  pod 'SwiftGen', '~> 5.3'
 
   target 'EventsByTests' do
     inherit! :search_paths

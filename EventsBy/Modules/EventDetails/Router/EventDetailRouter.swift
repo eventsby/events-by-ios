@@ -11,8 +11,7 @@ import UIKit
 class EventDetailRouter: EventDetailRouterProtocol {
     
     class func createEventDetailModule(for event: EventModel) -> UIViewController {
-        guard let viewController = eventDetails.instantiateInitialViewController() else { return UIViewController() }
-        guard let view = viewController as? EventDetailView else { return UIViewController() }
+        let view = StoryboardScene.EventDetails.initialScene.instantiate()
         let router: EventDetailRouterProtocol = EventDetailRouter()
         let interactor: EventDetailInteractorInputProtocol & EventDetailServiceOutputProtocol = EventDetailInteractor()
         let presenter: EventDetailPresenterProtocol & EventDetailInteractorOutputProtocol = EventDetailPresenter(view: view, router: router, interactor: interactor, event: event)
@@ -25,11 +24,7 @@ class EventDetailRouter: EventDetailRouterProtocol {
         interactor.service = service
         service.remoteRequestHandler = interactor
         
-        return viewController
-    }
-    
-    static var eventDetails: UIStoryboard {
-        return UIStoryboard(name: Storyboards.eventDetails.rawValue, bundle: Bundle.main)
+        return view
     }
     
     func presentParticipantDetailScreen(from view: EventDetailViewProtocol, for participant: ParticipantModel) {

@@ -70,7 +70,7 @@ extension LoginView: LoginViewProtocol {
     }
     
     func onSuccessLogin() {
-        let successLoginMsg = "login_success".localized
+        let successLoginMsg = L10n.Login.Message.success
         MessangerService.showSuccess(str: successLoginMsg)
     }
     
@@ -88,7 +88,7 @@ extension LoginView: LoginViewProtocol {
     }
     
     func showInvalidCredentialsError() {
-        let invalidCredentialsMsg = "login_invalid_credentials".localized
+        let invalidCredentialsMsg = L10n.Login.Message.invalidCredentials
         MessangerService.showWarning(str: invalidCredentialsMsg)
     }
     

@@ -120,7 +120,7 @@ class TabBarButton: UIControl {
                 badgeView.alpha = alpha
             }
             if adjustBackgroundColor {
-                backgroundColor = isHighlighted ? Colors.buttonSelected.uiColor : Colors.buttonNormal.uiColor
+                backgroundColor = isHighlighted ? Asset.Colors.TabBar.tabbarIconSelected.color : Asset.Colors.TabBar.tabbarIconNormal.color
             }
         }
     }
@@ -138,11 +138,11 @@ private extension TabBarButton {
         imageView = UIImageView(frame: .zero)
         imageView.contentMode = .center
         imageView.clipsToBounds = true
-        imageView.tintColor = Colors.tabBarIconNormal.uiColor
+        imageView.tintColor = Asset.Colors.TabBar.tabbarIconNormal.color
         addSubview(imageView)
         
         label = UILabel(frame: .zero)
-        label.textColor = Colors.tabBarIconNormal.uiColor
+        label.textColor = Asset.Colors.TabBar.tabbarIconNormal.color
         label.font = Fonts.tabBarButton.uiFont
         label.textAlignment = .center
         addSubview(label)

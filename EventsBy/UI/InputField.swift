@@ -156,10 +156,10 @@ final class InputField: UIView {
     
     func setValid(_ valid: Bool, error: String?) {
         if valid {
-            separator?.backgroundColor = Colors.inputFieldSeparator.uiColor
+            separator?.backgroundColor = Asset.Colors.Main.inputFieldSeparator.color
             errorLabel?.text = nil
         } else {
-            separator?.backgroundColor = Colors.inputFieldError.uiColor
+            separator?.backgroundColor = Asset.Colors.Main.inputFieldError.color
             errorLabel?.text = error
         }
     }
@@ -172,7 +172,7 @@ private extension InputField {
         let inputField = UITextField(frame: .zero)
         self.inputField = inputField
         inputField.delegate = delegate
-        inputField.textColor = Colors.inputFieldText.uiColor
+        inputField.textColor = Asset.Colors.Main.inputFieldTextNormal.color
         inputField.font = Fonts.inputFieldText.uiFont
         addSubview(inputField)
         return inputField
@@ -181,7 +181,7 @@ private extension InputField {
     func addTipLabel() -> UILabel {
         let tipLabel = UILabel(frame: .zero)
         self.tipLabel = tipLabel
-        tipLabel.textColor = Colors.inputFieldTip.uiColor
+        tipLabel.textColor = Asset.Colors.Main.inputFieldTip.color
         tipLabel.font = Fonts.inputFieldTip.uiFont
         addSubview(tipLabel)
         return tipLabel
@@ -190,7 +190,7 @@ private extension InputField {
     func addSeparatorView() -> UIView {
         let separator = UIView(frame: .zero)
         self.separator = separator
-        separator.backgroundColor = Colors.inputFieldSeparator.uiColor
+        separator.backgroundColor = Asset.Colors.Main.inputFieldSeparator.color
         addSubview(separator)
         return separator
     }
@@ -198,7 +198,7 @@ private extension InputField {
     func addErrorLabel() -> UIView {
         let errorLabel = UILabel(frame: .zero)
         self.errorLabel = errorLabel
-        errorLabel.textColor = Colors.inputFieldError.uiColor
+        errorLabel.textColor = Asset.Colors.Main.inputFieldError.color
         errorLabel.font = Fonts.inputFieldError.uiFont
         addSubview(errorLabel)
         return errorLabel

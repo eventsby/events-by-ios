@@ -10,7 +10,7 @@
 		0220C6EC2103D83D009B8295 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220C6EB2103D83D009B8295 /* Constants.swift */; };
 		09D54588A8231E6ECAB5F6A7 /* Pods_EventsBy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0296282F67DE263368BDC378 /* Pods_EventsBy.framework */; };
 		0C2F6F8C2070169700493876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2F6F8B2070169700493876 /* AppDelegate.swift */; };
-		0C2F6F932070169700493876 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C2F6F922070169700493876 /* Assets.xcassets */; };
+		0C2F6F932070169700493876 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C2F6F922070169700493876 /* Images.xcassets */; };
 		0C2F6F962070169700493876 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C2F6F942070169700493876 /* LaunchScreen.storyboard */; };
 		0C2F6FA12070169700493876 /* EventsByTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2F6FA02070169700493876 /* EventsByTests.swift */; };
 		0C2F6FAC2070169700493876 /* EventsByUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2F6FAB2070169700493876 /* EventsByUITests.swift */; };
@@ -92,6 +92,10 @@
 		A35B192B2103199800FBEA44 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B192A2103199800FBEA44 /* HomeInteractor.swift */; };
 		A35B192D210319A100FBEA44 /* HomeInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B192C210319A100FBEA44 /* HomeInteractorProtocol.swift */; };
 		A35B192F21032E3E00FBEA44 /* HomeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35B192E21032E3E00FBEA44 /* HomeTabBarItem.swift */; };
+		A37C956C211B80D400300D5B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A37C956B211B80D400300D5B /* Colors.xcassets */; };
+		A37C9571211B840200300D5B /* assets-images.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37C956E211B840200300D5B /* assets-images.swift */; };
+		A37C9572211B840200300D5B /* strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37C956F211B840200300D5B /* strings.swift */; };
+		A37C9573211B840200300D5B /* storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37C9570211B840200300D5B /* storyboards.swift */; };
 		A37D45F420F2418A00676BAB /* EventDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D45F320F2418A00676BAB /* EventDetailService.swift */; };
 		A37D45F620F2422A00676BAB /* EventDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D45F520F2422A00676BAB /* EventDetailInteractor.swift */; };
 		A37D45F820F2423900676BAB /* EventDetailInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D45F720F2423900676BAB /* EventDetailInteractorProtocol.swift */; };
@@ -111,7 +115,6 @@
 		A38B9C52210C7F33005F5553 /* EventListView+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38B9C51210C7F33005F5553 /* EventListView+Collection.swift */; };
 		A3C095742104BC6B008F3C43 /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C095732104BC6B008F3C43 /* TabBarButton.swift */; };
 		A3D6E77F20F12B0300C0DB07 /* AppSkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E77E20F12B0300C0DB07 /* AppSkin.swift */; };
-		A3D6E78320F12B5D00C0DB07 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E78220F12B5D00C0DB07 /* Colors.swift */; };
 		A3D6E78520F12B6E00C0DB07 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E78420F12B6E00C0DB07 /* Fonts.swift */; };
 		A3D6E78720F12BBB00C0DB07 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E78620F12BBB00C0DB07 /* UIColor+RGB.swift */; };
 		A3D6E78920F12C6800C0DB07 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E78820F12C6800C0DB07 /* AppRouter.swift */; };
@@ -152,7 +155,7 @@
 		0296282F67DE263368BDC378 /* Pods_EventsBy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EventsBy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C2F6F882070169700493876 /* EventsBy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventsBy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C2F6F8B2070169700493876 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0C2F6F922070169700493876 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0C2F6F922070169700493876 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0C2F6F952070169700493876 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C2F6F972070169700493876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C2F6F9C2070169700493876 /* EventsByTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventsByTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +249,10 @@
 		A35B192A2103199800FBEA44 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		A35B192C210319A100FBEA44 /* HomeInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorProtocol.swift; sourceTree = "<group>"; };
 		A35B192E21032E3E00FBEA44 /* HomeTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarItem.swift; sourceTree = "<group>"; };
+		A37C956B211B80D400300D5B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		A37C956E211B840200300D5B /* assets-images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "assets-images.swift"; sourceTree = "<group>"; };
+		A37C956F211B840200300D5B /* strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = strings.swift; sourceTree = "<group>"; };
+		A37C9570211B840200300D5B /* storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = storyboards.swift; sourceTree = "<group>"; };
 		A37D45F320F2418A00676BAB /* EventDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailService.swift; sourceTree = "<group>"; };
 		A37D45F520F2422A00676BAB /* EventDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailInteractor.swift; sourceTree = "<group>"; };
 		A37D45F720F2423900676BAB /* EventDetailInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailInteractorProtocol.swift; sourceTree = "<group>"; };
@@ -265,7 +272,6 @@
 		A38B9C51210C7F33005F5553 /* EventListView+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventListView+Collection.swift"; sourceTree = "<group>"; };
 		A3C095732104BC6B008F3C43 /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		A3D6E77E20F12B0300C0DB07 /* AppSkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSkin.swift; sourceTree = "<group>"; };
-		A3D6E78220F12B5D00C0DB07 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A3D6E78420F12B6E00C0DB07 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		A3D6E78620F12BBB00C0DB07 /* UIColor+RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
 		A3D6E78820F12C6800C0DB07 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
@@ -343,8 +349,8 @@
 				A35A9C9720EA3AFA00037F8B /* Models */,
 				A35A9CB620EA4DBD00037F8B /* Network */,
 				A35A9CBF20EA7AF100037F8B /* Utils */,
+				A37C956D211B82FA00300D5B /* Generated */,
 				A30AF7E820EBD5BC00CA6951 /* Resources */,
-				0C2F6F922070169700493876 /* Assets.xcassets */,
 				0C2F6F942070169700493876 /* LaunchScreen.storyboard */,
 				0C2F6F972070169700493876 /* Info.plist */,
 			);
@@ -409,6 +415,8 @@
 		A30AF7E820EBD5BC00CA6951 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0C2F6F922070169700493876 /* Images.xcassets */,
+				A37C956B211B80D400300D5B /* Colors.xcassets */,
 				A30AF7E920EBD5CB00CA6951 /* Fonts */,
 				A30AF81A20EBF8C800CA6951 /* Localizable.strings */,
 			);
@@ -730,6 +738,16 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		A37C956D211B82FA00300D5B /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				A37C956E211B840200300D5B /* assets-images.swift */,
+				A37C9570211B840200300D5B /* storyboards.swift */,
+				A37C956F211B840200300D5B /* strings.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		A37D45F920F28F2600676BAB /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -820,7 +838,6 @@
 		A3D6E78120F12B4900C0DB07 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				A3D6E78220F12B5D00C0DB07 /* Colors.swift */,
 				A3D6E78420F12B6E00C0DB07 /* Fonts.swift */,
 			);
 			path = Common;
@@ -871,7 +888,8 @@
 				0C2F6F852070169700493876 /* Frameworks */,
 				0C2F6F862070169700493876 /* Resources */,
 				5CA487AB30388ECC622BC81D /* [CP] Embed Pods Frameworks */,
-				A3D3920920F118C40072A048 /* ShellScript */,
+				A3D3920920F118C40072A048 /* SwiftLint */,
+				A37C956A211B7FC700300D5B /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -985,6 +1003,7 @@
 				A30AF7F120EBD5EC00CA6951 /* Raleway-Regular.ttf in Resources */,
 				A35B1919210260DD00FBEA44 /* Home.storyboard in Resources */,
 				A344262C2103BC91002AE848 /* Profile.storyboard in Resources */,
+				A37C956C211B80D400300D5B /* Colors.xcassets in Resources */,
 				0C2F6FC3207023F300493876 /* EventDetails.storyboard in Resources */,
 				A30AF7F720EBD60600CA6951 /* Montserrat-Black.ttf in Resources */,
 				A30AF7F920EBD60C00CA6951 /* Montserrat-Bold.ttf in Resources */,
@@ -992,7 +1011,7 @@
 				A30AF7ED20EBD5DE00CA6951 /* Raleway-Light.ttf in Resources */,
 				A30AF7EB20EBD5D500CA6951 /* Raleway-Bold.ttf in Resources */,
 				A30AF80120EBD61900CA6951 /* Montserrat-Medium.ttf in Resources */,
-				0C2F6F932070169700493876 /* Assets.xcassets in Resources */,
+				0C2F6F932070169700493876 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1085,13 +1104,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A3D3920920F118C40072A048 /* ShellScript */ = {
+		A37C956A211B7FC700300D5B /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = SwiftGen;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftGen/bin/swiftgen\"";
+		};
+		A3D3920920F118C40072A048 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1133,6 +1167,7 @@
 				A34426262103BC15002AE848 /* ProfilePresenterProtocol.swift in Sources */,
 				A344263221047C46002AE848 /* CircledView.swift in Sources */,
 				A35A9CB020EA4BF800037F8B /* EventListInteractorProtocol.swift in Sources */,
+				A37C9572211B840200300D5B /* strings.swift in Sources */,
 				A34426242103BBBD002AE848 /* ProfilePresenter.swift in Sources */,
 				0C2F6FC1207023E900493876 /* EventDetailView.swift in Sources */,
 				A35A9CC620EA843800037F8B /* DateUtils.swift in Sources */,
@@ -1159,6 +1194,7 @@
 				A35B191B210260F300FBEA44 /* HomePresenter.swift in Sources */,
 				A37D45F820F2423900676BAB /* EventDetailInteractorProtocol.swift in Sources */,
 				A3D6E78720F12BBB00C0DB07 /* UIColor+RGB.swift in Sources */,
+				A37C9571211B840200300D5B /* assets-images.swift in Sources */,
 				A35A9CAE20EA4BD700037F8B /* EventListPresenterProtocol.swift in Sources */,
 				A35A9CAA20EA4B9100037F8B /* EventListViewProtocol.swift in Sources */,
 				A3D6E78D20F133B900C0DB07 /* LabledButton.swift in Sources */,
@@ -1171,7 +1207,6 @@
 				A3144ACC20FA136E0082C00F /* MessangerService.swift in Sources */,
 				A35A9CBC20EA5C0F00037F8B /* EventViewCell.swift in Sources */,
 				A30AF80E20EBE85700CA6951 /* UIView+Nib.swift in Sources */,
-				A3D6E78320F12B5D00C0DB07 /* Colors.swift in Sources */,
 				A35A9CD320EAB6AC00037F8B /* EventDetailRouter.swift in Sources */,
 				A35A9CC220EA7B0700037F8B /* UIView+IBInspectable.swift in Sources */,
 				A37D45F620F2422A00676BAB /* EventDetailInteractor.swift in Sources */,
@@ -1213,6 +1248,7 @@
 				A3144ACE20FA26D10082C00F /* HUDProgressService.swift in Sources */,
 				A35A9CA320EA470B00037F8B /* EventListRouter.swift in Sources */,
 				A35B19232102613B00FBEA44 /* HomeView.swift in Sources */,
+				A37C9573211B840200300D5B /* storyboards.swift in Sources */,
 				A37D460520F3D29300676BAB /* LoginView.swift in Sources */,
 				A3E6545A20F68B49006B5B60 /* OAuth2Handler.swift in Sources */,
 				A37D45F420F2418A00676BAB /* EventDetailService.swift in Sources */,
