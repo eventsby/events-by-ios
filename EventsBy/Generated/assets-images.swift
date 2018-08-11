@@ -45,9 +45,51 @@ internal struct ColorAsset {
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Asset {
   internal enum Colors {
+    internal enum Badge {
+      internal static let badgeBackground = ColorAsset(name: "badge-background")
+      internal static let badgeText = ColorAsset(name: "badge-text")
+    }
+    internal enum Main {
+      internal static let buttonNormal = ColorAsset(name: "button-normal")
+      internal static let buttonSelected = ColorAsset(name: "button-selected")
+      internal static let inputFieldError = ColorAsset(name: "input-field-error")
+      internal static let inputFieldSeparator = ColorAsset(name: "input-field-separator")
+      internal static let inputFieldTextNormal = ColorAsset(name: "input-field-text-normal")
+      internal static let inputFieldTip = ColorAsset(name: "input-field-tip")
+      internal static let mainBackground = ColorAsset(name: "main-background")
+      internal static let primaryText = ColorAsset(name: "primary-text")
+      internal static let progressHud = ColorAsset(name: "progress-hud")
+      internal static let pullToRefresh = ColorAsset(name: "pull-to-refresh")
+    }
+    internal enum NavBar {
+      internal static let navbarBackground = ColorAsset(name: "navbar-background")
+      internal static let navbarButton = ColorAsset(name: "navbar-button")
+      internal static let navbarTitle = ColorAsset(name: "navbar-title")
+    }
+    internal enum TabBar {
+      internal static let tabbarIconNormal = ColorAsset(name: "tabbar-icon-normal")
+      internal static let tabbarIconSelected = ColorAsset(name: "tabbar-icon-selected")
+    }
 
     // swiftlint:disable trailing_comma
     internal static let allColors: [ColorAsset] = [
+      Badge.badgeBackground,
+      Badge.badgeText,
+      Main.buttonNormal,
+      Main.buttonSelected,
+      Main.inputFieldError,
+      Main.inputFieldSeparator,
+      Main.inputFieldTextNormal,
+      Main.inputFieldTip,
+      Main.mainBackground,
+      Main.primaryText,
+      Main.progressHud,
+      Main.pullToRefresh,
+      NavBar.navbarBackground,
+      NavBar.navbarButton,
+      NavBar.navbarTitle,
+      TabBar.tabbarIconNormal,
+      TabBar.tabbarIconSelected,
     ]
     internal static let allImages: [ImageAsset] = [
     ]

@@ -27,10 +27,6 @@ class EventDetailRouter: EventDetailRouterProtocol {
         return view
     }
     
-    static var eventDetails: UIStoryboard {
-        return UIStoryboard(name: Storyboards.eventDetails.rawValue, bundle: Bundle.main)
-    }
-    
     func presentParticipantDetailScreen(from view: EventDetailViewProtocol, for participant: ParticipantModel) {
 //        let eventDetailVC = ParticipantDetailRouter.createParticipantDetailModule(for: participant)
         

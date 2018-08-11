@@ -120,7 +120,7 @@ class LabledButton: UIControl {
                 badgeView.alpha = alpha
             }
             if adjustBackgroundColor {
-                backgroundColor = isHighlighted ? Colors.buttonSelected.uiColor : Colors.buttonNormal.uiColor
+                backgroundColor = isHighlighted ? Asset.Colors.Main.buttonSelected.color : Asset.Colors.Main.buttonNormal.color
             }
         }
     }
@@ -138,11 +138,11 @@ private extension LabledButton {
         imageView = UIImageView(frame: .zero)
         imageView.contentMode = .center
         imageView.clipsToBounds = true
-        imageView.tintColor = Colors.navBarButton.uiColor
+        imageView.tintColor = Asset.Colors.NavBar.navbarButton.color
         addSubview(imageView)
         
         label = UILabel(frame: .zero)
-        label.textColor = Colors.navBarButton.uiColor
+        label.textColor = Asset.Colors.NavBar.navbarButton.color
         label.font = Fonts.navBarButton.uiFont
         label.textAlignment = .center
         addSubview(label)

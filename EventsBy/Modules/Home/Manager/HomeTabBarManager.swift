@@ -79,7 +79,7 @@ class HomeTabBarManager: HomeManagerInputProtocol {
         for index in 0..<buttons.count {
             buttons[index].tag = index
             buttons[index].addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-            buttons[index].tintColor = Colors.tabBarIconNormal.uiColor
+            buttons[index].tintColor = Asset.Colors.TabBar.tabbarIconNormal.color
         }
         
         return buttons
@@ -97,8 +97,8 @@ class HomeTabBarManager: HomeManagerInputProtocol {
         let previousIndex = self.selectedIndex
         self.selectedIndex = sender.tag
         
-        buttons[previousIndex].tintColor = Colors.tabBarIconNormal.uiColor
-        sender.tintColor = Colors.tabBarIconSelected.uiColor
+        buttons[previousIndex].tintColor = Asset.Colors.TabBar.tabbarIconNormal.color
+        sender.tintColor = Asset.Colors.TabBar.tabbarIconSelected.color
         
         let previousVC = items[previousIndex]
         let selectedVC = items[selectedIndex]

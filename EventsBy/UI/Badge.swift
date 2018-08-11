@@ -78,8 +78,8 @@ private extension Badge {
     
     func setup() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = Colors.badgeBg.uiColor
-        textColor = Colors.badgeText.uiColor
+        backgroundColor = Asset.Colors.Badge.badgeBackground.color
+        textColor = Asset.Colors.Badge.badgeText.color
         font = Fonts.badgeText.uiFont
         textAlignment = .center
         clipsToBounds = true

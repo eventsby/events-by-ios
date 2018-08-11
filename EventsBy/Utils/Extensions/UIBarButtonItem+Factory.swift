@@ -18,7 +18,7 @@ extension UIBarButtonItem {
         btn.text = L10n.Common.Menu.Button.title
         btn.space = 0
         btn.sizeToFit()
-        btn.tintColor = Colors.navBarButton.uiColor
+        btn.tintColor = Asset.Colors.NavBar.navbarButton.color
         btn.reactive.controlEvents(.touchUpInside).take(duringLifetimeOf: btn).observeValues { _ in
             action()
         }

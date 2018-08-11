@@ -23,7 +23,7 @@ class EventListView: UIViewController {
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handlePullToRefresh), for: .valueChanged)
-        refreshControl.tintColor = Colors.pullToRefreshControl.uiColor
+        refreshControl.tintColor = Asset.Colors.Main.pullToRefresh.color
         return refreshControl
     }()
     

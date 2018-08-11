@@ -115,7 +115,6 @@
 		A38B9C52210C7F33005F5553 /* EventListView+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38B9C51210C7F33005F5553 /* EventListView+Collection.swift */; };
 		A3C095742104BC6B008F3C43 /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C095732104BC6B008F3C43 /* TabBarButton.swift */; };
 		A3D6E77F20F12B0300C0DB07 /* AppSkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E77E20F12B0300C0DB07 /* AppSkin.swift */; };
-		A3D6E78320F12B5D00C0DB07 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E78220F12B5D00C0DB07 /* Colors.swift */; };
 		A3D6E78520F12B6E00C0DB07 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E78420F12B6E00C0DB07 /* Fonts.swift */; };
 		A3D6E78720F12BBB00C0DB07 /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E78620F12BBB00C0DB07 /* UIColor+RGB.swift */; };
 		A3D6E78920F12C6800C0DB07 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D6E78820F12C6800C0DB07 /* AppRouter.swift */; };
@@ -273,7 +272,6 @@
 		A38B9C51210C7F33005F5553 /* EventListView+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventListView+Collection.swift"; sourceTree = "<group>"; };
 		A3C095732104BC6B008F3C43 /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		A3D6E77E20F12B0300C0DB07 /* AppSkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSkin.swift; sourceTree = "<group>"; };
-		A3D6E78220F12B5D00C0DB07 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A3D6E78420F12B6E00C0DB07 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		A3D6E78620F12BBB00C0DB07 /* UIColor+RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
 		A3D6E78820F12C6800C0DB07 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
@@ -840,7 +838,6 @@
 		A3D6E78120F12B4900C0DB07 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				A3D6E78220F12B5D00C0DB07 /* Colors.swift */,
 				A3D6E78420F12B6E00C0DB07 /* Fonts.swift */,
 			);
 			path = Common;
@@ -1210,7 +1207,6 @@
 				A3144ACC20FA136E0082C00F /* MessangerService.swift in Sources */,
 				A35A9CBC20EA5C0F00037F8B /* EventViewCell.swift in Sources */,
 				A30AF80E20EBE85700CA6951 /* UIView+Nib.swift in Sources */,
-				A3D6E78320F12B5D00C0DB07 /* Colors.swift in Sources */,
 				A35A9CD320EAB6AC00037F8B /* EventDetailRouter.swift in Sources */,
 				A35A9CC220EA7B0700037F8B /* UIView+IBInspectable.swift in Sources */,
 				A37D45F620F2422A00676BAB /* EventDetailInteractor.swift in Sources */,

@@ -6,10 +6,3 @@
 //  Copyright © 2018 Events-By. All rights reserved.
 //
 
-enum Storyboards: String {
-    case login = "Login"
-    case profile = "Profile"
-    case home = "Home"
-    case eventList = "Events"
-    case eventDetails = "EventDetails"
-}

@@ -13,15 +13,16 @@ struct AppSkin {
     
     static func applyAppearance() {
         UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().barTintColor = Colors.navBar.uiColor
-        UINavigationBar.appearance().titleTextAttributes = [.font: Fonts.navBarTitle.uiFont, .foregroundColor: Colors.navBarTitle.uiColor]
+        UINavigationBar.appearance().barTintColor = Asset.Colors.NavBar.navbarBackground.color
+        UINavigationBar.appearance().titleTextAttributes = [.font: Fonts.navBarTitle.uiFont, .foregroundColor: Asset.Colors.NavBar.navbarTitle.color]
         UINavigationBar.appearance().isTranslucent = false
         
         UINavigationBar.appearance().backIndicatorImage = #imageLiteral(resourceName: "icn_back").withRenderingMode(.alwaysOriginal)
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "icn_back").withRenderingMode(.alwaysOriginal)
     }
     
-    static func customizeProgressHUD(for window: UIWindow? = nil, progressColor: UIColor = .blue) {
+    static func customizeProgressHUD(for window: UIWindow? = nil) {
+        let progressColor = Asset.Colors.Main.progressHud.color
         SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.setBackgroundColor(.clear)
         SVProgressHUD.setForegroundColor(progressColor)
