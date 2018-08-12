@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,6 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Logger setup
         LoggerService.shared.initialize()
+        
+        // Firebase/Google Analytics
+        FirebaseApp.configure()
         
         return true
     }

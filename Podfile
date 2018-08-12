@@ -22,6 +22,7 @@ target 'EventsBy' do
   pod 'SVProgressHUD', '~> 2.2.2'
   pod 'SwiftGen', '~> 5.3'
   pod 'EXPLogger', '~> 1.0.3'
+  pod 'Firebase/Core'
 
   target 'EventsByTests' do
     inherit! :search_paths
