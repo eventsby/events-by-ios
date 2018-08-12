@@ -21,6 +21,7 @@ target 'EventsBy' do
   pod 'SwiftMessages', '~> 4.0'
   pod 'SVProgressHUD', '~> 2.2.2'
   pod 'SwiftGen', '~> 5.3'
+  pod 'EXPLogger', '~> 1.0.3'
 
   target 'EventsByTests' do
     inherit! :search_paths

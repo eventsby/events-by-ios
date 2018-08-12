@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.2)
+  - EXPLogger (1.0.3)
   - KeychainAccess (3.1.1)
   - Kingfisher (4.7.0)
   - PinLayout (1.7.3)
@@ -16,6 +17,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - EXPLogger (~> 1.0.3)
   - KeychainAccess (~> 3.0)
   - Kingfisher (~> 4.0)
   - PinLayout (~> 1.0)
@@ -30,6 +32,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - EXPLogger
     - KeychainAccess
     - Kingfisher
     - PinLayout
@@ -44,6 +47,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  EXPLogger: 206c906c0eb65f1eb679c210adf7029ebf04e10f
   KeychainAccess: 7bd430028059754a3debab3cfc0bd1fc7fb85df3
   Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
   PinLayout: 0c2e68dba036a291ca9278aa8b799f58506f2a6d
@@ -56,6 +60,6 @@ SPEC CHECKSUMS:
   SwiftMessages: d81f48c1f8b6bc1dbebdfffe11226f0344f937ca
   TPKeyboardAvoiding: cb69d5ddbe90ce0170e4bc2db1e5e41d4a3ad9a4
 
-PODFILE CHECKSUM: 32b96aca24462d0f38434dd23b6cb838f272be91
+PODFILE CHECKSUM: eb4574a85e1df538ffb52eda79dcadaee0d264e3
 
 COCOAPODS: 1.5.2

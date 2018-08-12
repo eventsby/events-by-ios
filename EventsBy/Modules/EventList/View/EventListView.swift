@@ -59,7 +59,7 @@ extension EventListView: EventListViewProtocol {
         
         self.addMenuBarButton { [weak self] in
             guard let strongSelf = self else { return }
-            Swift.print("[Action-TODO] Menu pressed")
+            LoggerService.log.debug("Menu pressed: \(strongSelf)")
         }
         
         collectionView.addSubview(self.refreshControl)

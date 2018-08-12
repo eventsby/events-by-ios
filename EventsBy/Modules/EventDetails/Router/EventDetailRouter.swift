@@ -33,7 +33,7 @@ class EventDetailRouter: EventDetailRouterProtocol {
 //        if let sourceView = view as? UIViewController {
 //            sourceView.navigationController?.pushViewController(eventDetailVC, animated: true)
 //        }
-        Swift.print("Present participant detail screen for: \(participant.id)")
+        LoggerService.log.debug("Present participant detail screen for: \(participant.id)")
     }
     
     func presentLoginScreen(from view: EventDetailViewProtocol) {

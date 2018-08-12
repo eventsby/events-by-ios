@@ -130,6 +130,7 @@
 		A3E6545F20F68F02006B5B60 /* AuthEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6545E20F68F02006B5B60 /* AuthEndpoint.swift */; };
 		A3E6546120F68F50006B5B60 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6546020F68F50006B5B60 /* NetworkConstants.swift */; };
 		A3E6546320F68FD8006B5B60 /* EventEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6546220F68FD8006B5B60 /* EventEndpoint.swift */; };
+		A3FD6DD92120634000FABE28 /* LoggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FD6DD82120634000FABE28 /* LoggerService.swift */; };
 		CE01D9F73A8582074C77BBB7 /* Pods_EventsByTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 999717499EB1AA980243DD33 /* Pods_EventsByTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -287,6 +288,7 @@
 		A3E6545E20F68F02006B5B60 /* AuthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEndpoint.swift; sourceTree = "<group>"; };
 		A3E6546020F68F50006B5B60 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		A3E6546220F68FD8006B5B60 /* EventEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEndpoint.swift; sourceTree = "<group>"; };
+		A3FD6DD82120634000FABE28 /* LoggerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerService.swift; sourceTree = "<group>"; };
 		C39AE2E2D312250212984E4F /* Pods-EventsBy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventsBy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EventsBy/Pods-EventsBy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -606,11 +608,9 @@
 			isa = PBXGroup;
 			children = (
 				A35A9CC020EA7AF600037F8B /* Extensions */,
+				A3FD6DD72120632C00FABE28 /* Services */,
 				A35A9CC320EA821D00037F8B /* DateFormatters.swift */,
 				A35A9CC520EA843800037F8B /* DateUtils.swift */,
-				A3144ACB20FA136E0082C00F /* MessangerService.swift */,
-				A3144ACD20FA26D10082C00F /* HUDProgressService.swift */,
-				A3257DD720FA781B00C6A169 /* PreferenceManager.swift */,
 				0220C6EB2103D83D009B8295 /* Constants.swift */,
 			);
 			path = Utils;
@@ -853,6 +853,17 @@
 			path = Enpoints;
 			sourceTree = "<group>";
 		};
+		A3FD6DD72120632C00FABE28 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A3144ACB20FA136E0082C00F /* MessangerService.swift */,
+				A3144ACD20FA26D10082C00F /* HUDProgressService.swift */,
+				A3257DD720FA781B00C6A169 /* PreferenceManager.swift */,
+				A3FD6DD82120634000FABE28 /* LoggerService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		B34567F3C9BC9103AD590570 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1058,6 +1069,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EventsBy/Pods-EventsBy-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/EXPLogger/EXPLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework",
@@ -1071,6 +1083,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EXPLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinLayout.framework",
@@ -1194,6 +1207,7 @@
 				A35B191B210260F300FBEA44 /* HomePresenter.swift in Sources */,
 				A37D45F820F2423900676BAB /* EventDetailInteractorProtocol.swift in Sources */,
 				A3D6E78720F12BBB00C0DB07 /* UIColor+RGB.swift in Sources */,
+				A3FD6DD92120634000FABE28 /* LoggerService.swift in Sources */,
 				A37C9571211B840200300D5B /* assets-images.swift in Sources */,
 				A35A9CAE20EA4BD700037F8B /* EventListPresenterProtocol.swift in Sources */,
 				A35A9CAA20EA4B9100037F8B /* EventListViewProtocol.swift in Sources */,

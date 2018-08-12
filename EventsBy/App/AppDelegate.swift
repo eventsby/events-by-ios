@@ -23,11 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         
+        // AppSkin setup
         AppSkin.applyAppearance()
         AppSkin.customizeProgressHUD(for: window)
         
         router = AppRouter(window: window)
         router?.start()
+        
+        // Logger setup
+        LoggerService.shared.initialize()
         
         return true
     }
