@@ -13,7 +13,7 @@ import Alamofire
 protocol BaseEndPoint {
     
     /// Provides all the information required to make the API call
-    func requestDetails() -> (url: String, method: HTTPMethod, parameters: [String: Any]?)
+    func requestDetails() -> EndpointType
     
     var url: String { get }
     var method: HTTPMethod { get }
@@ -25,6 +25,6 @@ extension BaseEndPoint {
     
     var url: String { return requestDetails().url }
     var method: HTTPMethod { return requestDetails().method }
-    var parameters: [String: Any]? { return requestDetails().parameters }
+    var parameters: [String: Any]? { return requestDetails().params }
     
 }

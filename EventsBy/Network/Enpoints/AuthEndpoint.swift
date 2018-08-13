@@ -15,7 +15,7 @@ enum AuthEndpoint: BaseEndPoint {
     case token(login: String, password: String)
     case refreshToken
     
-    func requestDetails() -> (url: String, method: HTTPMethod, parameters: [String : Any]?) {
+    func requestDetails() -> EndpointType {
         switch self {
         case .token(let login, let password):
             let params: [String: String] = [
@@ -26,11 +26,11 @@ enum AuthEndpoint: BaseEndPoint {
             ]
             var url = "\(NetworkConstants.baseUrl)"
             url.append(NetworkConstants.authTokenUrl)
-            return (url: url, method: .post, parameters: params)
+            return EndpointEntity(url: url, method: .post, params: params)
         case .userInfo:
             var url = "\(NetworkConstants.baseUrl)\(NetworkConstants.version)"
             url.append("users/info")
-            return (url: url, method: .get, parameters: nil)
+            return EndpointEntity(url: url, method: .get, params: nil)
         case .refreshToken:
             var url = "\(NetworkConstants.baseUrl)"
             url.append(NetworkConstants.authTokenUrl)
@@ -39,7 +39,7 @@ enum AuthEndpoint: BaseEndPoint {
                 NetworkConstants.clientId: NetworkConstants.clientIdValue,
                 NetworkConstants.refreshToken: PreferenceManager.shared.refreshToken
             ]
-            return (url: url, method: .post, parameters: params)
+            return EndpointEntity(url: url, method: .post, params: params)
         }
     }
     
