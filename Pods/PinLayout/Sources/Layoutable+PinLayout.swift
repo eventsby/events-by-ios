@@ -19,35 +19,12 @@
 
 import Foundation
 
-#if os(iOS) || os(tvOS)
-import UIKit
-    
-extension UIView {
-    func isLTR() -> Bool {
-        switch Pin.layoutDirection {
-        case .auto:
-            if #available(iOS 9.0, *) {
-                return UIView.userInterfaceLayoutDirection(for: semanticContentAttribute) == .leftToRight
-            } else if let shared = UIApplication.value(forKey: "sharedApplication") as? UIApplication {
-                return shared.userInterfaceLayoutDirection == .leftToRight
-            } else {
-                return true
-            }
-        case .ltr: return true
-        case .rtl: return false
-        }
+extension Layoutable {
+    public var anchor: AnchorList {
+        return AnchorListImpl(view: self as! View)
     }
-}
-#else
-import AppKit
 
-extension NSView {
-    func isLTR() -> Bool {
-        switch Pin.layoutDirection {
-        case .auto: return self.userInterfaceLayoutDirection == .leftToRight
-        case .ltr:  return true
-        case .rtl:  return false
-        }
+    public var edge: EdgeList {
+        return EdgeListImpl(view: self as! View)
     }
 }
-#endif

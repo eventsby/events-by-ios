@@ -21,20 +21,19 @@ import Foundation
 
 #if os(iOS) || os(tvOS)
 import UIKit
-    
-// MARK: - PinLayout UIView's extension
-public extension UIView {
-    // Expose PinLayout's objective-c interface.
-    @objc public var pinObjc: PinLayoutObjC {
-        return PinLayoutObjCImpl(view: self, keepTransform: true)
-    }
-}
+#else
+import AppKit
+#endif
 
 /**
  We must have a different interface for objective-c. The PinLayout's Swift interface use some
  feature not available to objective-c, including overloading.
  */
 @objc public protocol PinLayoutObjC {
+    #if os(iOS) || os(tvOS)
+    var safeArea: PEdgeInsets { get }
+    #endif
+
     /**
      With the Objective-C interface, you must call the \"layout\" method to ensure the view is layouted correctly.
      Ex:
@@ -42,23 +41,27 @@ public extension UIView {
          [[[textLabel.pin_objc top] left] layout];"
      */
     func layout()
-    
+
     @discardableResult func top() -> PinLayoutObjC
     @discardableResult func top(_ value: CGFloat) -> PinLayoutObjC
     @discardableResult func top(percent: CGFloat) -> PinLayoutObjC
+    @discardableResult func top(insets: PEdgeInsets) -> PinLayoutObjC
     
     @discardableResult func left() -> PinLayoutObjC
     @discardableResult func left(_ value: CGFloat) -> PinLayoutObjC
     @discardableResult func left(percent: CGFloat) -> PinLayoutObjC
-    
+    @discardableResult func left(insets: PEdgeInsets) -> PinLayoutObjC
+
     @discardableResult func bottom() -> PinLayoutObjC
     @discardableResult func bottom(_ value: CGFloat) -> PinLayoutObjC
     @discardableResult func bottom(percent: CGFloat) -> PinLayoutObjC
-    
+    @discardableResult func bottom(insets: PEdgeInsets) -> PinLayoutObjC
+
     @discardableResult func right() -> PinLayoutObjC
     @discardableResult func right(_ value: CGFloat) -> PinLayoutObjC
     @discardableResult func right(percent: CGFloat) -> PinLayoutObjC
-    
+    @discardableResult func right(insets: PEdgeInsets) -> PinLayoutObjC
+
     @discardableResult func hCenter() -> PinLayoutObjC
     @discardableResult func hCenter(_ value: CGFloat) -> PinLayoutObjC
     @discardableResult func hCenter(percent: CGFloat) -> PinLayoutObjC
@@ -71,9 +74,12 @@ public extension UIView {
     @discardableResult func start() -> PinLayoutObjC
     @discardableResult func start(_ value: CGFloat) -> PinLayoutObjC
     @discardableResult func start(percent: CGFloat) -> PinLayoutObjC
+    @discardableResult func start(insets: PEdgeInsets) -> PinLayoutObjC
+
     @discardableResult func end() -> PinLayoutObjC
     @discardableResult func end(_ value: CGFloat) -> PinLayoutObjC
     @discardableResult func end(percent: CGFloat) -> PinLayoutObjC
+    @discardableResult func end(insets: PEdgeInsets) -> PinLayoutObjC
     
     // Pin multiple edges at once.
     @discardableResult func all() -> PinLayoutObjC
@@ -138,35 +144,67 @@ public extension UIView {
     //
     // MARK: Layout using relative positioning
     //
-    @discardableResult func above(of: UIView) -> PinLayoutObjC
-    @discardableResult func above(ofViews: [UIView]) -> PinLayoutObjC
-    @discardableResult func above(of: UIView, aligned: HorizontalAlign) -> PinLayoutObjC
-    @discardableResult func above(ofViews: [UIView], aligned: HorizontalAlign) -> PinLayoutObjC
+    #if os(iOS) || os(tvOS)
+        @discardableResult func above(of: UIView) -> PinLayoutObjC
+        @discardableResult func above(ofViews: [UIView]) -> PinLayoutObjC
+        @discardableResult func above(of: UIView, aligned: HorizontalAlign) -> PinLayoutObjC
+        @discardableResult func above(ofViews: [UIView], aligned: HorizontalAlign) -> PinLayoutObjC
 
-    @discardableResult func below(of: UIView) -> PinLayoutObjC
-    @discardableResult func below(ofViews: [UIView]) -> PinLayoutObjC
-    @discardableResult func below(of: UIView, aligned: HorizontalAlign) -> PinLayoutObjC
-    @discardableResult func below(ofViews: [UIView], aligned: HorizontalAlign) -> PinLayoutObjC
+        @discardableResult func below(of: UIView) -> PinLayoutObjC
+        @discardableResult func below(ofViews: [UIView]) -> PinLayoutObjC
+        @discardableResult func below(of: UIView, aligned: HorizontalAlign) -> PinLayoutObjC
+        @discardableResult func below(ofViews: [UIView], aligned: HorizontalAlign) -> PinLayoutObjC
 
-    @discardableResult func left(of: UIView) -> PinLayoutObjC
-    @discardableResult func left(ofViews: [UIView]) -> PinLayoutObjC
-    @discardableResult func left(of: UIView, aligned: VerticalAlign) -> PinLayoutObjC
-    @discardableResult func left(ofViews: [UIView], aligned: VerticalAlign) -> PinLayoutObjC
+        @discardableResult func left(of: UIView) -> PinLayoutObjC
+        @discardableResult func left(ofViews: [UIView]) -> PinLayoutObjC
+        @discardableResult func left(of: UIView, aligned: VerticalAlign) -> PinLayoutObjC
+        @discardableResult func left(ofViews: [UIView], aligned: VerticalAlign) -> PinLayoutObjC
 
-    @discardableResult func right(of: UIView) -> PinLayoutObjC
-    @discardableResult func right(ofViews: [UIView]) -> PinLayoutObjC
-    @discardableResult func right(of: UIView, aligned: VerticalAlign) -> PinLayoutObjC
-    @discardableResult func right(ofViews: [UIView], aligned: VerticalAlign) -> PinLayoutObjC
+        @discardableResult func right(of: UIView) -> PinLayoutObjC
+        @discardableResult func right(ofViews: [UIView]) -> PinLayoutObjC
+        @discardableResult func right(of: UIView, aligned: VerticalAlign) -> PinLayoutObjC
+        @discardableResult func right(ofViews: [UIView], aligned: VerticalAlign) -> PinLayoutObjC
 
-    // RTL support
-    @discardableResult func before(of: UIView) -> PinLayoutObjC
-    @discardableResult func before(ofViews: [UIView]) -> PinLayoutObjC
-    @discardableResult func before(of: UIView, aligned: VerticalAlign) -> PinLayoutObjC
-    @discardableResult func before(ofViews: [UIView], aligned: VerticalAlign) -> PinLayoutObjC
-    @discardableResult func after(of: UIView) -> PinLayoutObjC
-    @discardableResult func after(ofViews: [UIView]) -> PinLayoutObjC
-    @discardableResult func after(of: UIView, aligned: VerticalAlign) -> PinLayoutObjC
-    @discardableResult func after(ofViews: [UIView], aligned: VerticalAlign) -> PinLayoutObjC
+        // RTL support
+        @discardableResult func before(of: UIView) -> PinLayoutObjC
+        @discardableResult func before(ofViews: [UIView]) -> PinLayoutObjC
+        @discardableResult func before(of: UIView, aligned: VerticalAlign) -> PinLayoutObjC
+        @discardableResult func before(ofViews: [UIView], aligned: VerticalAlign) -> PinLayoutObjC
+        @discardableResult func after(of: UIView) -> PinLayoutObjC
+        @discardableResult func after(ofViews: [UIView]) -> PinLayoutObjC
+        @discardableResult func after(of: UIView, aligned: VerticalAlign) -> PinLayoutObjC
+        @discardableResult func after(ofViews: [UIView], aligned: VerticalAlign) -> PinLayoutObjC
+    #elseif os(macOS)
+        @discardableResult func above(of: NSView) -> PinLayoutObjC
+        @discardableResult func above(ofViews: [NSView]) -> PinLayoutObjC
+        @discardableResult func above(of: NSView, aligned: HorizontalAlign) -> PinLayoutObjC
+        @discardableResult func above(ofViews: [NSView], aligned: HorizontalAlign) -> PinLayoutObjC
+
+        @discardableResult func below(of: NSView) -> PinLayoutObjC
+        @discardableResult func below(ofViews: [NSView]) -> PinLayoutObjC
+        @discardableResult func below(of: NSView, aligned: HorizontalAlign) -> PinLayoutObjC
+        @discardableResult func below(ofViews: [NSView], aligned: HorizontalAlign) -> PinLayoutObjC
+
+        @discardableResult func left(of: NSView) -> PinLayoutObjC
+        @discardableResult func left(ofViews: [NSView]) -> PinLayoutObjC
+        @discardableResult func left(of: NSView, aligned: VerticalAlign) -> PinLayoutObjC
+        @discardableResult func left(ofViews: [NSView], aligned: VerticalAlign) -> PinLayoutObjC
+
+        @discardableResult func right(of: NSView) -> PinLayoutObjC
+        @discardableResult func right(ofViews: [NSView]) -> PinLayoutObjC
+        @discardableResult func right(of: NSView, aligned: VerticalAlign) -> PinLayoutObjC
+        @discardableResult func right(ofViews: [NSView], aligned: VerticalAlign) -> PinLayoutObjC
+
+        // RTL support
+        @discardableResult func before(of: NSView) -> PinLayoutObjC
+        @discardableResult func before(ofViews: [NSView]) -> PinLayoutObjC
+        @discardableResult func before(of: NSView, aligned: VerticalAlign) -> PinLayoutObjC
+        @discardableResult func before(ofViews: [NSView], aligned: VerticalAlign) -> PinLayoutObjC
+        @discardableResult func after(of: NSView) -> PinLayoutObjC
+        @discardableResult func after(ofViews: [NSView]) -> PinLayoutObjC
+        @discardableResult func after(of: NSView, aligned: VerticalAlign) -> PinLayoutObjC
+        @discardableResult func after(ofViews: [NSView], aligned: VerticalAlign) -> PinLayoutObjC
+    #endif
 
     //
     // MARK: justify / align
@@ -179,7 +217,12 @@ public extension UIView {
     //
     @discardableResult func width(_ width: CGFloat) -> PinLayoutObjC
     @discardableResult func width(percent: CGFloat) -> PinLayoutObjC
+    #if os(iOS) || os(tvOS)
     @discardableResult func width(of view: UIView) -> PinLayoutObjC
+    #elseif os(macOS)
+    @discardableResult func width(of view: NSView) -> PinLayoutObjC
+    #endif
+
     @discardableResult func minWidth(_ width: CGFloat) -> PinLayoutObjC
     @discardableResult func minWidth(percent: CGFloat) -> PinLayoutObjC
     @discardableResult func maxWidth(_ width: CGFloat) -> PinLayoutObjC
@@ -187,7 +230,12 @@ public extension UIView {
 
     @discardableResult func height(_ height: CGFloat) -> PinLayoutObjC
     @discardableResult func height(percent: CGFloat) -> PinLayoutObjC
+    #if os(iOS) || os(tvOS)
     @discardableResult func height(of view: UIView) -> PinLayoutObjC
+    #elseif os(macOS)
+    @discardableResult func height(of view: NSView) -> PinLayoutObjC
+    #endif
+
     @discardableResult func minHeight(_ height: CGFloat) -> PinLayoutObjC
     @discardableResult func minHeight(percent: CGFloat) -> PinLayoutObjC
     @discardableResult func maxHeight(_ height: CGFloat) -> PinLayoutObjC
@@ -196,7 +244,11 @@ public extension UIView {
     @discardableResult func size(_ size: CGSize) -> PinLayoutObjC
     @discardableResult func size(length: CGFloat) -> PinLayoutObjC
     @discardableResult func size(percent: CGFloat) -> PinLayoutObjC
+    #if os(iOS) || os(tvOS)
     @discardableResult func size(of view: UIView) -> PinLayoutObjC
+    #elseif os(macOS)
+    @discardableResult func size(of view: NSView) -> PinLayoutObjC
+    #endif
 
     /**
      Set the view aspect ratio.
@@ -220,17 +272,25 @@ public extension UIView {
      * AspectRatio respects the min (minWidth/minHeight) and the max (maxWidth/maxHeight)
      dimensions of an item.
      */
+    #if os(iOS) || os(tvOS)
     @discardableResult func aspectRatio(of view: UIView) -> PinLayoutObjC
+    #elseif os(macOS)
+    @discardableResult func aspectRatio(of view: NSView) -> PinLayoutObjC
+    #endif
+
     /**
      If the layouted view is an UIImageView, this method will set the aspectRatio using
      the UIImageView's image dimension.
 
      For other types of views, this method as no impact.
      */
+    #if os(iOS) || os(tvOS)
     @discardableResult func aspectRatio() -> PinLayoutObjC
+    #endif
+
+    @discardableResult func sizeToFit() -> PinLayoutObjC
 
     @discardableResult func sizeToFit(_ fitType: Fit) -> PinLayoutObjC
-    @discardableResult func fitSize() -> PinLayoutObjC
 
     //
     // MARK: Margins
@@ -289,7 +349,11 @@ public extension UIView {
      Set all margins using UIEdgeInsets.
      This method is particularly useful to set all margins using iOS 11 `UIView.safeAreaInsets`.
      */
+    #if os(iOS) || os(tvOS)
     @discardableResult func margin(insets: UIEdgeInsets) -> PinLayoutObjC
+    #elseif os(macOS)
+    @discardableResult func margin(insets: NSEdgeInsets) -> PinLayoutObjC
+    #endif
 
     /**
      Set margins using NSDirectionalEdgeInsets.
@@ -334,6 +398,5 @@ public extension UIView {
     case height
     case widthFlexible
     case heightFlexible
+    case content
 }
-
-#endif

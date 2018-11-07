@@ -112,13 +112,13 @@ internal class PinSafeArea {
         }
     }
 
-    fileprivate static func extractMethodFrom(owner: AnyObject, selector: Selector) -> (() -> Void)? {
+    typealias Function = @convention(c) (AnyObject, Selector) -> Void
+    private static func extractMethodFrom(owner: AnyObject, selector: Selector) -> (() -> Void)? {
         guard let method = owner is AnyClass ? class_getClassMethod((owner as! AnyClass), selector) :
             class_getInstanceMethod(type(of: owner), selector)
             else { return nil }
         let implementation = method_getImplementation(method)
 
-        typealias Function = @convention(c) (AnyObject, Selector) -> Void
         let function = unsafeBitCast(implementation, to: Function.self)
 
         return {
@@ -142,7 +142,7 @@ struct PinLayoutSwizzling {
                 //          ReactiveCocoa, Aspect, ..., and PinLayout.
                 //          To fix this issue, simply call `Pin.initPinLayout()` BEFORE initializing "New Relic" with
                 //          NewRelic.start(withApplicationToken:"APP_TOKEN").
-                //          See here for more information regarding this issue https://github.com/mirego/PinLayout/issues/130
+                //          See here for more information regarding this issue https://github.com/layoutBox/PinLayout/issues/130
                 viewWillLayoutSubviews(calledViewController, selector)
             }
             PinLayoutSwizzling.pinlayoutViewWillLayoutSubviews(viewController: calledViewController)
@@ -159,7 +159,7 @@ struct PinLayoutSwizzling {
         self.originalImplementation = nil
     }
 
-    static fileprivate func pinlayoutViewWillLayoutSubviews(viewController: UIViewController) {
+    static private func pinlayoutViewWillLayoutSubviews(viewController: UIViewController) {
         if #available(iOS 11.0, tvOS 11.0, *) { assertionFailure() }
 
         if let view = viewController.view {
@@ -171,7 +171,7 @@ struct PinLayoutSwizzling {
         }
     }
 
-    static fileprivate func swizzleViewWillLayoutSubviews(_ class_: AnyClass, to block: @escaping ViewWillLayoutSubviewsBlock) -> IMP? {
+    static private func swizzleViewWillLayoutSubviews(_ class_: AnyClass, to block: @escaping ViewWillLayoutSubviewsBlock) -> IMP? {
         let selector = #selector(UIViewController.viewWillLayoutSubviews)
         let method = class_getInstanceMethod(class_, selector)
         let newImplementation = imp_implementationWithBlock(unsafeBitCast(block, to: AnyObject.self))
@@ -225,7 +225,7 @@ extension UIView {
     internal func pinlayoutComputeSafeAreaInsets() -> UIEdgeInsets {
         if #available(iOS 11.0, tvOS 11.0, *) { assertionFailure() }
 
-        if let _ = self.next as? UIViewController {
+        if self.next as? UIViewController != nil {
             // The UIView is the UIViewController's UIView, its compatibilitySafeAreaInsets don't need to be recomputed.
             return self.pinlayoutSafeAreaInsets
         } else {
@@ -261,4 +261,3 @@ extension UIView {
     }
 }
 #endif
-

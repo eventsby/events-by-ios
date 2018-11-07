@@ -26,34 +26,16 @@ import Foundation
 #endif
 
 typealias Context = () -> String
-typealias Size = (width: CGFloat?, height: CGFloat?)
 
-extension HorizontalAlign {
-    var description: String {
-        switch self {
-        case .left: return "left"
-        case .center: return "center"
-        case .right: return "right"
-        case .start: return "start"
-        case .end: return "end"
-        }
-    }
+struct Size {
+    var width: CGFloat?
+    var height: CGFloat?
 }
 
-extension VerticalAlign {
-    var description: String {
-        switch self {
-        case .top: return "top"
-        case .center: return "center"
-        case .bottom: return "bottom"
-        }
-    }
-}
-    
-class EdgeListImpl: EdgeList {
-    internal let view: PView
+class EdgeListImpl<View: Layoutable>: EdgeList {
+    internal let view: View
 
-    init(view: PView) {
+    init(view: View) {
         self.view = view
     }
 
@@ -70,18 +52,18 @@ class EdgeListImpl: EdgeList {
     var end: HorizontalEdge { return view.isLTR() ? right : left }
 }
 
-class HorizontalEdgeImpl: HorizontalEdge {
+class HorizontalEdgeImpl<View: Layoutable>: HorizontalEdge {
     enum EdgeType: String {
         case left
         case hCenter
         case right
     }
 
-    let view: PView
+    let view: View
     let type: EdgeType
 
     func x(keepTransform: Bool) -> CGFloat {
-        let rect = Coordinates.getViewRect(view, keepTransform: keepTransform)
+        let rect = view.getRect(keepTransform: keepTransform)
         
         switch type {
         case .left:    return rect.origin.x
@@ -90,24 +72,24 @@ class HorizontalEdgeImpl: HorizontalEdge {
         }
     }
 
-    internal init(view: PView, type: EdgeType) {
+    internal init(view: View, type: EdgeType) {
         self.view = view
         self.type = type
     }
 }
 
-class VerticalEdgeImpl: VerticalEdge {
+class VerticalEdgeImpl<View: Layoutable>: VerticalEdge {
     enum EdgeType: String {
         case top
         case vCenter
         case bottom
     }
     
-    internal let view: PView
+    internal let view: View
     internal let type: EdgeType
 
     func y(keepTransform: Bool) -> CGFloat {
-        let rect = Coordinates.getViewRect(view, keepTransform: keepTransform)
+        let rect = view.getRect(keepTransform: keepTransform)
         
         switch type {
         case .top:     return rect.origin.y
@@ -117,16 +99,16 @@ class VerticalEdgeImpl: VerticalEdge {
         }
     }
 
-    internal init(view: PView, type: EdgeType) {
+    internal init(view: View, type: EdgeType) {
         self.view = view
         self.type = type
     }
 }
 
-class AnchorListImpl: AnchorList {
-    internal let view: PView
+class AnchorListImpl<View: Layoutable>: AnchorList {
+    internal let view: View
 
-    internal init(view: PView) {
+    internal init(view: View) {
         self.view = view
     }
 
@@ -161,8 +143,8 @@ enum AnchorType: String {
     case bottomRight
 }
 
-class AnchorImpl: Anchor {
-    let view: PView
+class AnchorImpl<View: Layoutable>: Anchor {
+    let view: View
     let type: AnchorType
 
     func point(keepTransform: Bool) -> CGPoint {
@@ -179,34 +161,8 @@ class AnchorImpl: Anchor {
         }
     }
 
-    fileprivate init(view: PView, type: AnchorType) {
+    fileprivate init(view: View, type: AnchorType) {
         self.view = view
         self.type = type
     }
 }
- 
-extension CGFloat {
-    public var description: String {
-        if self.truncatingRemainder(dividingBy: 1) == 0.0 {
-            return "\(Int(self))"
-        } else {
-            return "\(self)"
-        }
-    }
-}
-    
-internal extension FitType {
-    var name: String {
-        switch self {
-        case .width: return ".width"
-        case .height: return ".height"
-        case .widthFlexible: return ".widthFlexible"
-        case .heightFlexible: return ".heightFlexible"
-        }
-    }
-    
-    var isFlexible: Bool {
-        return self == .widthFlexible || self == .heightFlexible
-    }
-}
-

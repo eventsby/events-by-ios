@@ -17,78 +17,76 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import Foundation
-
 #if os(iOS) || os(tvOS)
-    import UIKit
+import UIKit
 #else
-    import AppKit
+import AppKit
 #endif
 
-public func _pinlayoutSetUnitTest(displayScale: CGFloat) {
-    Coordinates.displayScale = displayScale
+internal var displayScale: CGFloat = getDisplayScale()
+internal var onePixelLength: CGFloat = 1 / displayScale
+
+public func _pinlayoutSetUnitTest(scale: CGFloat?) {
+    if let scale = scale {
+        displayScale = scale
+    } else {
+        displayScale = getDisplayScale()
+    }
 }
 
-final class Coordinates {
-    #if os(iOS) || os(tvOS)
-    internal static var displayScale: CGFloat = UIScreen.main.scale
-    #elseif os(OSX)
-    internal static var displayScale: CGFloat = NSScreen.main?.backingScaleFactor ?? 2.0
-    #endif
-    internal static var onePixelLength: CGFloat = 1 / displayScale
-
-    static func hCenter(_ view: PView, keepTransform: Bool) -> CGFloat {
-        let rect = getViewRect(view, keepTransform: keepTransform)
+final class Coordinates<View: Layoutable> {
+    static func hCenter(_ view: View, keepTransform: Bool) -> CGFloat {
+        let rect = view.getRect(keepTransform: keepTransform)
         return rect.minX + (rect.width / 2)
     }
 
-    static func vCenter(_ view: PView, keepTransform: Bool) -> CGFloat {
-        let rect = getViewRect(view, keepTransform: keepTransform)
+    static func vCenter(_ view: View, keepTransform: Bool) -> CGFloat {
+        let rect = view.getRect(keepTransform: keepTransform)
         return rect.minY + (rect.height / 2)
     }
 
-    static func topLeft(_ view: PView, keepTransform: Bool) -> CGPoint {
-        let rect = getViewRect(view, keepTransform: keepTransform)
+    static func topLeft(_ view: View, keepTransform: Bool) -> CGPoint {
+        let rect = view.getRect(keepTransform: keepTransform)
         return CGPoint(x: rect.minX, y: rect.minY)
     }
 
-    static func topCenter(_ view: PView, keepTransform: Bool) -> CGPoint {
-        let rect = getViewRect(view, keepTransform: keepTransform)
+    static func topCenter(_ view: View, keepTransform: Bool) -> CGPoint {
+        let rect = view.getRect(keepTransform: keepTransform)
         return CGPoint(x: rect.minX + (rect.width / 2), y: rect.minY)
     }
 
-    static func topRight(_ view: PView, keepTransform: Bool) -> CGPoint {
-        let rect = getViewRect(view, keepTransform: keepTransform)
+    static func topRight(_ view: View, keepTransform: Bool) -> CGPoint {
+        let rect = view.getRect(keepTransform: keepTransform)
         return CGPoint(x: rect.minX + rect.width, y: rect.minY)
     }
 
-    static func centerLeft(_ view: PView, keepTransform: Bool) -> CGPoint {
-        let rect = getViewRect(view, keepTransform: keepTransform)
+    static func centerLeft(_ view: View, keepTransform: Bool) -> CGPoint {
+        let rect = view.getRect(keepTransform: keepTransform)
         return CGPoint(x: rect.minX, y: rect.minY + (rect.height / 2))
     }
     
-    static func center(_ view: PView, keepTransform: Bool) -> CGPoint {
-        let rect = getViewRect(view, keepTransform: keepTransform)
+    static func center(_ view: View, keepTransform: Bool) -> CGPoint {
+        let rect = view.getRect(keepTransform: keepTransform)
         return CGPoint(x: rect.minX + (rect.width / 2), y: rect.minY + (rect.height / 2))
     }
 
-    static func centerRight(_ view: PView, keepTransform: Bool) -> CGPoint {
-        let rect = getViewRect(view, keepTransform: keepTransform)
+    static func centerRight(_ view: View, keepTransform: Bool) -> CGPoint {
+        let rect = view.getRect(keepTransform: keepTransform)
         return CGPoint(x: rect.minX + rect.width, y: rect.minY + (rect.height / 2))
     }
     
-    static func bottomLeft(_ view: PView, keepTransform: Bool) -> CGPoint {
-        let rect = getViewRect(view, keepTransform: keepTransform)
+    static func bottomLeft(_ view: View, keepTransform: Bool) -> CGPoint {
+        let rect = view.getRect(keepTransform: keepTransform)
         return CGPoint(x: rect.minX, y: rect.minY + rect.height)
     }
 
-    static func bottomCenter(_ view: PView, keepTransform: Bool) -> CGPoint {
-        let rect = getViewRect(view, keepTransform: keepTransform)
+    static func bottomCenter(_ view: View, keepTransform: Bool) -> CGPoint {
+        let rect = view.getRect(keepTransform: keepTransform)
         return CGPoint(x: rect.minX + (rect.width / 2), y: rect.minY + rect.height)
     }
 
-    static func bottomRight(_ view: PView, keepTransform: Bool) -> CGPoint {
-        let rect = getViewRect(view, keepTransform: keepTransform)
+    static func bottomRight(_ view: View, keepTransform: Bool) -> CGPoint {
+        let rect = view.getRect(keepTransform: keepTransform)
         return CGPoint(x: rect.minX + rect.width, y: rect.minY + rect.height)
     }
 
@@ -99,66 +97,6 @@ final class Coordinates {
                       height: ceilFloatToDisplayScale(rect.size.height))
     }
 
-    static func setViewRect(_ view: PView, toRect rect: CGRect, keepTransform: Bool) {
-        let adjustedRect = Coordinates.adjustRectToDisplayScale(rect)
-
-        #if os(iOS) || os(tvOS)
-            if keepTransform {
-                /*
-                 To adjust the view's position and size, we don't set the UIView's frame directly, because we want to keep the
-                 view's transform (UIView.transform).
-                 By setting the view's center and bounds we really set the frame of the non-transformed view, and this keep
-                 the view's transform. So view's transforms won't be affected/altered by PinLayout.
-                 */
-
-                // NOTE: The center is offset by the layer.anchorPoint, so we have to take it into account.
-                view.center = CGPoint(x: adjustedRect.origin.x + (adjustedRect.width * view.layer.anchorPoint.x),
-                                      y: adjustedRect.origin.y + (adjustedRect.height * view.layer.anchorPoint.y))
-                // NOTE: We must set only the bounds's size and keep the origin.
-                view.bounds.size = adjustedRect.size
-            } else {
-                view.frame = adjustedRect
-            }
-        #else
-            if let superview = view.superview, !superview.isFlipped {
-                var flippedRect = adjustedRect
-                flippedRect.origin.y = superview.frame.height - flippedRect.height - flippedRect.origin.y
-                view.frame = flippedRect
-            } else {
-                view.frame = adjustedRect
-            }
-        #endif
-}
-    
-    static func getViewRect(_ view: PView, keepTransform: Bool) -> CGRect {
-        #if os(iOS) || os(tvOS)
-            if keepTransform {
-                /*
-                 To adjust the view's position and size, we don't set the UIView's frame directly, because we want to keep the
-                 view's transform (UIView.transform).
-                 By setting the view's center and bounds we really set the frame of the non-transformed view, and this keep
-                 the view's transform. So view's transforms won't be affected/altered by PinLayout.
-                 */
-                let size = view.bounds.size
-                // See setUntransformedViewRect(...) for details about this calculation.
-                let origin = CGPoint(x: view.center.x - (size.width * view.layer.anchorPoint.x),
-                                     y: view.center.y - (size.height * view.layer.anchorPoint.y))
-
-                return CGRect(origin: origin, size: size)
-            } else {
-                return view.frame
-            }
-        #else
-            if let superview = view.superview, !superview.isFlipped {
-                var flippedRect = view.frame
-                flippedRect.origin.y = superview.frame.height - flippedRect.height - flippedRect.origin.y
-                return flippedRect
-            } else {
-                return view.frame
-            }
-        #endif
-    }
-
     static func roundFloatToDisplayScale(_ pointValue: CGFloat) -> CGFloat {
         return CGFloat(roundf(Float(pointValue * displayScale))) / displayScale
     }
@@ -166,4 +104,16 @@ final class Coordinates {
     static func ceilFloatToDisplayScale(_ pointValue: CGFloat) -> CGFloat {
         return CGFloat(ceilf(Float(pointValue * displayScale))) / displayScale
     }
+}
+
+private func getDisplayScale() -> CGFloat {
+    #if os(iOS) || os(tvOS)
+        return UIScreen.main.scale
+    #elseif os(OSX)
+        #if swift(>=4.1)
+        return NSScreen.main?.backingScaleFactor ?? 2.0
+        #else
+        return NSScreen.main()?.backingScaleFactor ?? 2.0
+        #endif
+    #endif
 }

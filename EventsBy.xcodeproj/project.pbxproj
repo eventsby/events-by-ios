@@ -130,6 +130,7 @@
 		A3E6545F20F68F02006B5B60 /* AuthEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6545E20F68F02006B5B60 /* AuthEndpoint.swift */; };
 		A3E6546120F68F50006B5B60 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6546020F68F50006B5B60 /* NetworkConstants.swift */; };
 		A3E6546320F68FD8006B5B60 /* EventEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E6546220F68FD8006B5B60 /* EventEndpoint.swift */; };
+		A3EA20A52192FF1100AB7FC4 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EA20A42192FF1000AB7FC4 /* EndpointType.swift */; };
 		A3FD6DD92120634000FABE28 /* LoggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FD6DD82120634000FABE28 /* LoggerService.swift */; };
 		A3FD6DDB212084C700FABE28 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3FD6DDA212084C700FABE28 /* GoogleService-Info.plist */; };
 		CE01D9F73A8582074C77BBB7 /* Pods_EventsByTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 999717499EB1AA980243DD33 /* Pods_EventsByTests.framework */; };
@@ -289,6 +290,7 @@
 		A3E6545E20F68F02006B5B60 /* AuthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEndpoint.swift; sourceTree = "<group>"; };
 		A3E6546020F68F50006B5B60 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		A3E6546220F68FD8006B5B60 /* EventEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEndpoint.swift; sourceTree = "<group>"; };
+		A3EA20A42192FF1000AB7FC4 /* EndpointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
 		A3FD6DD82120634000FABE28 /* LoggerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerService.swift; sourceTree = "<group>"; };
 		A3FD6DDA212084C700FABE28 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C39AE2E2D312250212984E4F /* Pods-EventsBy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventsBy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EventsBy/Pods-EventsBy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -849,6 +851,7 @@
 		A3E6545B20F68EBE006B5B60 /* Enpoints */ = {
 			isa = PBXGroup;
 			children = (
+				A3EA20A42192FF1000AB7FC4 /* EndpointType.swift */,
 				A3E6545C20F68EDB006B5B60 /* BaseEndpoint.swift */,
 				A3E6545E20F68F02006B5B60 /* AuthEndpoint.swift */,
 				A3E6546220F68FD8006B5B60 /* EventEndpoint.swift */,
@@ -1252,6 +1255,7 @@
 				A37D460F20F3D2CC00676BAB /* LoginPresenterProtocol.swift in Sources */,
 				A34426282103BC38002AE848 /* ProfileView.swift in Sources */,
 				A30AF80820EBE56600CA6951 /* EventAnnotation.swift in Sources */,
+				A3EA20A52192FF1100AB7FC4 /* EndpointType.swift in Sources */,
 				A34426202103BB06002AE848 /* ProfileRouterProtocol.swift in Sources */,
 				A3E6545D20F68EDB006B5B60 /* BaseEndpoint.swift in Sources */,
 				A35A9CC820EA85E000037F8B /* Errors.swift in Sources */,

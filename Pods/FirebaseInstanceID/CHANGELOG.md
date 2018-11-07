@@ -1,3 +1,13 @@
+# 2018-10-25 -- v3.3.0
+- Fixed a crash caused by keychain operation when accessing default access group. (#1399, #1393)
+- Remove internal APIs that are no longer used.
+
+# 2018-09-25 -- v3.2.2
+- Fixed a crash caused by NSUserDefaults being called on background thread.
+
+# 2018-08-14 -- v3.2.1
+- Fixed an issue that checkin is not cached properly when app first started. (#1561)
+
 # 2018-07-31 -- v3.2.0
 - Added support for global Firebase data collection flag. (#1219)
 - Improved message tracking sent by server API.

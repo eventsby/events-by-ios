@@ -23,8 +23,18 @@
     import AppKit
 #endif
 
-// MARK - UIView's frame computation methods
-extension PinLayoutImpl {
+// MARK: UIView's frame computation methods
+extension PinLayout {
+    /**
+     The method will execute PinLayout commands immediately. This method is **required only if your
+     source codes should also work in Xcode Playgrounds**. Outside of playgrounds, PinLayout executes
+     this method implicitly, it is not necessary to call it.
+
+     Examples:
+     ```swift
+     view.pin.top(20).width(100).layout()
+     ```
+     */
     public func layout() {
         apply()
     }
@@ -35,10 +45,10 @@ extension PinLayoutImpl {
         isLayouted = true
     }
     
-    private func apply(onView view: PView) {
+    private func apply(onView view: View) {
         displayLayoutWarnings()
         
-        var newRect = Coordinates.getViewRect(view, keepTransform: keepTransform)
+        var newRect = view.getRect(keepTransform: keepTransform)
         
         handlePinEdges()
         
@@ -71,10 +81,10 @@ extension PinLayoutImpl {
             newRect.origin.x = left + _marginLeft
         } else if let right = _right {
             // Only right is set
-            newRect.origin.x = right - view.bounds.width - _marginRight
+            newRect.origin.x = right - newRect.width - _marginRight
         } else if let _hCenter = _hCenter {
             // Only hCenter is set
-            newRect.origin.x = (_hCenter - (view.bounds.width / 2)) + _marginLeft - _marginRight
+            newRect.origin.x = (_hCenter - (newRect.width / 2)) + _marginLeft - _marginRight
         } else if let width = newSize.width {
             // Only width is set
             newRect.size.width = width
@@ -107,21 +117,21 @@ extension PinLayoutImpl {
             newRect.origin.y = top + _marginTop
         } else if let bottom = _bottom {
             // Only bottom is set
-            newRect.origin.y = bottom - view.bounds.height - _marginBottom
+            newRect.origin.y = bottom - newRect.height - _marginBottom
         } else if let _vCenter = _vCenter {
             // Only vCenter is set
-            newRect.origin.y = (_vCenter - (view.bounds.height / 2)) + _marginTop - _marginBottom
+            newRect.origin.y = (_vCenter - (newRect.height / 2)) + _marginTop - _marginBottom
         } else if let height = newSize.height {
             // Only height is set
             newRect.size.height = height
         }
         
         if !validateComputedWidth(newRect.size.width) {
-            newRect.size.width = view.bounds.width
+            newRect.size.width = view.getRect(keepTransform: keepTransform).width
         }
         
         if !validateComputedHeight(newRect.size.height) {
-            newRect.size.height = view.bounds.height
+            newRect.size.height = view.getRect(keepTransform: keepTransform).height
         }
         
         /*
@@ -130,7 +140,7 @@ extension PinLayoutImpl {
          By setting the view's center and bounds we really set the frame of the non-transformed view, and this keep
          the view's transform. So view's transforms won't be affected/altered by PinLayout.
         */
-        Coordinates.setViewRect(view, toRect: newRect, keepTransform: keepTransform)
+        view.setRect(newRect, keepTransform: keepTransform)
     }
     
     private func handlePinEdges() {
@@ -183,157 +193,137 @@ extension PinLayoutImpl {
             }
         }
     }
-    
+
     private func computeSize() -> Size {
-        var width = computeWidth()
-        var height = computeHeight()
+        var size = resolveSize()
 
-        #if os(macOS)
-        assert(!legacyFitSize && fitType == nil)
-        #endif
-
-        if legacyFitSize {
-            return computeLegacyFitSize(width: width, height: height)
-        } else if let fitType = fitType {
-            var fitWidth = CGFloat.greatestFiniteMagnitude
-            var fitHeight = CGFloat.greatestFiniteMagnitude
-            
-            // Apply min/max width/height before calling sizeThatFits() ... and reapply them after.
-            switch fitType {
-            case .width, .widthFlexible:
-                if let width = applyMinMax(toWidth: width) {
-                    fitWidth = width
-                } else {
-                    fitWidth = view.bounds.width
-                }
-            case .height, .heightFlexible:
-                if let height = applyMinMax(toHeight: height) {
-                    fitHeight = height
-                } else {
-                    fitHeight = view.bounds.height
-                }
-            }
-
-            #if os(iOS) || os(tvOS)
-                let sizeThatFits = view.sizeThatFits(CGSize(width: fitWidth, height: fitHeight))
-            #else
-                let sizeThatFits: CGSize
-                if #available(OSX 10.10, *) {
-                    if let control = view as? NSControl {
-                        sizeThatFits = control.sizeThatFits(CGSize(width: fitWidth, height: fitHeight))
-                    } else {
-                        sizeThatFits = view.intrinsicContentSize
-                    }
-                } else {
-                    sizeThatFits = view.intrinsicContentSize
-                }
-            #endif
-
-            if fitWidth != .greatestFiniteMagnitude {
-                width = fitType.isFlexible ? sizeThatFits.width : fitWidth
-            } else {
-                width = sizeThatFits.width
-            }
-            
-            if fitHeight != .greatestFiniteMagnitude {
-                height = fitType.isFlexible ? sizeThatFits.height : fitHeight
-            } else {
-                height = sizeThatFits.height
-            }
-        } else if let aspectRatio = _aspectRatio {
-            if width == nil && height == nil {
-                warn("aspectRatio won't be applied, neither the width nor the height can be determined.")
-            } else {
-                if width != nil && height != nil {
-                    // warn, both are specified
-                    warn("aspectRatio won't be applied, the width and the height are already defined by other PinLayout's properties.")
-                } else if let width = width, let adjWidth = applyMinMax(toWidth: width) {
-                    height = adjWidth / aspectRatio
-                } else if let height = height, let adjHeight = applyMinMax(toHeight: height) {
-                    width = adjHeight * aspectRatio
-                }
+        if let adjustSizeType = adjustSizeType {
+            switch adjustSizeType {
+            case .fitTypeWidth, .fitTypeHeight, .fitTypeWidthFlexible, .fitTypeHeightFlexible, .fitTypeContent:
+                size = computeSizeToFit(adjustSizeType: adjustSizeType, size: size)
+            case .aspectRatio(let ratio):
+                size = computeAspectRatio(ratio, size: size)
             }
         }
 
-        width = applyMinMax(toWidth: width)
-        height = applyMinMax(toHeight: height)
-        
-        if !validateComputedWidth(width) {
-            width = nil
-        }
-        
-        if !validateComputedHeight(height) {
-            height = nil
-        }
-        
-        return (width, height)
+        return validateAndApplyMinMax(toSize: size)
     }
 
-    private func computeLegacyFitSize(width: CGFloat?, height: CGFloat?) -> Size {
-        var width = width
-        var height = height
+    private func resolveSize() -> Size {
+        var size = Size()
 
-        if width == nil && height == nil {
-            warn("fitSize() won't be applied, neither the width nor the height can be determined.")
-        } else {
-            var fitWidth = CGFloat.greatestFiniteMagnitude
-            var fitHeight = CGFloat.greatestFiniteMagnitude
-
-            if let width = applyMinMax(toWidth: width) {
-                fitWidth = width
-            }
-            if let height = applyMinMax(toHeight: height) {
-                fitHeight = height
-            }
-
-            #if os(iOS) || os(tvOS)
-            let sizeThatFits = view.sizeThatFits(CGSize(width: fitWidth, height: fitHeight))
-            #else
-            let sizeThatFits = view.intrinsicContentSize
-            #endif
-
-            if fitWidth != .greatestFiniteMagnitude && (sizeThatFits.width > fitWidth) {
-                width = fitWidth
-            } else {
-                width = sizeThatFits.width
-            }
-
-            if fitHeight != .greatestFiniteMagnitude && (sizeThatFits.height > fitHeight) {
-                height = fitHeight
-            } else {
-                height = sizeThatFits.height
-            }
-
-            width = applyMinMax(toWidth: width)
-            height = applyMinMax(toHeight: height)
-
-            if !validateComputedWidth(width) {
-                width = nil
-            }
-
-            if !validateComputedHeight(height) {
-                height = nil
-            }
-        }
-
-        return (width, height)
-    }
-    
-    private func computeWidth() -> CGFloat? {
-        var newWidth: CGFloat?
-        
+        // Width
         if let width = width {
-            newWidth = width
+            size.width = width
         } else if let left = _left, let right = _right {
-            newWidth = right - left - _marginLeft - _marginRight
+            size.width = right - left - _marginLeft - _marginRight
         } else if shouldKeepViewDimension {
             // No width has been specified (and won't be computed by a sizeToFit) => use the current view's width
-            newWidth = view.bounds.width
+            size.width = view.getRect(keepTransform: keepTransform).width
         }
-        
-        return newWidth
+
+        // Height
+        if let height = height {
+            size.height = height
+        } else if let top = _top, let bottom = _bottom {
+            size.height = bottom - top - _marginTop - _marginBottom
+        } else if shouldKeepViewDimension {
+            size.height = view.getRect(keepTransform: keepTransform).height
+        }
+
+        return size
     }
-    
+
+    private func computeSizeToFit(adjustSizeType: AdjustSizeType, size: Size) -> Size {
+        guard let sizeCalculableView = view as? SizeCalculable else {
+            assertionFailure("Should not occurs, protocol conformance is checked before assigning adjustSizeType")
+            return size
+        }
+
+        var fitWidth = CGFloat.greatestFiniteMagnitude
+        var fitHeight = CGFloat.greatestFiniteMagnitude
+        var size = size
+
+        // Apply min/max width/height before calling sizeThatFits() ... and reapply them after.
+        switch adjustSizeType {
+        case .fitTypeWidth, .fitTypeWidthFlexible:
+            if let width = applyMinMax(toWidth: size.width) {
+                fitWidth = width
+            } else {
+                fitWidth = view.getRect(keepTransform: keepTransform).width
+            }
+        case .fitTypeHeight, .fitTypeHeightFlexible:
+            if let height = applyMinMax(toHeight: size.height) {
+                fitHeight = height
+            } else {
+                fitHeight = view.getRect(keepTransform: keepTransform).height
+            }
+        case .fitTypeContent:
+            let fitSize = view.getRect(keepTransform: keepTransform).size
+            fitWidth = fitSize.width
+            fitHeight = fitSize.height
+        default:
+            assertionFailure("Should not occured")
+        }
+
+        let sizeThatFits = sizeCalculableView.sizeThatFits(CGSize(width: fitWidth, height: fitHeight))
+
+        switch adjustSizeType {
+        case .fitTypeWidth, .fitTypeWidthFlexible, .fitTypeHeight, .fitTypeHeightFlexible, .aspectRatio(_):
+            if fitWidth != .greatestFiniteMagnitude {
+                size.width = adjustSizeType.isFlexible ? sizeThatFits.width : fitWidth
+            } else {
+                size.width = sizeThatFits.width
+            }
+
+            if fitHeight != .greatestFiniteMagnitude {
+                size.height = adjustSizeType.isFlexible ? sizeThatFits.height : fitHeight
+            } else {
+                size.height = sizeThatFits.height
+            }
+        case .fitTypeContent:
+            size = Size(width: sizeThatFits.width, height: sizeThatFits.height)
+        }
+
+        return size
+    }
+
+    private func computeAspectRatio(_ aspectRatio: CGFloat, size: Size) -> Size {
+        guard size.width != nil || size.height != nil else {
+            warn("aspectRatio won't be applied, neither the width nor the height can be determined.")
+            return size
+        }
+        guard size.width == nil || size.height == nil else {
+            warn("aspectRatio won't be applied, the width and the height are already defined by other PinLayout's properties.")
+            return size
+        }
+
+        if let width = size.width, let adjustedWidth = applyMinMax(toWidth: width) {
+            return Size(width: adjustedWidth, height: adjustedWidth / aspectRatio)
+        } else if let height = size.height, let adjustedHeight = applyMinMax(toHeight: height) {
+            return Size(width: adjustedHeight * aspectRatio, height: adjustedHeight)
+        } else {
+            assertionFailure("Should not occurs, all cases should be handled by guards above")
+            return size
+        }
+    }
+
+    private func validateAndApplyMinMax(toSize size: Size) -> Size {
+        var size = size
+        size.width = applyMinMax(toWidth: size.width)
+        size.height = applyMinMax(toHeight: size.height)
+
+        if !validateComputedWidth(size.width) {
+            size.width = nil
+        }
+
+        if !validateComputedHeight(size.height) {
+            size.height = nil
+        }
+
+        return size
+    }
+
     private func applyMinMax(toWidth width: CGFloat?) -> CGFloat? {
         var result = width
         
@@ -355,7 +345,7 @@ extension PinLayoutImpl {
         let remainingWidth = containerWidth - rect.width
         var justifyType = HorizontalAlign.left
         
-        if let justify = justify {
+        if let justify = justify, justify != .none {
             justifyType = justify
         }
         
@@ -381,23 +371,11 @@ extension PinLayoutImpl {
             } else {
                 rect.origin.x = left + _marginLeft
             }
+        case .none:
+            break
         }
         
         return rect
-    }
-    
-    private func computeHeight() -> CGFloat? {
-        var newHeight: CGFloat?
-        
-        if let height = height {
-            newHeight = height
-        } else if let top = _top, let bottom = _bottom {
-            newHeight = bottom - top - _marginTop - _marginBottom
-        } else if shouldKeepViewDimension {
-            newHeight = view.bounds.height
-        }
-        
-        return newHeight
     }
     
     private func applyMinMax(toHeight height: CGFloat?) -> CGFloat? {
@@ -421,7 +399,7 @@ extension PinLayoutImpl {
         let remainingHeight = containerHeight - rect.height
         var alignType = VerticalAlign.top
         
-        if let align = align {
+        if let align = align, align != .none {
             alignType = align
         }
         
@@ -434,6 +412,8 @@ extension PinLayoutImpl {
             rect.origin.y = top + _marginTop + remainingHeight / 2
         case .bottom:
             rect.origin.y = bottom - _marginBottom - rect.height
+        case .none:
+            break
         }
         
         return rect
@@ -443,4 +423,3 @@ extension PinLayoutImpl {
         return view.isLTR()
     }
 }
-
