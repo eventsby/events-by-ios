@@ -12,7 +12,7 @@ class ProfileRouter: ProfileRouterProtocol {
     
     class func initializeProfileModule() -> UIViewController {
         let navController = StoryboardScene.Profile.initialScene.instantiate()
-        let view = StoryboardScene.Profile.profileView.instantiate()
+        guard let view = navController.childViewControllers.first as? ProfileView else { return UIViewController() }
         let interactor: ProfileInteractorInputProtocol & ProfileServiceOutputProtocol = ProfileInteractor()
         let router: ProfileRouterProtocol = ProfileRouter()
         let presenter: ProfilePresenterProtocol & ProfileInteractorOutputProtocol = ProfilePresenter(view: view, interactor: interactor, router: router)
