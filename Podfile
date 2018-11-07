@@ -10,19 +10,22 @@ target 'EventsBy' do
   # Core
   pod 'Alamofire', '~> 4.7'
   pod 'Kingfisher', '~> 4.0'
-  pod 'ReactiveCocoa', '~> 7.0', :inhibit_warnings => true
-  pod 'ReactiveSwift', '~> 3.0', :inhibit_warnings => true
+  pod 'ReactiveCocoa', '~> 8.0', :inhibit_warnings => true
+  pod 'ReactiveSwift', '~> 4.0', :inhibit_warnings => true
   
   # Additional
-  pod 'SwiftLint'
   pod 'PinLayout', '~> 1.0'
   pod 'KeychainAccess', '~> 3.0'
   pod 'TPKeyboardAvoiding', '~> 1.0'
-  pod 'SwiftMessages', '~> 4.0'
-  pod 'SVProgressHUD', '~> 2.2.2'
-  pod 'SwiftGen', '~> 5.3'
+  pod 'SwiftMessages', '~> 6.0', :inhibit_warnings => true
+  pod 'SVProgressHUD', '~> 2.0'
   pod 'EXPLogger', '~> 1.0.3'
   pod 'Firebase/Core'
+  pod 'ReachabilitySwift', '~> 4.1.0'
+  
+  # Code improve
+  pod 'SwiftLint'
+  pod 'SwiftGen', '~> 5.3'
 
   target 'EventsByTests' do
     inherit! :search_paths
