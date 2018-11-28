@@ -28,7 +28,7 @@ struct AppSkin {
         SVProgressHUD.setForegroundColor(progressColor)
         
         if let view = window {
-            SVProgressHUD.setContainerView(view)
+            //SVProgressHUD.setContainerView(view)
         }
     }
     

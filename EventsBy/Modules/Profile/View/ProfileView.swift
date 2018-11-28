@@ -52,7 +52,7 @@ extension ProfileView: ProfileViewProtocol {
     }
     
     func showLoading() {
-        HUDProgressService.show()
+        HUDProgressService.show(view: self.view)
     }
     
     func hideLoading() {

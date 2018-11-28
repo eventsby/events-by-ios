@@ -543,8 +543,8 @@
 			isa = PBXGroup;
 			children = (
 				0C2F6FBC20701A5800493876 /* EventListView.swift */,
-				A38B9C51210C7F33005F5553 /* EventListView+Collection.swift */,
 				A35A9CA920EA4B9100037F8B /* EventListViewProtocol.swift */,
+				A38B9C51210C7F33005F5553 /* EventListView+Collection.swift */,
 				A35A9CBB20EA5C0F00037F8B /* EventViewCell.swift */,
 				0C2F6FBE20701A6500493876 /* Events.storyboard */,
 			);

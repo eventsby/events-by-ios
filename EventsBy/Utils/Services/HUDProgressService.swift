@@ -13,7 +13,8 @@ class HUDProgressService: NSObject {
     
     private static let instance = HUDProgressService()
     
-    class func show() {
+    class func show(view: UIView?) {
+        SVProgressHUD.setContainerView(view)
         SVProgressHUD.show()
     }
     

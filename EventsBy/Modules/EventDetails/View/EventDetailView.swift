@@ -105,7 +105,7 @@ extension EventDetailView: EventDetailViewProtocol {
     }
     
     func showLoading(initial: Bool) {
-        HUDProgressService.show()
+        HUDProgressService.show(view: self.view)
         if initial {
             scrollView.isHidden = true
         }

@@ -75,7 +75,7 @@ extension LoginView: LoginViewProtocol {
     }
     
     func showLoading() {
-        HUDProgressService.show()
+        HUDProgressService.show(view: self.view)
     }
     
     func hideLoading() {

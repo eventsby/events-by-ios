@@ -10,6 +10,7 @@ import UIKit
 
 class EventListView: UIViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     var presenter: EventListPresenterProtocol?
@@ -74,17 +75,16 @@ extension EventListView: EventListViewProtocol {
     }
     
     func showError(_ error: Error?) {
-        // TODO add check for 401 error, then show like "Session was expired. Please login"
         guard let errorStr = error?.localizedDescription else { return }
         MessangerService.showError(str: errorStr)
     }
     
     func showLoading() {
-        HUDProgressService.show()
+        activityIndicator.startAnimating()
     }
     
     func hideLoading() {
-        HUDProgressService.dismiss()
+        activityIndicator.stopAnimating()
         refreshControl.endRefreshing()
     }
     
