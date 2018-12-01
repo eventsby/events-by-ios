@@ -61,7 +61,7 @@ extension ProfileView: ProfileViewProtocol {
     
     func showError(_ error: Error?) {
         guard let errorStr = error?.localizedDescription else { return }
-        MessangerService.showError(str: errorStr)
+        showAlert(title: "", message: errorStr)
     }
     
 }

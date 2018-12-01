@@ -71,7 +71,7 @@ extension LoginView: LoginViewProtocol {
     
     func onSuccessLogin() {
         let successLoginMsg = L10n.Login.Message.success
-        MessangerService.showSuccess(str: successLoginMsg)
+        showAlert(title: "", message: successLoginMsg)
     }
     
     func showLoading() {
@@ -84,12 +84,12 @@ extension LoginView: LoginViewProtocol {
     
     func showError(_ error: Error?) {
         guard let errorStr = error?.localizedDescription else { return }
-        MessangerService.showError(str: errorStr)
+        showAlert(title: "", message: errorStr)
     }
     
     func showInvalidCredentialsError() {
         let invalidCredentialsMsg = L10n.Login.Message.invalidCredentials
-        MessangerService.showWarning(str: invalidCredentialsMsg)
+        showAlert(title: "", message: invalidCredentialsMsg)
     }
     
 }

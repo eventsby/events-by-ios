@@ -10,6 +10,14 @@ internal enum L10n {
 
   internal enum Common {
 
+    internal enum Alert {
+
+      internal enum Action {
+        /// OK
+        internal static let ok = L10n.tr("Localizable", "common.alert.action.ok")
+      }
+    }
+
     internal enum Menu {
 
       internal enum Button {

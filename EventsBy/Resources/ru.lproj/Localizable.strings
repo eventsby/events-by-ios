@@ -9,6 +9,7 @@
 // Common
 
 "common.menu.button.title" = "МЕНЮ";
+"common.alert.action.ok" = "ОК";
 
 // Tab Bar
 

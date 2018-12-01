@@ -79,12 +79,12 @@ extension EventDetailView: EventDetailViewProtocol {
     
     func participantRemoved() {
         let participantRemovedMsg = L10n.EventDetails.Message.participantRemoved
-        MessangerService.showWarning(str: participantRemovedMsg)
+        showAlert(title: "", message: participantRemovedMsg)
     }
     
     func userNotParticipating() {
         let notParticipating = L10n.EventDetails.Message.participantNotInEvent
-        MessangerService.showWarning(str: notParticipating)
+        showAlert(title: "", message: notParticipating)
     }
     
     func showEventDetail(_ event: EventProtocol) {
@@ -93,17 +93,17 @@ extension EventDetailView: EventDetailViewProtocol {
     
     func participantAdded() {
         let participantAddedMsg = L10n.EventDetails.Message.participantAdded
-        MessangerService.showSuccess(str: participantAddedMsg)
+        showAlert(title: "", message: participantAddedMsg)
     }
     
     func alreadyParticipate() {
         let alreadyParticipateMsg = L10n.EventDetails.Message.participantAlreadyExists
-        MessangerService.showWarning(str: alreadyParticipateMsg)
+        showAlert(title: "", message: alreadyParticipateMsg)
     }
     
     func showError(_ error: Error?) {
         guard let errorStr = error?.localizedDescription else { return }
-        MessangerService.showInfo(str: errorStr)
+        showAlert(title: "", message: errorStr)
     }
     
     func showLoading(initial: Bool) {

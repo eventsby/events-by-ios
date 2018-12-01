@@ -45,7 +45,6 @@
 		A30AF81520EBF82400CA6951 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30AF81420EBF82400CA6951 /* String.swift */; };
 		A30AF81820EBF8C800CA6951 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A30AF81A20EBF8C800CA6951 /* Localizable.strings */; };
 		A30AF81D20EBF96F00CA6951 /* UIKit+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30AF81C20EBF96F00CA6951 /* UIKit+Localized.swift */; };
-		A3144ACC20FA136E0082C00F /* MessangerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3144ACB20FA136E0082C00F /* MessangerService.swift */; };
 		A3144ACE20FA26D10082C00F /* HUDProgressService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3144ACD20FA26D10082C00F /* HUDProgressService.swift */; };
 		A3257DD820FA781B00C6A169 /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3257DD720FA781B00C6A169 /* PreferenceManager.swift */; };
 		A344261E2103BAFD002AE848 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A344261D2103BAFD002AE848 /* ProfileRouter.swift */; };
@@ -133,6 +132,8 @@
 		A3EA20A52192FF1100AB7FC4 /* EndpointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3EA20A42192FF1000AB7FC4 /* EndpointType.swift */; };
 		A3FD6DD92120634000FABE28 /* LoggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FD6DD82120634000FABE28 /* LoggerService.swift */; };
 		A3FD6DDB212084C700FABE28 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3FD6DDA212084C700FABE28 /* GoogleService-Info.plist */; };
+		A3FF64B621B294C70013A345 /* UIViewController+Present.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FF64B521B294C70013A345 /* UIViewController+Present.swift */; };
+		A3FF64B821B296910013A345 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FF64B721B296910013A345 /* UIViewController+Alert.swift */; };
 		CE01D9F73A8582074C77BBB7 /* Pods_EventsByTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 999717499EB1AA980243DD33 /* Pods_EventsByTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -205,7 +206,6 @@
 		A30AF81920EBF8C800CA6951 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A30AF81B20EBF8DD00CA6951 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A30AF81C20EBF96F00CA6951 /* UIKit+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Localized.swift"; sourceTree = "<group>"; };
-		A3144ACB20FA136E0082C00F /* MessangerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessangerService.swift; sourceTree = "<group>"; };
 		A3144ACD20FA26D10082C00F /* HUDProgressService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDProgressService.swift; sourceTree = "<group>"; };
 		A3257DD720FA781B00C6A169 /* PreferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
 		A344261D2103BAFD002AE848 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
@@ -293,6 +293,8 @@
 		A3EA20A42192FF1000AB7FC4 /* EndpointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointType.swift; sourceTree = "<group>"; };
 		A3FD6DD82120634000FABE28 /* LoggerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerService.swift; sourceTree = "<group>"; };
 		A3FD6DDA212084C700FABE28 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A3FF64B521B294C70013A345 /* UIViewController+Present.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Present.swift"; sourceTree = "<group>"; };
+		A3FF64B721B296910013A345 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		C39AE2E2D312250212984E4F /* Pods-EventsBy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventsBy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EventsBy/Pods-EventsBy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -633,6 +635,8 @@
 				A3D6E78A20F132AB00C0DB07 /* UIBarButtonItem+Factory.swift */,
 				A3D6E79020F1355B00C0DB07 /* UIViewController+Menu.swift */,
 				A3D6E79220F1382100C0DB07 /* UINavigationItem+Title.swift */,
+				A3FF64B521B294C70013A345 /* UIViewController+Present.swift */,
+				A3FF64B721B296910013A345 /* UIViewController+Alert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -862,7 +866,6 @@
 		A3FD6DD72120632C00FABE28 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A3144ACB20FA136E0082C00F /* MessangerService.swift */,
 				A3144ACD20FA26D10082C00F /* HUDProgressService.swift */,
 				A3257DD720FA781B00C6A169 /* PreferenceManager.swift */,
 				A3FD6DD82120634000FABE28 /* LoggerService.swift */,
@@ -1231,7 +1234,6 @@
 				A37D461720F3D75800676BAB /* TokenModel.swift in Sources */,
 				A35A9CBE20EA5DA900037F8B /* EventPageArray.swift in Sources */,
 				A3E6543E20F53446006B5B60 /* InputField.swift in Sources */,
-				A3144ACC20FA136E0082C00F /* MessangerService.swift in Sources */,
 				A35A9CBC20EA5C0F00037F8B /* EventViewCell.swift in Sources */,
 				A30AF80E20EBE85700CA6951 /* UIView+Nib.swift in Sources */,
 				A35A9CD320EAB6AC00037F8B /* EventDetailRouter.swift in Sources */,
@@ -1239,6 +1241,7 @@
 				A37D45F620F2422A00676BAB /* EventDetailInteractor.swift in Sources */,
 				A30AF7DD20EB936600CA6951 /* ParticipantModel.swift in Sources */,
 				A3D6E78520F12B6E00C0DB07 /* Fonts.swift in Sources */,
+				A3FF64B821B296910013A345 /* UIViewController+Alert.swift in Sources */,
 				A344262E2103BCA1002AE848 /* ProfileInteractor.swift in Sources */,
 				A38B9C52210C7F33005F5553 /* EventListView+Collection.swift in Sources */,
 				A35A9CA520EA49FC00037F8B /* EventListInteractor.swift in Sources */,
@@ -1269,6 +1272,7 @@
 				A30AF80C20EBE80C00CA6951 /* EventMapNoteView.swift in Sources */,
 				A35B192F21032E3E00FBEA44 /* HomeTabBarItem.swift in Sources */,
 				A3E6546320F68FD8006B5B60 /* EventEndpoint.swift in Sources */,
+				A3FF64B621B294C70013A345 /* UIViewController+Present.swift in Sources */,
 				A35B191F2102612700FBEA44 /* HomeRouter.swift in Sources */,
 				A37D461D20F3E87F00676BAB /* UserService.swift in Sources */,
 				A3D6E78920F12C6800C0DB07 /* AppRouter.swift in Sources */,
