@@ -8,6 +8,7 @@
 
 import Alamofire
 
+// TODO rewrite it
 class OAuth2Handler {
     
     fileprivate weak var sessionManager: SessionManager?

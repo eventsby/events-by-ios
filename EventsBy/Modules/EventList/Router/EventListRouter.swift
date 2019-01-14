@@ -13,15 +13,14 @@ class EventListRouter: EventListRouterProtocol {
     class func initializeEventListModule() -> UIViewController {
         let navController = StoryboardScene.Events.initialScene.instantiate()
         guard let view = navController.childViewControllers.first as? EventListView else { return UIViewController() }
-        let interactor: EventListInteractorInputProtocol & EventListServiceOutputProtocol = EventListInteractor()
+        let interactor: EventListInteractorInputProtocol = EventListInteractor()
         let router: EventListRouterProtocol = EventListRouter()
         let presenter: EventListPresenterProtocol & EventListInteractorOutputProtocol = EventListPresenter(view: view, interactor: interactor, router: router)
-        let service: EventListServiceInputProtocol = EventListService()
+        let service: EventListServiceProtocol = EventListService()
         
         view.presenter = presenter
         interactor.presenter = presenter
         interactor.service = service
-        service.remoteRequestHandler = interactor
             
         return navController
     }

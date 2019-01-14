@@ -8,40 +8,50 @@
 
 import Foundation
 import Alamofire
+import ReactiveSwift
+import Result
 
-protocol EventListServiceInputProtocol: class {
-    var remoteRequestHandler: EventListServiceOutputProtocol? { get set }
-    
-    func retrieveEventList(page: Int, limit: Int)
+enum EventListServiceError: Error {
+    case requestFailed(Error?)
+    case badRequest(String)
+    case invalidJson(Error?)
+    case statusCodeInvalid
+    case unknown
 }
 
-protocol EventListServiceOutputProtocol: class {
-    func onEventListRetrieved(_ events: EventPageArray)
-    func onError(_ error: Error?)
+protocol EventListServiceProtocol {
+    func getEvents(page: Int, limit: Int) -> SignalProducer<EventPageArrayProtocol, EventListServiceError>
 }
 
-class EventListService: EventListServiceInputProtocol {
-    
-    var remoteRequestHandler: EventListServiceOutputProtocol?
+final class EventListService: EventListServiceProtocol {
     
     let sessionManager = NetworkManager.shared.sessionManager
     
-    func retrieveEventList(page: Int = 0, limit: Int) {
+    func getEvents(page: Int = 0, limit: Int) -> SignalProducer<EventPageArrayProtocol, EventListServiceError> {
         let endpoint = EventEndpoint.events(page: page, limit: limit)
         
-        sessionManager
-            .request(endpoint.url, method: endpoint.method)
-            .validate()
-            .responseJSON { response in
-                if response.result.error == nil, let data = response.data {
-                    guard let events = try? JSONDecoder().decode(EventPageArray.self, from: data) else {
-                        self.remoteRequestHandler?.onError(response.result.error)
-                        return
+        return SignalProducer { [weak self] observer, _ in
+            guard let strongSelf = self else {
+                observer.sendInterrupted()
+                return
+            }
+            strongSelf.sessionManager
+                .request(endpoint.url, method: endpoint.method, parameters: endpoint.parameters, encoding: JSONEncoding.default)
+                .validate(statusCode: 200..<401)
+                .responseJSON { response in
+                    if response.result.error == nil, let data = response.data {
+                        guard let data = try? JSONDecoder().decode(EventPageArray.self, from: data) else {
+                            observer.send(error: .invalidJson(nil))
+                            observer.sendCompleted()
+                            return
+                        }
+                        observer.send(value: data)
+                        observer.sendCompleted()
+                    } else {
+                        observer.send(error: .requestFailed(response.result.error))
+                        observer.sendCompleted()
                     }
-                    self.remoteRequestHandler?.onEventListRetrieved(events)
-                } else {
-                    self.remoteRequestHandler?.onError(response.result.error)
-                }
+            }
         }
     }
     

@@ -63,7 +63,7 @@ class EventListPresenter: EventListPresenterProtocol {
 
 extension EventListPresenter: EventListInteractorOutputProtocol {
     
-    func didRetrieveEvents(_ events: EventPageArray) {
+    func didRetrieveEvents(_ events: EventPageArrayProtocol) {
         self.eventList.append(contentsOf: events.content)
         self.totalItems = events.totalElements
         view?.hideLoading()

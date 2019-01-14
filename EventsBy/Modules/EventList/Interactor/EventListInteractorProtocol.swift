@@ -10,13 +10,13 @@ import UIKit
 
 protocol EventListInteractorOutputProtocol: class {
     // Interactor -> Presenter
-    func didRetrieveEvents(_ events: EventPageArray)
+    func didRetrieveEvents(_ events: EventPageArrayProtocol)
     func onError(_ error: Error?)
 }
 
 protocol EventListInteractorInputProtocol: class {
     var presenter: EventListInteractorOutputProtocol? { get set }
-    var service: EventListServiceInputProtocol? { get set }
+    var service: EventListServiceProtocol? { get set }
     
     // Presenter -> Interactor
     func retrieveEventList(offset: Int, limit: Int)
