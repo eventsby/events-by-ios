@@ -13,6 +13,7 @@ storyboards:
           'EventsBy/Modules/Profile/View/Profile.storyboard',
           'EventsBy/Modules/Home/View/Home.storyboard',
           'EventsBy/Modules/EventList/View/Events.storyboard',
-          'EventsBy/Modules/EventDetails/View/EventDetails.storyboard']
+          'EventsBy/Modules/EventDetails/View/EventDetails.storyboard',
+          'EventsBy/Modules/Map/View/Map.storyboard']
   templateName: swift4
   output: storyboards.swift

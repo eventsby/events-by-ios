@@ -87,9 +87,9 @@ class HomeTabBarManager: HomeManagerInputProtocol {
     
     func setupControllers() -> [UIViewController] {
         let eventsVC = EventListRouter.initializeEventListModule()
-        let loginVC = LoginRouter.initializeLoginModule()
+        let mapVC = MapRouter.initializeMapModule()
         let profileVC = ProfileRouter.initializeProfileModule()
-        return [eventsVC, loginVC, profileVC]
+        return [eventsVC, mapVC, profileVC]
     }
     
     @objc private func buttonAction(_ sender: UIControl) {

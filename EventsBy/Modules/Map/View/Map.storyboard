@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ih6-iQ-AdS">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="JZs-z2-y7h">
+            <objects>
+                <navigationController id="Ih6-iQ-AdS" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PG8-Kv-iVF">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xid-rP-0TA" kind="relationship" relationship="rootViewController" id="h1F-Ud-Jor"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ugn-IP-pck" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-708" y="226"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="8lo-GG-Ha9">
+            <objects>
+                <viewController storyboardIdentifier="MapView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xid-rP-0TA" customClass="MapView" customModule="EventsBy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lqy-Bk-YEB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="I6A-QE-f2t">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aaX-Mh-UOY" firstAttribute="bottom" secondItem="I6A-QE-f2t" secondAttribute="bottom" id="HIO-DJ-W8h"/>
+                            <constraint firstItem="I6A-QE-f2t" firstAttribute="top" secondItem="aaX-Mh-UOY" secondAttribute="top" id="j4o-Tb-7EF"/>
+                            <constraint firstItem="aaX-Mh-UOY" firstAttribute="trailing" secondItem="I6A-QE-f2t" secondAttribute="trailing" id="mzU-L0-9kV"/>
+                            <constraint firstItem="I6A-QE-f2t" firstAttribute="leading" secondItem="aaX-Mh-UOY" secondAttribute="leading" id="wFT-IZ-oap"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aaX-Mh-UOY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="Jg4-vl-9Yh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ayr-vU-Qow" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="220" y="225"/>
+        </scene>
+    </scenes>
+</document>

@@ -77,6 +77,13 @@ internal enum StoryboardScene {
 
     internal static let initialScene = InitialSceneType<EventsBy.LoginView>(storyboard: Login.self)
   }
+  internal enum Map: StoryboardType {
+    internal static let storyboardName = "Map"
+
+    internal static let initialScene = InitialSceneType<UINavigationController>(storyboard: Map.self)
+
+    internal static let mapView = SceneType<EventsBy.MapView>(storyboard: Map.self, identifier: "MapView")
+  }
   internal enum Profile: StoryboardType {
     internal static let storyboardName = "Profile"
 

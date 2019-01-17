@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		0220C6EC2103D83D009B8295 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220C6EB2103D83D009B8295 /* Constants.swift */; };
+		023AC80021F0DAFC00067276 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AC7FF21F0DAFC00067276 /* MapView.swift */; };
+		023AC80221F0DB2B00067276 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AC80121F0DB2B00067276 /* MapPresenter.swift */; };
+		023AC80421F0DB3F00067276 /* MapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AC80321F0DB3F00067276 /* MapRouter.swift */; };
+		023AC80621F0DB5800067276 /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AC80521F0DB5800067276 /* MapService.swift */; };
+		023AC80821F0DB7200067276 /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AC80721F0DB7200067276 /* MapInteractor.swift */; };
+		023AC80A21F0DBE400067276 /* MapRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AC80921F0DBE400067276 /* MapRouterProtocol.swift */; };
+		023AC80C21F0DC4A00067276 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023AC80B21F0DC4A00067276 /* Map.storyboard */; };
+		023AC80E21F0DD6600067276 /* MapInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AC80D21F0DD6600067276 /* MapInteractorProtocol.swift */; };
+		023AC81021F0DDE300067276 /* MapPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AC80F21F0DDE300067276 /* MapPresenterProtocol.swift */; };
+		023AC81221F0DE4200067276 /* MapServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AC81121F0DE4200067276 /* MapServiceProtocol.swift */; };
+		023AC81421F0E07500067276 /* MapViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023AC81321F0E07500067276 /* MapViewProtocol.swift */; };
 		09D54588A8231E6ECAB5F6A7 /* Pods_EventsBy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0296282F67DE263368BDC378 /* Pods_EventsBy.framework */; };
 		0C2F6F8C2070169700493876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2F6F8B2070169700493876 /* AppDelegate.swift */; };
 		0C2F6F932070169700493876 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C2F6F922070169700493876 /* Images.xcassets */; };
@@ -157,6 +168,17 @@
 
 /* Begin PBXFileReference section */
 		0220C6EB2103D83D009B8295 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		023AC7FF21F0DAFC00067276 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		023AC80121F0DB2B00067276 /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		023AC80321F0DB3F00067276 /* MapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouter.swift; sourceTree = "<group>"; };
+		023AC80521F0DB5800067276 /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
+		023AC80721F0DB7200067276 /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
+		023AC80921F0DBE400067276 /* MapRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouterProtocol.swift; sourceTree = "<group>"; };
+		023AC80B21F0DC4A00067276 /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		023AC80D21F0DD6600067276 /* MapInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractorProtocol.swift; sourceTree = "<group>"; };
+		023AC80F21F0DDE300067276 /* MapPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenterProtocol.swift; sourceTree = "<group>"; };
+		023AC81121F0DE4200067276 /* MapServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapServiceProtocol.swift; sourceTree = "<group>"; };
+		023AC81321F0E07500067276 /* MapViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewProtocol.swift; sourceTree = "<group>"; };
 		0296282F67DE263368BDC378 /* Pods_EventsBy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EventsBy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C2F6F882070169700493876 /* EventsBy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventsBy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C2F6F8B2070169700493876 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -328,6 +350,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		023AC7F921F0DA6600067276 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				023AC7FA21F0DA7900067276 /* Service */,
+				023AC7FB21F0DA8000067276 /* Presenter */,
+				023AC7FC21F0DA8B00067276 /* Router */,
+				023AC7FD21F0DA9500067276 /* View */,
+				023AC7FE21F0DAA600067276 /* Interactor */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		023AC7FA21F0DA7900067276 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				023AC80521F0DB5800067276 /* MapService.swift */,
+				023AC81121F0DE4200067276 /* MapServiceProtocol.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		023AC7FB21F0DA8000067276 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				023AC80121F0DB2B00067276 /* MapPresenter.swift */,
+				023AC80F21F0DDE300067276 /* MapPresenterProtocol.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		023AC7FC21F0DA8B00067276 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				023AC80321F0DB3F00067276 /* MapRouter.swift */,
+				023AC80921F0DBE400067276 /* MapRouterProtocol.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		023AC7FD21F0DA9500067276 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				023AC7FF21F0DAFC00067276 /* MapView.swift */,
+				023AC80B21F0DC4A00067276 /* Map.storyboard */,
+				023AC81321F0E07500067276 /* MapViewProtocol.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		023AC7FE21F0DAA600067276 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				023AC80721F0DB7200067276 /* MapInteractor.swift */,
+				023AC80D21F0DD6600067276 /* MapInteractorProtocol.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		0C2F6F7F2070169600493876 = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +475,7 @@
 				A35B191321025EF400FBEA44 /* Home */,
 				0C2F6FBA20701A1A00493876 /* EventList */,
 				0C2F6FBB20701A3200493876 /* EventDetails */,
+				023AC7F921F0DA6600067276 /* Map */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1024,6 +1105,7 @@
 				0C2F6FBF20701A6500493876 /* Events.storyboard in Resources */,
 				A30AF7F520EBD5FC00CA6951 /* Raleway-Black.ttf in Resources */,
 				A30AF7F120EBD5EC00CA6951 /* Raleway-Regular.ttf in Resources */,
+				023AC80C21F0DC4A00067276 /* Map.storyboard in Resources */,
 				A35B1919210260DD00FBEA44 /* Home.storyboard in Resources */,
 				A344262C2103BC91002AE848 /* Profile.storyboard in Resources */,
 				A37C956C211B80D400300D5B /* Colors.xcassets in Resources */,
@@ -1204,11 +1286,13 @@
 				0C2F6FC1207023E900493876 /* EventDetailView.swift in Sources */,
 				A35A9CC620EA843800037F8B /* DateUtils.swift in Sources */,
 				A3C095742104BC6B008F3C43 /* TabBarButton.swift in Sources */,
+				023AC81021F0DDE300067276 /* MapPresenterProtocol.swift in Sources */,
 				A3E6545F20F68F02006B5B60 /* AuthEndpoint.swift in Sources */,
 				A37D461320F3D30800676BAB /* LoginInteractor.swift in Sources */,
 				A35A9CBA20EA57DA00037F8B /* NetworkManager.swift in Sources */,
 				A37D460920F3D2AE00676BAB /* LoginRouter.swift in Sources */,
 				A3D6E78F20F1343C00C0DB07 /* Badge.swift in Sources */,
+				023AC80621F0DB5800067276 /* MapService.swift in Sources */,
 				A30AF80A20EBE7A800CA6951 /* EventMapAnnotationView.swift in Sources */,
 				A30AF81D20EBF96F00CA6951 /* UIKit+Localized.swift in Sources */,
 				A344261E2103BAFD002AE848 /* ProfileRouter.swift in Sources */,
@@ -1223,6 +1307,7 @@
 				A30AF81320EBF3F000CA6951 /* ParticipantCell.swift in Sources */,
 				A3DD763621ED30330078F608 /* PaginationQuery.swift in Sources */,
 				A35B192D210319A100FBEA44 /* HomeInteractorProtocol.swift in Sources */,
+				023AC80221F0DB2B00067276 /* MapPresenter.swift in Sources */,
 				A3E6546120F68F50006B5B60 /* NetworkConstants.swift in Sources */,
 				A35B191B210260F300FBEA44 /* HomePresenter.swift in Sources */,
 				A37D45F820F2423900676BAB /* EventDetailInteractorProtocol.swift in Sources */,
@@ -1232,6 +1317,7 @@
 				A35A9CAE20EA4BD700037F8B /* EventListPresenterProtocol.swift in Sources */,
 				A35A9CAA20EA4B9100037F8B /* EventListViewProtocol.swift in Sources */,
 				A3D6E78D20F133B900C0DB07 /* LabledButton.swift in Sources */,
+				023AC80021F0DAFC00067276 /* MapView.swift in Sources */,
 				A37D461520F3D31000676BAB /* LoginInteractorProtocol.swift in Sources */,
 				A3D6E78B20F132AB00C0DB07 /* UIBarButtonItem+Factory.swift in Sources */,
 				A35A9CD120EAB63C00037F8B /* EventDetailPresenterProtocol.swift in Sources */,
@@ -1239,6 +1325,7 @@
 				A35A9CBE20EA5DA900037F8B /* EventPageArray.swift in Sources */,
 				A3E6543E20F53446006B5B60 /* InputField.swift in Sources */,
 				A35A9CBC20EA5C0F00037F8B /* EventViewCell.swift in Sources */,
+				023AC81221F0DE4200067276 /* MapServiceProtocol.swift in Sources */,
 				A30AF80E20EBE85700CA6951 /* UIView+Nib.swift in Sources */,
 				A35A9CD320EAB6AC00037F8B /* EventDetailRouter.swift in Sources */,
 				A35A9CC220EA7B0700037F8B /* UIView+IBInspectable.swift in Sources */,
@@ -1252,6 +1339,7 @@
 				A35A9CB320EA4C7A00037F8B /* EventListService.swift in Sources */,
 				A3D6E79120F1355B00C0DB07 /* UIViewController+Menu.swift in Sources */,
 				A34426302103BCB0002AE848 /* ProfileInteractorProtocol.swift in Sources */,
+				023AC80421F0DB3F00067276 /* MapRouter.swift in Sources */,
 				A35B19252102614000FBEA44 /* HomeViewProtocol.swift in Sources */,
 				A35B19282102730A00FBEA44 /* HomeTabBarManager.swift in Sources */,
 				A344262A2103BC78002AE848 /* ProfileViewProtocol.swift in Sources */,
@@ -1266,8 +1354,10 @@
 				A30AF80820EBE56600CA6951 /* EventAnnotation.swift in Sources */,
 				A3EA20A52192FF1100AB7FC4 /* EndpointType.swift in Sources */,
 				A34426202103BB06002AE848 /* ProfileRouterProtocol.swift in Sources */,
+				023AC80821F0DB7200067276 /* MapInteractor.swift in Sources */,
 				A3E6545D20F68EDB006B5B60 /* BaseEndpoint.swift in Sources */,
 				A35A9CC820EA85E000037F8B /* Errors.swift in Sources */,
+				023AC80E21F0DD6600067276 /* MapInteractorProtocol.swift in Sources */,
 				A35B19212102613200FBEA44 /* HomeRouterProtocol.swift in Sources */,
 				A30AF80520EBE32000CA6951 /* MKMapView.swift in Sources */,
 				0C2F6FBD20701A5800493876 /* EventListView.swift in Sources */,
@@ -1276,10 +1366,12 @@
 				A30AF80C20EBE80C00CA6951 /* EventMapNoteView.swift in Sources */,
 				A35B192F21032E3E00FBEA44 /* HomeTabBarItem.swift in Sources */,
 				A3E6546320F68FD8006B5B60 /* EventEndpoint.swift in Sources */,
+				023AC81421F0E07500067276 /* MapViewProtocol.swift in Sources */,
 				A3FF64B621B294C70013A345 /* UIViewController+Present.swift in Sources */,
 				A35B191F2102612700FBEA44 /* HomeRouter.swift in Sources */,
 				A37D461D20F3E87F00676BAB /* UserService.swift in Sources */,
 				A3D6E78920F12C6800C0DB07 /* AppRouter.swift in Sources */,
+				023AC80A21F0DBE400067276 /* MapRouterProtocol.swift in Sources */,
 				A30AF80320EBE27800CA6951 /* Location.swift in Sources */,
 				A3144ACE20FA26D10082C00F /* HUDProgressService.swift in Sources */,
 				A35A9CA320EA470B00037F8B /* EventListRouter.swift in Sources */,
