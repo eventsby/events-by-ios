@@ -9,7 +9,7 @@
 protocol HomePresenterProtocol: class {
     var view: HomeViewProtocol? { get set }
     var interactor: HomeInteractorInputProtocol? { get set }
-    var router: HomeRouterProtocol? { get set }
+    var router: RouterType? { get set }
     
     func viewDidLoad()
 }

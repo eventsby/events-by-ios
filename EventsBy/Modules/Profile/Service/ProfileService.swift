@@ -24,7 +24,11 @@ class ProfileService: ProfileServiceInputProtocol {
     
     var remoteRequestHandler: ProfileServiceOutputProtocol?
     
-    let sessionManager = NetworkManager.shared.sessionManager
+    private let networkManager: NetworkManagerProtocol
+    
+    init(_ networkManager: NetworkManagerProtocol) {
+        self.networkManager = networkManager
+    }
     
     func getUserInfo(_ user: UserDetailProtocol) {
         // TODO A.T. network call

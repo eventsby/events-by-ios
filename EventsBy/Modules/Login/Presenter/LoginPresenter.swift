@@ -12,7 +12,7 @@ class LoginPresenter: LoginPresenterProtocol {
     
     internal weak var view: LoginViewProtocol?
     internal var interactor: LoginInteractorInputProtocol?
-    internal var router: LoginRouterProtocol?
+    internal var router: RouterType?
     internal weak var delegate: LoginScreenDelegate?
     internal var isModal: Bool
     
@@ -26,7 +26,7 @@ class LoginPresenter: LoginPresenterProtocol {
         return enabled
     }
     
-    init(view: LoginViewProtocol?, interactor: LoginInteractorInputProtocol, router: LoginRouterProtocol?, isModal: Bool) {
+    init(view: LoginViewProtocol?, interactor: LoginInteractorInputProtocol, router: RouterType?, isModal: Bool) {
         self.view = view
         self.interactor = interactor
         self.router = router

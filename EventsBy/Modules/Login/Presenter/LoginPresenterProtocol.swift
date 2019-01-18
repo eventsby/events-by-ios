@@ -11,7 +11,7 @@ import ReactiveSwift
 protocol LoginPresenterProtocol: class {
     var view: LoginViewProtocol? { get set }
     var interactor: LoginInteractorInputProtocol? { get set }
-    var router: LoginRouterProtocol? { get set }
+    var router: RouterType? { get set }
     var delegate: LoginScreenDelegate? { get set }
     var isModal: Bool { get set }
     

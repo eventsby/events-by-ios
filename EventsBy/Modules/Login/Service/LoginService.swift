@@ -26,12 +26,17 @@ class LoginService: LoginServiceInputProtocol {
     
     var remoteRequestHandler: LoginServiceOutputProtocol?
     
-    let sessionManager = NetworkManager.shared.sessionManager
+    private let networkManager: NetworkManagerProtocol
+    
+    init(_ networkManager: NetworkManagerProtocol) {
+        self.networkManager = networkManager
+    }
     
     func login(login: String, password: String) {
         let endpoint = AuthEndpoint.token(login: login, password: password)
         
-        sessionManager
+        networkManager
+            .sessionManager
             .request(endpoint.url, method: endpoint.method, parameters: endpoint.parameters)
             .validate(statusCode: 200..<402)
             .responseJSON { response in
@@ -55,7 +60,8 @@ class LoginService: LoginServiceInputProtocol {
     func getUserInfo(token: TokenProtocol) {
         let endpoint = AuthEndpoint.userInfo
         
-        sessionManager
+        networkManager
+            .sessionManager
             .request(endpoint.url, method: endpoint.method)
             .validate()
             .responseJSON { response in

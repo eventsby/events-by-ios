@@ -33,12 +33,17 @@ class EventDetailService: EventDetailServiceInputProtocol {
     
     var remoteRequestHandler: EventDetailServiceOutputProtocol?
     
-    let sessionManager = NetworkManager.shared.sessionManager
+    private let networkManager: NetworkManagerProtocol
+    
+    init(_ networkManager: NetworkManagerProtocol) {
+        self.networkManager = networkManager
+    }
     
     func participateRequest(eventId: Int, user: UserDetailProtocol) {
         let endpoint = EventEndpoint.participate(eventId: eventId, user: user)
         
-        sessionManager
+        networkManager
+            .sessionManager
             .request(endpoint.url, method: endpoint.method, parameters: endpoint.parameters, encoding: JSONEncoding.default)
             .validate(statusCode: 200..<405)
             .responseJSON { response in
@@ -61,7 +66,8 @@ class EventDetailService: EventDetailServiceInputProtocol {
     func removeParticipant(eventId: Int, user: UserDetailProtocol) {
         let endpoint = EventEndpoint.removeParticipant(eventId: eventId, user: user)
         
-        sessionManager
+        networkManager
+            .sessionManager
             .request(endpoint.url, method: endpoint.method, encoding: JSONEncoding.default)
             .validate(statusCode: 200..<405)
             .responseJSON { response in
@@ -84,7 +90,8 @@ class EventDetailService: EventDetailServiceInputProtocol {
     func getEventDetails(eventId: Int) {
         let endpoint = EventEndpoint.eventDetails(eventId: eventId)
         
-        sessionManager
+        networkManager
+            .sessionManager
             .request(endpoint.url, method: endpoint.method, encoding: JSONEncoding.default)
             .validate()
             .responseJSON { response in

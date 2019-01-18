@@ -8,19 +8,24 @@
 
 import Alamofire
 
-class NetworkManager: NSObject {
+protocol NetworkManagerProtocol {
+    var sessionManager: SessionManager { get }
+}
+
+final class NetworkManager: NetworkManagerProtocol {
     
     private struct Constants {
         static let requestTimeout: TimeInterval = 40 // sec
         static let resourceTimeout: TimeInterval = 40 // sec
     }
-
-    static let shared = NetworkManager()
-
-    public var sessionManager: SessionManager
-
-    private override init() {
-        let configuration: URLSessionConfiguration = URLSessionConfiguration.default
+    
+    private(set) var sessionManager = SessionManager()
+    private let userService: UserServiceProtocol
+    
+    init(userService: UserServiceProtocol) {
+        self.userService = userService
+        
+        let configuration: URLSessionConfiguration = .default
         configuration.timeoutIntervalForRequest = Constants.requestTimeout
         configuration.timeoutIntervalForResource = Constants.resourceTimeout
         sessionManager = SessionManager(configuration: configuration)
@@ -28,5 +33,5 @@ class NetworkManager: NSObject {
         sessionManager.adapter = handler
         sessionManager.retrier = handler
     }
-
+    
 }

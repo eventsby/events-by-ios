@@ -81,7 +81,8 @@ class EventDetailPresenter: EventDetailPresenterProtocol {
                 interactor?.participate(eventId: eventId, user: user)
             }
         case .anonymous:
-            router?.presentLoginScreen(from: view)
+            break
+            //router?.presentLoginScreen(from: view)
         }
     }
     

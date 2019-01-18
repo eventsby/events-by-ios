@@ -16,24 +16,21 @@ class ProfileRouter: ProfileRouterProtocol {
         let interactor: ProfileInteractorInputProtocol & ProfileServiceOutputProtocol = ProfileInteractor()
         let router: ProfileRouterProtocol = ProfileRouter()
         let presenter: ProfilePresenterProtocol & ProfileInteractorOutputProtocol = ProfilePresenter(view: view, interactor: interactor, router: router)
-        let service: ProfileServiceInputProtocol = ProfileService()
-        let userService: UserServiceProtocol = UserService()
         
-        presenter.userService = userService
         view.presenter = presenter
         interactor.presenter = presenter
-        interactor.service = service
-        service.remoteRequestHandler = interactor
         
         return navController
     }
     
-    func presentLogin(from view: ProfileViewProtocol) {
-        let loginVC = LoginRouter.initializeLoginModule(modal: true, delegate: view.presenter as? ProfilePresenter)
-        
-        if let sourceView = view as? UIViewController {
-            sourceView.navigationController?.pushViewController(loginVC, animated: true)
-        }
-    }
+    // change to goToLogin
+//    func presentLogin(from view: ProfileViewProtocol) {
+//        let delegate = view.presenter as? ProfilePresenter
+//        let loginVC = LoginRouter.initializeLoginModule(modal: true, delegate: delegate)
+//        
+//        if let sourceView = view as? UIViewController {
+//            sourceView.navigationController?.pushViewController(loginVC, animated: true)
+//        }
+//    }
     
 }

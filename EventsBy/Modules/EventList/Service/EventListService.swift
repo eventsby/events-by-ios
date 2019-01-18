@@ -25,7 +25,11 @@ protocol EventListServiceProtocol {
 
 final class EventListService: EventListServiceProtocol {
     
-    let sessionManager = NetworkManager.shared.sessionManager
+    private let networkManager: NetworkManagerProtocol
+    
+    init(_ networkManager: NetworkManagerProtocol) {
+        self.networkManager = networkManager
+    }
     
     func getEvents(page: Int = 0, limit: Int) -> SignalProducer<EventPageArrayProtocol, EventListServiceError> {
         let endpoint = EventEndpoint.events(page: page, limit: limit)
@@ -35,7 +39,10 @@ final class EventListService: EventListServiceProtocol {
                 observer.sendInterrupted()
                 return
             }
-            strongSelf.sessionManager
+            
+            strongSelf
+                .networkManager
+                .sessionManager
                 .request(endpoint.url, method: endpoint.method, parameters: endpoint.parameters, encoding: JSONEncoding.default)
                 .validate(statusCode: 200..<401)
                 .responseJSON { response in

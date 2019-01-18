@@ -6,8 +6,17 @@
 //  Copyright © 2018 Events-By. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
+protocol HomeRouterType: RouterType {
+    
+}
+
+final class HomeRouter: BaseRouter, HomeRouterType {
+    
+}
+
+/*
 class HomeRouter: HomeRouterProtocol {
     
     class func initializeHomeModule() -> UIViewController {
@@ -26,3 +35,4 @@ class HomeRouter: HomeRouterProtocol {
     }
     
 }
+ */

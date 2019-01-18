@@ -16,11 +16,9 @@ class EventListRouter: EventListRouterProtocol {
         let interactor: EventListInteractorInputProtocol = EventListInteractor()
         let router: EventListRouterProtocol = EventListRouter()
         let presenter: EventListPresenterProtocol & EventListInteractorOutputProtocol = EventListPresenter(view: view, interactor: interactor, router: router)
-        let service: EventListServiceProtocol = EventListService()
         
         view.presenter = presenter
         interactor.presenter = presenter
-        interactor.service = service
             
         return navController
     }

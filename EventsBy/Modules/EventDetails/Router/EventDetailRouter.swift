@@ -15,14 +15,9 @@ class EventDetailRouter: EventDetailRouterProtocol {
         let router: EventDetailRouterProtocol = EventDetailRouter()
         let interactor: EventDetailInteractorInputProtocol & EventDetailServiceOutputProtocol = EventDetailInteractor()
         let presenter: EventDetailPresenterProtocol & EventDetailInteractorOutputProtocol = EventDetailPresenter(view: view, router: router, interactor: interactor, event: event)
-        let userService: UserServiceProtocol = UserService()
-        presenter.userService = userService
-        let service: EventDetailServiceInputProtocol = EventDetailService()
         
         view.presenter = presenter
         interactor.presenter = presenter
-        interactor.service = service
-        service.remoteRequestHandler = interactor
         
         return view
     }
@@ -36,14 +31,15 @@ class EventDetailRouter: EventDetailRouterProtocol {
         LoggerService.log.debug("Present participant detail screen for: \(participant.id)")
     }
     
-    func presentLoginScreen(from view: EventDetailViewProtocol) {
-        let loginVC = LoginRouter.initializeLoginModule()
-        
-        if let sourceView = view as? UIViewController {
-            //sourceView.navigationController?.pushViewController(loginVC, animated: true)
-            sourceView.present(loginVC, animated: true, completion: nil)
-        }
-    }
+    // change to goToLogin
+//    func presentLoginScreen(from view: EventDetailViewProtocol) {
+//        let loginVC = LoginRouter.initializeLoginModule()
+//
+//        if let sourceView = view as? UIViewController {
+//            //sourceView.navigationController?.pushViewController(loginVC, animated: true)
+//            sourceView.present(loginVC, animated: true, completion: nil)
+//        }
+//    }
     
     func openWebsite(url: String) {
         guard let url = URL(string: url), UIApplication.shared.canOpenURL(url) else { return }

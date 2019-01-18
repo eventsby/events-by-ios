@@ -10,6 +10,7 @@ target 'EventsBy' do
   # Core
   pod 'Alamofire', '~> 4.7'
   pod 'Kingfisher', '~> 4.0'
+  pod 'Swinject', '~> 2.5'
   pod 'ReactiveCocoa', '~> 8.0', :inhibit_warnings => true
   pod 'ReactiveSwift', '~> 4.0', :inhibit_warnings => true
   

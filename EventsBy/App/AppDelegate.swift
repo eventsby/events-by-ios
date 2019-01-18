@@ -14,6 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var router: AppRouter?
+    private(set) var session: Session?
+    
     static var shared: AppDelegate? {
         return UIApplication.shared.delegate as? AppDelegate
     }
@@ -28,7 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppSkin.applyAppearance()
         AppSkin.customizeProgressHUD(for: window)
         
-        router = AppRouter(window: window)
+        let session = Session()
+        self.session = session
+        
+        router = AppRouter(window: window, session: session)
         router?.start()
         
         // Logger setup

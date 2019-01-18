@@ -48,7 +48,7 @@ class ProfilePresenter: ProfilePresenterProtocol {
     
     func authenticateAction() {
         guard let view = self.view else { return }
-        router?.presentLogin(from: view)
+        //router?.presentLogin(from: view)
     }
     
 }

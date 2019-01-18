@@ -11,22 +11,36 @@ import UIKit
 final class AppRouter {
     
     private let window: UIWindow
+    private(set) var session: SessionType?
     
-    init(window: UIWindow) {
+    init(window: UIWindow, session: SessionType) {
         self.window = window
+        self.session = session
     }
     
     func start() {
-        let homeVC = HomeRouter.initializeHomeModule()
-        
-        window.rootViewController = homeVC
-        window.makeKeyAndVisible()
+        guard let session = session else { return }
+        goToHome(animated: false)
     }
     
-    func goToLogin(modal: Bool = false) {
-        guard let rootVC = self.window.rootViewController else { return }
-        let loginVC = LoginRouter.initializeLoginModule(modal: modal)
-        rootVC.present(loginVC, animated: true, completion: nil)
+    func goToHome(animated: Bool) {
+        guard let session = session else { return }
+        let dummyView = UIViewController()
+        window.rootViewController = dummyView
+        window.makeKeyAndVisible()
+        
+        let router = InitialHomeRouter(session: session, view: dummyView)
+        router.goToHome(animated: animated)
+    }
+    
+    func goToLogin(modal: Bool = false, animated: Bool = false) {
+        guard let session = session else { return }
+        let vc = UIViewController()
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+        
+        let router = InitialLoginRouter(session: session, view: vc)
+        router.goToLogin(modal: true, animated: animated, delegate: nil)
     }
     
 }

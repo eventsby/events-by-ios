@@ -12,9 +12,9 @@ class HomePresenter: HomePresenterProtocol {
     
     internal weak var view: HomeViewProtocol?
     internal var interactor: HomeInteractorInputProtocol?
-    internal var router: HomeRouterProtocol?
+    internal var router: RouterType?
     
-    init(view: HomeViewProtocol?, interactor: HomeInteractorInputProtocol?, router: HomeRouterProtocol?) {
+    init(view: HomeViewProtocol?, interactor: HomeInteractorInputProtocol?, router: RouterType?) {
         self.view = view
         self.router = router
         self.interactor = interactor
